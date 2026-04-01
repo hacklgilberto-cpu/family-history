@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xxd \"d:/Claude/my family/Family_Tree_1.png\")",
+      "Bash(xxd \"d:/Claude/my family/Family_Tree_2.png\")"
+    ]
+  }
+}
