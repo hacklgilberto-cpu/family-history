@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 1: A Fortaleza (1352–1450)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            line-height: 1.8;
+            color: #2c2c2c;
+            background: #f8f6f0;
+            padding: 0;
+        }
+        
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #8b7355;
+            background: white;
+            color: #6b5639;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .lang-btn:hover {
+            background: #8b7355;
+            color: white;
+        }
+        
+        .lang-btn.active {
+            background: #6b5639;
+            color: white;
+            border-color: #6b5639;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
+            color: #f4f1e8;
+            padding: 60px 40px 40px 40px;
+            border-bottom: 4px solid #8b7355;
+        }
+        
+        .title-main {
+            font-size: 2.8em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-variant: small-caps;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            color: #c4b5a0;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+        
+        .period {
+            font-size: 1.1em;
+            color: #8b7355;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+        
+        .content {
+            padding: 50px 60px 60px 60px;
+        }
+        
+        .chapter-intro {
+            font-size: 1.15em;
+            font-style: italic;
+            color: #5a5a5a;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #faf8f3;
+            border-left: 4px solid #8b7355;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #3d2817;
+            margin: 50px 0 25px 0;
+            font-weight: 400;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #e6dcc9;
+            padding-bottom: 10px;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+            margin: 35px 0;
+            border: 1px solid #c4b5a0;
+        }
+        
+        .img-caption {
+            text-align: center;
+            font-style: italic;
+            color: #6b5639;
+            font-size: 0.9em;
+            margin-top: -25px;
+            margin-bottom: 35px;
+        }
+        
+        .historical-note {
+            background: #f5f2eb;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #a08968;
+            font-size: 0.98em;
+            color: #4a4a4a;
+        }
+        
+        .date-marker {
+            font-weight: 600;
+            color: #6b5639;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+        
+        .place-name {
+            font-style: italic;
+            color: #5a4a3a;
+        }
+        
+        .person-name {
+            font-weight: 500;
+            color: #3d2817;
+        }
+        
+        footer {
+            background: #3d3d3d;
+            color: #c4b5a0;
+            padding: 30px 60px;
+            font-size: 0.9em;
+            text-align: center;
+            border-top: 4px solid #8b7355;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+            header {
+                padding: 40px 25px 30px 25px;
+            }
+            .title-main {
+                font-size: 2em;
+            }
+            footer {
+                padding: 25px;
+            }
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px;
+                gap: 6px;
+            }
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <a href="Part_1_The_Fortress_1352_1450_PT.html" class="lang-btn active">PT-BR</a>
+        <a href="Part_1_The_Fortress_1352_1450_EN.html" class="lang-btn">EN</a>
+        <a href="Part_1_The_Fortress_1352_1450_DE.html" class="lang-btn">DE</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="title-main">Parte Um: A Fortaleza</div>
+            <div class="subtitle">Ottobeuren e a Nobreza von Braun</div>
+            <div class="period">1352–1450</div>
+        </header>
+        
+        <div class="content">
+            <div class="chapter-intro">
+                No ano do Senhor de 1352, quando as feridas da grande pestilência ainda estavam frescas em toda a cristandade e o Sacro Império Romano lutava para compreender a catástrofe que havia ceifado talvez metade de seus súditos, uma criança nasceu na cidade beneditina de Ottobeuren, nas terras da Suábia. Seu nome era Hans Peter Adam, e ele carregava o sobrenome Braun com a partícula "von" antes dele, marcando-o como um homem de nascimento nobre numa época em que tais distinções significavam a diferença entre possuir terras e trabalhá-las, entre comandar o trabalho e executá-lo, entre comer carne nos dias de festa e subsistir com pão de centeio e cerveja aguada. É aqui que nossa história começa, não com as grandes migrações que viriam depois, não com os assentamentos da Floresta Negra ou o sertão brasileiro, mas aqui nesta cidade monástica onde os sinos da igreja marcavam as horas e a grande abadia dominava tanto a vida espiritual quanto temporal de cada alma ao seu alcance.
+            </div>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KlosterOttobeuren073.jpg/1280px-KlosterOttobeuren073.jpg" alt="Abadia de Ottobeuren">
+            <p class="img-caption">Abadia de Ottobeuren — A basílica barroca construída entre 1737-1766 ergue-se sobre fundações que datam de 764 d.C.</p>
+
+            <h2>O Mundo Beneditino</h2>
+
+            <p>Para entender <span class="person-name">Hans Peter Adam Braun</span> e sua família, é preciso primeiro entender <span class="place-name">Ottobeuren</span> em si. A abadia estava naquele vale do Unterallgäu há quase seiscentos anos quando Hans Peter nasceu, fundada no ano 764 por um nobre alemânico chamado Silach no reinado dos reis francos. Era antiga quando Carlos Magno foi coroado imperador. Havia resistido às invasões magiares, à controvérsia das investiduras, à ascensão e queda de dinastias. Em 972, o próprio Imperador Oto, o Grande, havia concedido à abadia sua grande carta de liberdade, o <span class="date-marker">Grosser Freiheitsbrief</span>, que a libertou de todos os impostos e serviços imperiais e garantiu aos monges o direito de eleger seu próprio abade sem interferência de rei, duque ou bispo.</p>
+
+            <p>Esta imediaticidade imperial, esta sujeição direta apenas ao imperador sem nenhum senhor intermediário, não era pouca coisa. Significava que Ottobeuren não era meramente um mosteiro, mas um principado, um pequeno estado eclesiástico dentro do Sacro Império Romano. O abade não era simplesmente um pai espiritual para seus monges, mas um governante temporal sobre vilas e fazendas, moinhos e florestas, o administrador da justiça e o cobrador de rendas e dízimos. No século XIV, os territórios da abadia englobavam vinte e sete vilas espalhadas por mais de duzentos e cinquenta quilômetros quadrados de campo suábio ondulado, e cerca de dez mil almas respondiam à autoridade do abade em questões tanto sagradas quanto profanas.</p>
+
+            <p>A cidade de Ottobeuren em si agarrava-se aos muros da abadia como uma criança às saias de sua mãe. A grande igreja, reconstruída em grandeza românica no século XII, erguia-se acima dos telhados de palha e vielas estreitas. Seus sinos chamavam os fiéis à oração ao amanhecer, ao meio-dia, às vésperas, às completas. Os monges cantavam o Ofício Divino em latim de acordo com a Regra de São Bento, aquela antiga prescrição para a vida comunitária ordenada escrita no século VI: <span class="date-marker">Ora et labora</span>, reze e trabalhe. Sete vezes ao dia os monges se reuniam em suas cadeiras do coro para cantar os salmos. Entre essas horas sagradas, eles copiavam manuscritos no scriptorium, cuidavam dos doentes na enfermaria, administravam as vastas operações agrícolas da abadia, administravam a justiça no tribunal do abade, coletavam receitas, supervisionavam construções e treinavam os filhos dos nobres em letras e leis.</p>
+
+            <div class="historical-note">
+                O mosteiro beneditino de Ottobeuren fazia parte de uma vasta rede de tais instituições que formavam a espinha dorsal intelectual e administrativa da Europa medieval. No século XII, sob o beato Abade Ruperto I, Ottobeuren tornou-se um centro do movimento de reforma de Hirsau, que buscava restaurar a observância estrita da Regra Beneditina e libertar os mosteiros da interferência secular excessiva. O scriptorium da abadia produziu manuscritos iluminados que sobrevivem até hoje em bibliotecas alemãs, evidência de uma cultura florescente do livro. No século XIV, no entanto, a disciplina monástica havia começado a escorregar. A abadia era rica, talvez rica demais, e era administrada cada vez mais como um empreendimento econômico do que como uma casa de oração. Em 1356, ficou sob a jurisdição do Bispo de Augsburgo, perdendo parte de sua independência querida. Em 1471, a decadência espiritual atingiria tal nadir que apenas dois monges permaneceriam em residência. Mas em 1352, quando Hans Peter Adam nasceu, tal declínio ainda estava a um século de distância.
+            </div>
+
+            <h2>O Mundo Antes da Peste</h2>
+
+            <p>O nascimento de Hans Peter Adam veio apenas dois anos após a grande mortandade, a pestilência que os cronistas contemporâneos chamavam simplesmente de <span class="date-marker">die grosse Sterblichkeit</span>, a grande mortalidade. Para entender o que a família Braun havia sobrevivido, é preciso entender como era a Europa antes da chegada da peste, e o que ela se tornou depois.</p>
+
+            <p>O século XIV havia começado com esperança e depois desabou em catástrofe. O século XIII havia sido um tempo de relativa prosperidade, de expansão agrícola, de novas terras trazidas sob o arado, de florestas derrubadas e pântanos drenados, de crescimento populacional que empurrou os assentamentos para as margens das terras cultiváveis. Mas por volta de 1300, essa expansão havia atingido seus limites. O clima estava mudando. O clima quente e estável da Alta Idade Média estava dando lugar ao que os estudiosos agora chamam de Pequena Era Glacial. Os invernos ficaram mais longos e frios. As estações de cultivo encurtaram. As colheitas falhavam com frequência crescente.</p>
+
+            <p>Então vieram as fomes. Em 1315 e 1316, chuvas caíram sem cessar por toda a Europa setentrional. As colheitas apodreceram nos campos. Os estoques de grãos diminuíram. As pessoas começaram a passar fome. As crônicas falam de camponeses comendo gatos e cachorros, de pais abandonando filhos que não podiam alimentar, dos desesperados fervendo grama e casca de árvore para encher suas barrigas. Talvez um em cada dez morreu naqueles anos terríveis, enfraquecidos pela fome e vulneráveis a cada doença que passava.</p>
+
+            <p>E então, uma geração depois, veio algo muito pior.</p>
+
+            <h2>A Peste Negra</h2>
+
+            <p>A pestilência entrou na Europa em 1347 através do porto de Caffa no Mar Negro, onde mercadores genoveses mantinham uma colônia comercial. A cidade estava sob cerco das forças mongóis quando a peste eclodiu no exército sitiante. Os mongóis, num ato primitivo de guerra biológica, catapultaram cadáveres infectados sobre os muros. Quando os genoveses fugiram de navio de volta à Itália, trouxeram a peste com eles.</p>
+
+            <p>Em 1348, havia se espalhado pela Itália e sul da França. Em 1349, chegou à Alemanha. As crônicas nos dizem que chegou a Augsburgo e Ulm no verão e outono daquele ano, espalhando-se para leste de Estrasburgo em direção às grandes cidades imperiais da Suábia. Ottobeuren, situada entre Augsburgo e o Lago de Constança ao longo das antigas estradas romanas, não pode ter escapado.</p>
+
+            <p>Como era quando a peste chegava a um lugar como Ottobeuren? Podemos apenas montar o horror a partir de fontes esparsas. A doença manifestava-se em várias formas, todas terríveis. A variedade bubônica produzia inchaços grotescos na virilha e axilas, os gânglios linfáticos inchando até o tamanho de ovos ou maçãs e ficando pretos com hemorragia interna. Daí o nome que mais tarde seria dado à pestilência: a Peste Negra. As vítimas queimavam com febre, sofriam dor excruciante e frequentemente morriam dentro de três a cinco dias dos primeiros sintomas. A forma pneumônica atacava os pulmões, fazendo as vítimas tossirem sangue. Espalhava-se pelo ar de pessoa para pessoa e matava ainda mais rapidamente, às vezes dentro de vinte e quatro horas. A forma septicêmica causava envenenamento do sangue tão rápido que as vítimas podiam ir para a cama saudáveis e estar mortas pela manhã, seus corpos cobertos de manchas roxas escuras.</p>
+
+            <p>Ninguém entendia o que a causava. Médicos instruídos consultavam seus textos antigos e culpavam uma conjunção de planetas, uma corrupção do ar, um desequilíbrio dos quatro humores. Alguns diziam que era o castigo de Deus pelo pecado humano. Outros culpavam os judeus, acusando-os de envenenar poços, e terríveis pogroms varreram a Renânia e a Suábia em 1349 e 1350. Em Estrasburgo, dois mil judeus foram queimados vivos. A doença não prestava atenção a tal bode expiatório. Matava ricos e pobres, nobres e camponeses, cristãos e judeus, os piedosos e os ímpios igualmente.</p>
+
+            <div class="historical-note">
+                A erudição moderna estima que a Peste Negra matou entre 30 e 60 por cento da população da Europa entre 1347 e 1353. Em algumas regiões, a mortalidade foi ainda maior. Em Florença, registros fiscais sugerem que 80 por cento morreram. Através das terras germânicas, dezenas de milhares de aldeias foram completamente abandonadas. Na Inglaterra, mais de 1.300 aldeias desapareceram entre 1350 e 1500. A população total da Europa caiu de talvez 75 milhões para apenas 50 milhões. Levaria mais de um século e meio para os níveis populacionais se recuperarem. As consequências sociais e econômicas foram profundas e permanentes. A velha ordem feudal, já tensionada pelas fomes e mudanças climáticas do início do século, não pôde sobreviver à catastrófica escassez de mão de obra que se seguiu à peste. A servidão começou seu longo declínio. Os salários subiram acentuadamente apesar das leis tentando congelá-los nos níveis pré-peste. Os trabalhadores ganharam mobilidade e poder de barganha. As hierarquias rígidas da sociedade medieval se afrouxaram, para nunca mais serem totalmente restauradas.
+            </div>
+
+            <h2>Uma Família Que Sobreviveu</h2>
+
+            <p>E ainda assim a família Braun sobreviveu. <span class="person-name">Hans Peter Adam Braun</span> nasceu no sétimo dia de novembro de 1352, na cidade de Reimlingen na bacia do Ries ao norte de Ottobeuren. O nome de seu pai se perdeu para nós, mas sabemos que sua mãe era <span class="person-name">Maria Catharina Stiff</span>, nascida em 1357 em Ottobeuren. A família Stiff era local, enraizada nas terras da abadia, parte daquela classe de camponeses livres e pequena nobreza que formava a espinha dorsal da sociedade rural.</p>
+
+            <p>O casal se casou no primeiro de julho de 1380, em Reimlingen. Hans Peter tinha vinte e sete anos, Maria Catharina vinte e três. Estas eram idades típicas para o casamento num mundo pós-peste onde a terra havia se tornado disponível e os jovens podiam se dar ao luxo de estabelecer lares mais cedo do que a geração de seus pais havia conseguido. O casamento teria ocorrido na porta da igreja, como era costume, com o sacerdote abençoando sua união e o casal trocando votos em alemão vernáculo diante de testemunhas de ambas as famílias. Depois, haveria uma festa, modesta ou luxuosa dependendo dos meios da família, com cerveja e pão e talvez alguma carne, e dança que o padre local poderia ou não ter aprovado.</p>
+
+            <p>Eles fizeram seu lar em Ottobeuren. Hans Peter portava a designação "von Braun", que o marcava como nobre, mas o que significava nobreza em tal tempo e lugar? Não significava vastas propriedades ou brasões de armas em muros de castelos. Significava, talvez, isenção de certos impostos e serviços de trabalho. Significava o direito de portar armas e possuir um cavalo de guerra. Significava precedência na igreja e à mesa, o direito de sentar-se mais perto do senhor no banquete, ser tratado com certas cortesias. Significava, mais praticamente, a posse de terras não como inquilino mas como herdeiro, com o direito de passar essas terras aos filhos.</p>
+
+            <p>Em 1380, na época do casamento de Hans Peter, seu primeiro filho já havia nascido ou logo nasceria. <span class="person-name">Christian Braun</span> veio ao mundo naquele ano, o primeiro do que seria uma única linhagem sobrevivente. Numa época de alta mortalidade infantil, quando talvez metade de todas as crianças morria antes de atingir a idade adulta, a sobrevivência de qualquer criança até a maturidade era uma vitória.</p>
+
+            <h2>A Vida numa Cidade Monástica</h2>
+
+            <p>Como era a vida diária para a família Braun em Ottobeuren no final do século XIV? Podemos reconstruí-la a partir de registros senhoriais, de crônicas, de evidências arqueológicas, dos documentos administrativos secos que de alguma forma sobreviveram a seis séculos de guerras e incêndios e inundações.</p>
+
+            <p>A família teria vivido numa casa de estrutura de madeira com paredes de pau a pique, as lacunas entre as vigas de madeira preenchidas com varas entrelaçadas e cobertas com lama misturada com palha e esterco. O teto teria sido de palha de centeio, que precisava ser substituída a cada década ou mais. Por dentro, a casa poderia ter dois ou três cômodos: um salão principal onde a família cozinhava e comia e trabalhava durante os meses de inverno, uma câmara onde dormiam, talvez um cômodo separado para armazenamento. Os pisos teriam sido de terra batida, cobertos com juncos que eram varridos e substituídos quando ficavam muito sujos com lama e restos de comida.</p>
+
+            <p>O calor vinha de uma lareira central no cômodo principal. Numa casa nobre, poderia haver uma lareira própria construída na parede, com uma chaminé para levar a fumaça para fora, mas tais comodidades ainda eram raras fora das grandes casas. Mais provavelmente, a fumaça simplesmente subia para as vigas do teto e vazava pelo telhado de palha. A família levantava com o sol e ia para a cama logo após o escurecer. Velas eram caras, feitas de sebo ou cera de abelha. Pessoas comuns confiavam na luz do fogo e talvez num junco mergulhado em gordura, que dava uma iluminação fraca e esfumaçada.</p>
+
+            <p>Como uma família de nobreza menor, os Brauns teriam tido obrigações para com o abade e direitos sobre algum lote de terra, talvez algumas dezenas de acres de campos e prado e floresta. Eles deveriam rendas em moeda ou espécie, serviços de trabalho na época da colheita, serviço militar se o abade precisasse de homens armados. Em troca, tinham segurança de posse e o direito de passar sua propriedade aos filhos.</p>
+
+            <p>O ano agrícola governava tudo. Na primavera, os campos precisavam ser arados e semeados. O grande arado de madeira, puxado por bois, cortava sulcos no solo argiloso pesado. Centeio e aveia eram as principais culturas nesta parte da Suábia, mais adequadas ao clima fresco e úmido do que trigo ou cevada. Mulheres e crianças seguiam atrás do arado, quebrando torrões e espalhando sementes. Através do verão, os campos precisavam ser capinados, os prados cortados para feno para alimentar o gado durante o inverno. Em agosto e setembro vinha a colheita, aquela corrida desesperada contra o clima e o tempo quando cada corpo capaz era necessário nos campos. O grão tinha que ser cortado com foices, amarrado em feixes, carregado para os celeiros, debulhado e peneirado antes que as chuvas de outono chegassem.</p>
+
+            <div class="historical-note">
+                A economia pós-peste era caracterizada por escassez crônica de mão de obra e salários crescentes. Os senhores lutavam para encontrar trabalhadores para seus campos. Por toda a Europa, governos tentaram congelar salários nos níveis pré-peste e restringir a mobilidade dos trabalhadores, mas essas leis eram amplamente ignoradas. Os trabalhadores podiam exigir salários mais altos, melhores condições e mais liberdade. O velho sistema senhorial, no qual os camponeses estavam presos à terra de um senhor e lhe deviam serviços de trabalho, estava se desfazendo. Por volta de 1400, a maioria do trabalho agrícola no sul da Alemanha era realizada por trabalhadores livres contratados por salários ou por agricultores arrendatários que pagavam aluguel em moeda em vez de trabalho. Esta mudança deu aos camponeses mais autonomia, mas também mais insegurança. Uma colheita ruim poderia significar fome para famílias que não tinham mais o celeiro de um senhor para recorrer. Os cronistas da época notavam com desaprovação que os camponeses estavam usando roupas melhores, comendo carne com mais frequência e mostrando menos deferência a seus superiores. A velha ordem estava morrendo, embora poucos ainda a reconhecessem.
+            </div>
+
+            <h2>A Próxima Geração</h2>
+
+            <p><span class="person-name">Christian Braun</span>, nascido em 1380, cresceu para a idade adulta neste mundo em mudança. Por volta de 1399, aos dezenove anos, ele se casou com <span class="person-name">Eva Catherina</span>, uma mulher cujo sobrenome não chegou até nós mas que nasceu em 1382 em Ottobeuren. Como seu pai, Christian casou-se com uma mulher local, mantendo a família enraizada nas terras da abadia.</p>
+
+            <p>Seu filho <span class="person-name">Johann Bernhard Braun</span> nasceu no ano 1400, na própria virada do século. Seu nascimento veio quando o século velho terminava e o novo começava, embora tais marcos calendáricos significassem pouco para a maioria das pessoas, que mediam o tempo por dias de festa e colheitas, pelos reinados de imperadores e papas, pelos ciclos de nascimento e morte em suas próprias famílias.</p>
+
+            <p>A infância de Johann Bernhard em Ottobeuren no início do século XV teria sido moldada pelos ritmos do ano eclesiástico. Natal e Páscoa, Pentecostes e a festa de Todos os Santos, a Assunção da Virgem Maria e a celebração de santos patronos locais; estes marcavam a passagem do tempo com mais segurança do que qualquer calendário. Aos domingos e dias de festa, o trabalho cessava e a família assistia à missa na igreja da abadia. Eles ficariam em pé na nave com as outras pessoas leigas, a grande tela do coro separando-os do coro onde os monges cantavam seus ofícios em latim. O sacerdote elevava a Hóstia e o sino tocava e todos se ajoelhavam. A maioria não podia entender as palavras latinas, mas conheciam os gestos, o ficar de pé e ajoelhar e fazer o sinal da cruz, o ritual que os conectava a Deus e a seus ancestrais que haviam realizado esses mesmos movimentos por gerações.</p>
+
+            <p>Johann Bernhard teria sido batizado dias após seu nascimento, a cerimônia realizada na igreja da abadia com um sacerdote derramando água benta sobre sua cabeça enquanto os padrinhos o seguravam e falavam votos em seu nome. Se sobrevivesse ao perigoso primeiro ano de vida, quando tantas crianças morriam, teria sido criado em parte por sua mãe e em parte pela comunidade de crianças que brincavam nas vielas e becos de Ottobeuren. Por volta dos sete anos, teria começado a aprender o trabalho de seu pai, seguindo Christian para os campos, observando como arar e semear e colher, como administrar inquilinos e cobrar aluguéis, como se apresentar diante do tribunal do abade, como se comportar como um homem de sua posição.</p>
+
+            <h2>O Casamento de Johann Bernhard</h2>
+
+            <p>Por volta de 1425, aos vinte e cinco anos, <span class="person-name">Johann Bernhard Braun</span> casou-se com <span class="person-name">Eva Catherina Bauer</span>. Ela tinha dezenove anos, nascida em 1406 em Ottobeuren de <span class="person-name">Christian Bauer</span> e sua esposa. O nome Bauer significava "agricultor", embora fosse enganoso como marcador de status. Muitas famílias portavam sobrenomes ocupacionais que não refletiam mais seu trabalho real. Alguns Bauers eram de fato agricultores, mas outros haviam se movido para o comércio ou posições administrativas menores. Christian Bauer, pai de Eva, havia vivido de 1382 a 1434, e o casamento de sua filha com um Braun, uma família com a distinção "von", sugere que os Bauers tinham alguma posição na comunidade.</p>
+
+            <p>O casamento foi quase certamente arranjado pelos pais, como era costume. Jovens desta classe não se casavam por amor romântico, embora o afeto pudesse crescer com o tempo. Eles se casavam para consolidar terras, para forjar alianças entre famílias, para produzir herdeiros que continuariam o nome da família e herdariam sua propriedade. O contrato de casamento teria especificado o que cada parte trazia para o casamento: terras, gado, bens domésticos, moeda. Esses acordos eram negócio sério, frequentemente negociados ao longo de meses e registrados em detalhes para prevenir disputas futuras.</p>
+
+            <p>Johann Bernhard e Eva Catherina estabeleceram seu lar em Ottobeuren, continuando a residência de três gerações da família à sombra da abadia. Seu primeiro filho, <span class="person-name">Jacob Braun</span>, nasceu em 1420, possivelmente antes do casamento formal, o que não era incomum quando uma noiva já estava grávida. Cinco anos após o casamento veio um ano momentoso: 1430 trouxe não um, mas dois filhos, ou talvez os registros confundam dois nascimentos que ocorreram dentro de um ano um do outro.</p>
+
+            <p><span class="person-name">Adam Luppert von Braun</span> e <span class="person-name">Blasius von Braun</span> entraram no mundo em 1430. A presença do "von" em seus nomes é significativa. A família estava mantendo seu status nobre na quarta geração, passando-o de Hans Peter Adam através de Christian para Johann Bernhard e agora para seus filhos. Blasius foi nomeado em homenagem a São Brás, o bispo armênio martirizado em 316, cujo dia de festa caía em três de fevereiro. Brás era particularmente venerado nas terras alemãs como santo padroeiro de doenças de garganta, e em seu dia de festa o padre benzia gargantas com duas velas cruzadas. O nome sugere que a família mantinha suas devoções católicas num tempo em que a fé ainda era universal e inquestionável, décadas antes de Martinho Lutero pregar suas teses numa porta de igreja e dividir a cristandade em dois.</p>
+
+            <img src="https://cdn2.picryl.com/photo/1250/12/31/cistercian-monks-at-work-23e0d2-small.jpg" alt="Monges medievais trabalhando">
+            <p class="img-caption">Monges cistercienses trabalhando — Ilustração de manuscrito medieval mostrando a vida diária monástica, c. século XIII</p>
+
+            <h2>O Mundo de 1430</h2>
+
+            <p>O ano do nascimento de Blasius e Adam veio oitenta anos após o primeiro surto de peste. A Europa havia começado a se recuperar, embora lentamente. A população estava rastejando de volta. Aldeias que haviam sido abandonadas estavam sendo reassentadas. Campos que haviam ido para o mato estavam sendo arados novamente. Mas a peste não havia desaparecido. Ela retornou em ondas ao longo do século XV, atingindo aqui e ali com crueldade aparentemente aleatória, levando os jovens e saudáveis, poupando outros sem razão que alguém pudesse discernir.</p>
+
+            <p>Em Ottobeuren especificamente, a abadia estava entrando num período de declínio que atingiria seu nadir em 1471, quando apenas dois monges permaneceriam. Os grandes mosteiros proprietários de terras da Idade Média estavam lutando para se manter numa era de economia em mudança e relações de poder em mudança. A Peste Negra havia interrompido sua força de trabalho e seus fluxos de receita. Filhos mais jovens de famílias nobres, que em séculos anteriores poderiam ter sido enviados a mosteiros para se tornarem monges e administradores, agora eram mais propensos a buscar suas fortunas nas cidades em expansão ou no serviço militar de príncipes e imperadores. A abadia em Ottobeuren, outrora um farol de aprendizado e piedade, estava sendo cada vez mais administrada como um empreendimento comercial, seus abades mais preocupados com administrar propriedades e coletar receitas do que com a vida espiritual de seus monges.</p>
+
+            <p>No entanto, para uma família como os Brauns, a abadia permanecia o centro de seu mundo. Os sinos da igreja ainda ordenavam o dia. O abade ainda tinha jurisdição sobre disputas locais. O tribunal da abadia ainda administrava a justiça. O mosteiro ainda possuía os moinhos onde o grão era moído e os fornos onde o pão era assado, e cada lar pagava suas taxas por esses serviços.</p>
+
+            <h2>O Fim de Uma Era</h2>
+
+            <p>A esposa de Johann Bernhard, <span class="person-name">Eva Catherina Bauer</span>, morreu em 1448 aos quarenta e dois anos. Ela foi enterrada no cemitério da abadia, aquele solo consagrado que havia recebido os corpos dos mortos de Ottobeuren por sete séculos. Nenhuma pedra marcava seu túmulo, ou se marcava, não sobreviveu. Tais monumentos eram reservados para abades e grandes nobres, não para as esposas da pequena nobreza. Mas seus filhos a lembraram, e seu nome chegou até nós através dos registros cuidadosos que alguém, em algum lugar, manteve ao longo dos séculos.</p>
+
+            <p>Dois anos depois, em 1450, o próprio <span class="person-name">Johann Bernhard Braun</span> morreu. Ele tinha cinquenta anos, o que não era uma idade ruim para a época. Havia sobrevivido à infância, o tempo mais perigoso da vida. Havia sobrevivido até a idade adulta e casado e gerado filhos. Havia vivido através de anos de peste e falhas de colheita, através de invernos frios e verões úmidos. Havia mantido o status de sua família e o passou para seus filhos. No grande livro-razão das vidas medievais, isso contava como sucesso.</p>
+
+            <p>Ele deixou três filhos: Jacob, agora com trinta anos; Adam Luppert, vinte; e Blasius, também vinte. Os dois mais jovens viveriam vidas longas, Blasius até 1510 e Adam até 1499, abrangendo toda a última metade do século XV. Eles testemunhariam o fim da Idade Média e o início do período moderno inicial. Eles veriam os turcos otomanos conquistarem Constantinopla em 1453, encerrando o Império Bizantino de mil anos. Eles viveriam através das Guerras das Rosas na Inglaterra, a consolidação da França sob Luís XI, o casamento de Fernando e Isabel que unificaria a Espanha. Adam morreria apenas sete anos depois de Cristóvão Colombo chegar às Américas, embora ele pudesse nunca ter ouvido falar dessa viagem.</p>
+
+            <p>Mas mais imediatamente relevante para nossa história, os filhos de Johann Bernhard seriam a geração que deixaria Ottobeuren. A família que havia estado enraizada lá por pelo menos quatro gerações, que havia sobrevivido à Peste Negra e suas consequências, que havia mantido seu status nobre através de tempos em mudança, não permaneceria para sempre à sombra da abadia. Em algum lugar nos registros, nas lacunas entre o que sabemos e o que só podemos inferir, a decisão foi tomada de partir.</p>
+
+            <div class="historical-note">
+                As décadas do meio do século XV viram crescente mobilidade através das terras germânicas. A peste havia criado oportunidades tanto quanto tragédias. Terras vazias podiam ser reivindicadas, posições vagas preenchidas. Os velhos laços que haviam amarrado camponeses a senhorios estavam se afrouxando. Até famílias nobres estavam em movimento, buscando melhores perspectivas, fugindo de conflitos locais, buscando oportunidades nas cidades em expansão ou no serviço de príncipes. A Floresta Negra, aquela grande extensão de montanhas e vales a oeste da Suábia, estava sendo aberta a novo assentamento. Mosteiros lá precisavam de administradores, aldeias precisavam de artesãos, senhores precisavam de soldados e mordomos. Os inquietos filhos mais jovens da nobreza menor podiam encontrar papéis lá que Ottobeuren, com suas hierarquias estabelecidas e oportunidades limitadas, não podia oferecer.
+            </div>
+
+            <h2>O Legado de Ottobeuren</h2>
+
+            <p>Por quase um século, do nascimento de Hans Peter Adam em 1352 até a morte de Johann Bernhard em 1450, a família Braun chamou Ottobeuren de lar. Quatro gerações nasceram lá, batizadas na igreja da abadia, casadas lá, enterradas em seu cemitério. Eles viveram através da maior catástrofe da história europeia e sobreviveram a ela. Eles mantiveram seu status como nobreza num mundo onde tais distinções estavam se tornando menos absolutas. Eles se adaptaram às profundas mudanças econômicas e sociais da era pós-peste enquanto preservavam sua identidade e seu nome.</p>
+
+            <p>Quando Blasius e Adam deixaram Ottobeuren em algum momento após a morte de seu pai, eles carregaram consigo este legado. Eles carregaram a memória da grande abadia e seus sinos, o ritmo do ano agrícola, as obrigações e privilégios de sua posição. Eles carregaram o nome de seu pai e o nome de seu avô, alcançando de volta através de Christian até Hans Peter Adam. Eles carregaram o "von" que os marcava como nobres, embora essa partícula não sobrevivesse muitas mais gerações.</p>
+
+            <p>Eles também carregaram, soubessem ou não, a resiliência de uma família que havia resistido. A Peste Negra havia matado metade da Europa, mas os Brauns haviam vivido. As fomes e mudanças climáticas do século XIV haviam destruído milhares de famílias, mas os Brauns haviam persistido. Eles haviam se curvado com os tempos em mudança mas não quebrado. Esta capacidade de se adaptar, de sobreviver, de se mover quando necessário e fincar raízes quando possível, provaria ser sua herança mais valiosa.</p>
+
+            <p>A fortaleza de Ottobeuren, aquele grande mosteiro que os havia abrigado e moldado, continuaria sua própria jornada conturbada através da história. Atingiria seu nadir em 1471, então lentamente se recuperaria. Em 1802, seria dissolvida na secularização das propriedades da igreja, e quarenta e oito monges seriam dispersos. No entanto, dezoito deles permaneceriam teimosamente, mantendo a tradição viva até que a abadia fosse restabelecida em 1835. Hoje, mais de doze séculos e meio após sua fundação, monges beneditinos ainda rezam e trabalham em Ottobeuren. A basílica barroca que agora está lá, construída no século XVIII, ergue-se sobre o mesmo solo onde Hans Peter Adam Braun e seus descendentes uma vez caminharam.</p>
+
+            <p>Mas os próprios Brauns se foram de Ottobeuren por volta de 1450, indo para o oeste na Floresta Negra, em novas terras e novas vidas, carregando consigo apenas seus nomes e suas memórias e quaisquer ferramentas e bens que pudessem carregar numa carroça. A próxima parte de sua história se desenrolaria em vales diferentes, sob senhores diferentes, numa paisagem de florestas profundas e altas montanhas bastante diferente das terras de cultivo suábias onduladas de seu nascimento.</p>
+
+            <p>A fortaleza os havia protegido por um século. Agora eles teriam que seguir seu próprio caminho.</p>
+        </div>
+        
+        <footer>
+            <p>Parte Um: A Fortaleza (1352–1450) | A Fortaleza e o Machado: Uma História de Família</p>
+            <p>Das terras beneditinas da Suábia à Floresta Negra e além</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teil 1: Die Festung (1352–1450)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            line-height: 1.8;
+            color: #2c2c2c;
+            background: #f8f6f0;
+            padding: 0;
+        }
+        
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #8b7355;
+            background: white;
+            color: #6b5639;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .lang-btn:hover {
+            background: #8b7355;
+            color: white;
+        }
+        
+        .lang-btn.active {
+            background: #6b5639;
+            color: white;
+            border-color: #6b5639;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
+            color: #f4f1e8;
+            padding: 60px 40px 40px 40px;
+            border-bottom: 4px solid #8b7355;
+        }
+        
+        .title-main {
+            font-size: 2.8em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-variant: small-caps;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            color: #c4b5a0;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+        
+        .period {
+            font-size: 1.1em;
+            color: #8b7355;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+        
+        .content {
+            padding: 50px 60px 60px 60px;
+        }
+        
+        .chapter-intro {
+            font-size: 1.15em;
+            font-style: italic;
+            color: #5a5a5a;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #faf8f3;
+            border-left: 4px solid #8b7355;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #3d2817;
+            margin: 50px 0 25px 0;
+            font-weight: 400;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #e6dcc9;
+            padding-bottom: 10px;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+            margin: 35px 0;
+            border: 1px solid #c4b5a0;
+        }
+        
+        .img-caption {
+            text-align: center;
+            font-style: italic;
+            color: #6b5639;
+            font-size: 0.9em;
+            margin-top: -25px;
+            margin-bottom: 35px;
+        }
+        
+        .historical-note {
+            background: #f5f2eb;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #a08968;
+            font-size: 0.98em;
+            color: #4a4a4a;
+        }
+        
+        .date-marker {
+            font-weight: 600;
+            color: #6b5639;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+        
+        .place-name {
+            font-style: italic;
+            color: #5a4a3a;
+        }
+        
+        .person-name {
+            font-weight: 500;
+            color: #3d2817;
+        }
+        
+        footer {
+            background: #3d3d3d;
+            color: #c4b5a0;
+            padding: 30px 60px;
+            font-size: 0.9em;
+            text-align: center;
+            border-top: 4px solid #8b7355;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+            header {
+                padding: 40px 25px 30px 25px;
+            }
+            .title-main {
+                font-size: 2em;
+            }
+            footer {
+                padding: 25px;
+            }
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px;
+                gap: 6px;
+            }
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <a href="Part_1_The_Fortress_1352_1450_PT.html" class="lang-btn">PT-BR</a>
+        <a href="Part_1_The_Fortress_1352_1450_EN.html" class="lang-btn">EN</a>
+        <a href="Part_1_The_Fortress_1352_1450_DE.html" class="lang-btn active">DE</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="title-main">Teil Eins: Die Festung</div>
+            <div class="subtitle">Ottobeuren und der von Braun Adel</div>
+            <div class="period">1352–1450</div>
+        </header>
+        
+        <div class="content">
+            <div class="chapter-intro">
+                Im Jahre des Herrn 1352, als die Wunden der großen Pest noch frisch in der ganzen Christenheit waren und das Heilige Römische Reich darum rang, die Katastrophe zu begreifen, die vielleicht die Hälfte seiner Untertanen dahingerafft hatte, wurde ein Kind in der Benediktinerstadt Ottobeuren im schwäbischen Land geboren. Sein Name war Hans Peter Adam, und er trug den Familiennamen Braun mit dem Partikel „von" davor, was ihn als Mann von adliger Geburt in einem Zeitalter kennzeichnete, in dem solche Unterscheidungen den Unterschied bedeuteten zwischen dem Besitz von Land und dessen Bearbeitung, zwischen dem Befehlen von Arbeit und deren Ausführung, zwischen dem Essen von Fleisch an Festtagen und dem Überleben mit Roggenbrot und dünnem Bier. Hier beginnt unsere Geschichte, nicht mit den großen Wanderungen, die später kommen würden, nicht mit den Schwarzwaldsiedlungen oder der brasilianischen Wildnis, sondern hier in dieser Klosterstadt, wo Kirchenglocken die Stunden schlugen und die große Abtei sowohl das geistliche als auch das weltliche Leben jeder Seele in ihrer Reichweite beherrschte.
+            </div>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KlosterOttobeuren073.jpg/1280px-KlosterOttobeuren073.jpg" alt="Abtei Ottobeuren">
+            <p class="img-caption">Abtei Ottobeuren — Die barocke Basilika wurde 1737-1766 auf Fundamenten erbaut, die auf 764 n. Chr. zurückgehen</p>
+
+            <h2>Die Benediktinerwelt</h2>
+
+            <p>Um <span class="person-name">Hans Peter Adam Braun</span> und seine Familie zu verstehen, muss man zunächst <span class="place-name">Ottobeuren</span> selbst verstehen. Die Abtei stand seit fast sechshundert Jahren in diesem Tal des Unterallgäus, als Hans Peter geboren wurde, gegründet im Jahr 764 von einem alemannischen Edlen namens Silach zur Zeit der fränkischen Könige. Sie war alt, als Karl der Große zum Kaiser gekrönt wurde. Sie hatte die Ungarneinfälle überstanden, den Investiturstreit, den Aufstieg und Fall von Dynastien. Im Jahr 972 hatte Kaiser Otto der Große selbst der Abtei ihre große Freiheitsurkunde verliehen, den <span class="date-marker">Großen Freiheitsbrief</span>, der sie von allen kaiserlichen Steuern und Diensten befreite und den Mönchen das Recht garantierte, ihren eigenen Abt ohne Einmischung von König, Herzog oder Bischof zu wählen.</p>
+
+            <p>Diese Reichsunmittelbarkeit, diese direkte Unterstellung nur unter den Kaiser ohne zwischengeschalteten Herrn, war keine Kleinigkeit. Es bedeutete, dass Ottobeuren nicht bloß ein Kloster war, sondern ein Fürstentum, ein kleiner geistlicher Staat innerhalb des Heiligen Römischen Reiches. Der Abt war nicht einfach ein geistlicher Vater für seine Mönche, sondern ein weltlicher Herrscher über Dörfer und Bauernhöfe, Mühlen und Wälder, der Verwalter der Gerichtsbarkeit und der Eintreiber von Abgaben und Zehnten. Im vierzehnten Jahrhundert umfassten die Gebiete der Abtei siebenundzwanzig Dörfer, verstreut über mehr als zweihundertfünfzig Quadratkilometer schwäbischer Hügellandschaft, und etwa zehntausend Seelen unterstanden der Autorität des Abtes in sowohl geistlichen als auch weltlichen Angelegenheiten.</p>
+
+            <p>Die Stadt Ottobeuren selbst klammerte sich an die Mauern der Abtei wie ein Kind an die Röcke seiner Mutter. Die große Kirche, im zwölften Jahrhundert in romanischer Pracht wieder aufgebaut, erhob sich über die strohgedeckten Dächer und engen Gassen. Ihre Glocken riefen die Gläubigen zum Gebet bei Morgengrauen, zu Mittag, zur Vesper, zur Komplet. Die Mönche sangen das Stundengebet auf Lateinisch nach der Regel des heiligen Benedikt, jener uralten Vorschrift für das geordnete Gemeinschaftsleben, geschrieben im sechsten Jahrhundert: <span class="date-marker">Ora et labora</span>, bete und arbeite. Siebenmal täglich versammelten sich die Mönche in ihren Chorstühlen, um die Psalmen zu singen. Zwischen diesen heiligen Stunden kopierten sie Manuskripte im Skriptorium, pflegten die Kranken in der Krankenstube, verwalteten die umfangreichen landwirtschaftlichen Betriebe der Abtei, sprachen Recht im Gericht des Abtes, sammelten Einkünfte, überwachten Bauarbeiten und bildeten die Söhne von Adligen in Schrift und Gesetz aus.</p>
+
+            <div class="historical-note">
+                Das Benediktinerkloster in Ottobeuren war Teil eines weitverzweigten Netzes solcher Institutionen, die das intellektuelle und administrative Rückgrat des mittelalterlichen Europas bildeten. Im zwölften Jahrhundert wurde Ottobeuren unter dem seligen Abt Rupert I. ein Zentrum der Hirsauer Reformbewegung, die eine strenge Einhaltung der Benediktinerregel anstrebte und die Klöster von übermäßiger weltlicher Einmischung befreien wollte. Das Skriptorium der Abtei produzierte illuminierte Handschriften, die bis heute in deutschen Bibliotheken überdauern, ein Zeugnis einer blühenden Buchkultur. Im vierzehnten Jahrhundert jedoch hatte die klösterliche Disziplin nachzulassen begonnen. Die Abtei war wohlhabend, vielleicht zu wohlhabend, und wurde zunehmend als wirtschaftliches Unternehmen geführt statt als Gebetshaus. 1356 kam sie unter die Hoheit des Bischofs von Augsburg und verlor einen Teil ihrer geschätzten Unabhängigkeit. 1471 würde der geistliche Verfall einen solchen Tiefpunkt erreichen, dass nur noch zwei Mönche in Residenz bleiben würden. Doch 1352, als Hans Peter Adam geboren wurde, lag ein solcher Niedergang noch ein Jahrhundert in der Zukunft.
+            </div>
+
+            <h2>Die Welt vor der Pest</h2>
+
+            <p>Hans Peter Adams Geburt kam nur zwei Jahre nach dem großen Sterben, der Pestilenz, die zeitgenössische Chronisten einfach als <span class="date-marker">die große Sterblichkeit</span> bezeichneten. Um zu verstehen, was die Familie Braun überlebt hatte, muss man verstehen, wie Europa vor der Ankunft der Pest war und was es danach wurde.</p>
+
+            <p>Das vierzehnte Jahrhundert hatte mit Hoffnung begonnen und war dann in die Katastrophe gestürzt. Das dreizehnte Jahrhundert war eine Zeit relativen Wohlstands gewesen, der Ausweitung der Landwirtschaft, neuer Ländereien unter dem Pflug, gerodeter Wälder und trockengelegter Sümpfe, von Bevölkerungswachstum, das die Besiedlung an die Ränder des kultivierbaren Landes drängte. Doch um 1300 hatte diese Expansion ihre Grenzen erreicht. Das Klima änderte sich. Das warme, stabile Wetter des Hochmittelalters wich dem, was Gelehrte heute als Kleine Eiszeit bezeichnen. Die Winter wurden länger und kälter. Die Vegetationsperioden verkürzten sich. Ernten schlugen mit zunehmender Häufigkeit fehl.</p>
+
+            <p>Dann kamen die Hungersnöte. In den Jahren 1315 und 1316 fielen Regenfälle ohne Unterlass über Nordeuropa. Die Ernten verfaulten auf den Feldern. Die Getreidespeicher schwanden. Die Menschen begannen zu verhungern. Chroniken berichten von Bauern, die Katzen und Hunde aßen, von Eltern, die Kinder aussetzten, die sie nicht ernähren konnten, von Verzweifelten, die Gras und Baumrinde kochten, um ihre Mägen zu füllen. Vielleicht einer von zehn starb in jenen schrecklichen Jahren, geschwächt durch Hunger und anfällig für jede vorüberziehende Krankheit.</p>
+
+            <p>Und dann, eine Generation später, kam etwas weitaus Schlimmeres.</p>
+
+            <h2>Der Schwarze Tod</h2>
+
+            <p>Die Pestilenz kam 1347 durch den Hafen von Kaffa am Schwarzen Meer nach Europa, wo genuesische Kaufleute eine Handelskolonie unterhalten hatten. Die Stadt war von mongolischen Truppen belagert, als die Pest im belagernden Heer ausbrach. Die Mongolen schleuderten in einem frühen Akt biologischer Kriegsführung infizierte Leichen über die Mauern. Als die Genuesen per Schiff zurück nach Italien flohen, brachten sie die Pest mit.</p>
+
+            <p>Bis 1348 hatte sie sich über Italien und Südfrankreich ausgebreitet. Bis 1349 erreichte sie Deutschland. Die Chroniken berichten uns, dass sie im Sommer und Herbst jenes Jahres Augsburg und Ulm erreichte und sich von Straßburg aus nach Osten in Richtung der großen Reichsstädte Schwabens ausbreitete. Ottobeuren, gelegen zwischen Augsburg und dem Bodensee entlang der alten Römerstraßen, kann nicht verschont geblieben sein.</p>
+
+            <p>Wie war es, als die Pest an einen Ort wie Ottobeuren kam? Wir können das Grauen nur aus verstreuten Quellen zusammensetzen. Die Krankheit manifestierte sich in mehreren Formen, alle schrecklich. Die bubonische Variante produzierte groteske Schwellungen in der Leistengegend und den Achselhöhlen, wobei die Lymphknoten auf die Größe von Eiern oder Äpfeln anschwollen und durch innere Blutungen schwarz wurden. Daher der Name, der der Pestilenz später gegeben werden sollte: der Schwarze Tod. Die Opfer brannten vor Fieber, litten unerträgliche Schmerzen und starben oft innerhalb von drei bis fünf Tagen nach dem Auftreten der ersten Symptome. Die Lungenpest befiel die Lungen und ließ die Opfer Blut husten. Sie verbreitete sich durch die Luft von Person zu Person und tötete noch schneller, manchmal innerhalb von vierundzwanzig Stunden. Die septikämische Form verursachte eine so rapide Blutvergiftung, dass Opfer gesund ins Bett gehen und am Morgen tot sein konnten, ihre Körper bedeckt mit dunkellila Flecken.</p>
+
+            <p>Niemand verstand, was sie verursachte. Gelehrte Ärzte konsultierten ihre alten Texte und gaben einer Planetenkonjunktion die Schuld, einer Verderbnis der Luft, einem Ungleichgewicht der vier Säfte. Einige sagten, es sei Gottes Strafe für menschliche Sünden. Andere gaben den Juden die Schuld, beschuldigten sie, Brunnen zu vergiften, und schreckliche Pogrome fegten 1349 und 1350 durch das Rheinland und Schwaben. In Straßburg wurden zweitausend Juden lebendig verbrannt. Die Krankheit achtete solche Sündenbocksuche nicht. Sie tötete Reiche und Arme, Adlige und Bauern, Christen und Juden, Fromme und Gottlose gleichermaßen.</p>
+
+            <div class="historical-note">
+                Moderne Forschung schätzt, dass der Schwarze Tod zwischen 1347 und 1353 zwischen 30 und 60 Prozent der Bevölkerung Europas tötete. In einigen Regionen war die Sterblichkeit noch höher. In Florenz legen Steueraufzeichnungen nahe, dass 80 Prozent starben. Durch die deutschen Lande wurden Zehntausende von Dörfern vollständig aufgegeben. In England verschwanden mehr als 1.300 Dörfer zwischen 1350 und 1500. Die Gesamtbevölkerung Europas fiel von vielleicht 75 Millionen auf nur 50 Millionen. Es würde mehr als anderthalb Jahrhunderte dauern, bis sich die Bevölkerungszahlen erholten. Die sozialen und wirtschaftlichen Folgen waren tiefgreifend und dauerhaft. Die alte Feudalordnung, bereits angespannt durch die Hungersnöte und Klimaveränderungen des frühen Jahrhunderts, konnte den katastrophalen Arbeitskräftemangel, der auf die Pest folgte, nicht überleben. Die Leibeigenschaft begann ihren langen Niedergang. Die Löhne stiegen stark trotz Gesetzen, die versuchten, sie auf Vor-Pest-Niveau einzufrieren. Arbeiter gewannen Mobilität und Verhandlungsmacht. Die starren Hierarchien der mittelalterlichen Gesellschaft lockerten sich, um nie wieder vollständig wiederhergestellt zu werden.
+            </div>
+
+            <h2>Eine Familie, die überlebte</h2>
+
+            <p>Und dennoch überlebte die Familie Braun. <span class="person-name">Hans Peter Adam Braun</span> wurde am siebten Tag des November 1352 in der Stadt Reimlingen im Ries-Becken nördlich von Ottobeuren geboren. Der Name seines Vaters ist uns verloren gegangen, aber wir wissen, dass seine Mutter <span class="person-name">Maria Catharina Stiff</span> war, geboren 1357 in Ottobeuren. Die Familie Stiff war einheimisch, verwurzelt in den Ländereien der Abtei, Teil jener Klasse freier Bauern und niederen Adels, die das Rückgrat der ländlichen Gesellschaft bildete.</p>
+
+            <p>Das Paar heiratete am ersten Juli 1380 in Reimlingen. Hans Peter war siebenundzwanzig Jahre alt, Maria Catharina dreiundzwanzig. Dies waren typische Heiratsalter in einer Welt nach der Pest, in der Land verfügbar geworden war und junge Leute es sich leisten konnten, früher Haushalte zu gründen, als es der Generation ihrer Eltern gelungen war. Die Hochzeit hätte an der Kirchentür stattgefunden, wie es üblich war, mit dem Priester, der ihren Bund segnete, und dem Paar, das Gelübde in der Volkssprache Deutsch vor Zeugen beider Familien austauschte. Danach hätte es ein Fest gegeben, bescheiden oder aufwendig je nach den Mitteln der Familie, mit Bier und Brot und vielleicht etwas Fleisch und Tanz, den der örtliche Priester gebilligt haben mochte oder auch nicht.</p>
+
+            <p>Sie gründeten ihr Heim in Ottobeuren. Hans Peter trug die Bezeichnung „von Braun", die ihn als adlig kennzeichnete, aber was bedeutete Adel zu solcher Zeit und an solchem Ort? Es bedeutete nicht riesige Ländereien oder Wappen an Burgmauern. Es bedeutete vielleicht Befreiung von bestimmten Steuern und Arbeitsdiensten. Es bedeutete das Recht, Waffen zu tragen und ein Schlachtross zu besitzen. Es bedeutete Vorrang in der Kirche und bei Tisch, das Recht, näher beim Herrn beim Festmahl zu sitzen, mit gewissen Höflichkeiten angesprochen zu werden. Es bedeutete praktischerweise den Besitz von Land nicht als Pächter, sondern als Erbe, mit dem Recht, dieses Land an die eigenen Kinder weiterzugeben.</p>
+
+            <p>Im Jahr 1380, zur Zeit von Hans Peters Heirat, war ihr erstes Kind bereits geboren oder sollte es bald sein. <span class="person-name">Christian Braun</span> kam in jenem Jahr zur Welt, der erste einer einzigen überlebenden Linie. In einer Zeit hoher Kindersterblichkeit, als vielleicht die Hälfte aller Kinder starb, bevor sie das Erwachsenenalter erreichten, war das Überleben eines Kindes bis zur Reife ein Sieg.</p>
+
+            <h2>Das Leben in einer Klosterstadt</h2>
+
+            <p>Wie sah das tägliche Leben für die Familie Braun in Ottobeuren am Ende des vierzehnten Jahrhunderts aus? Wir können es aus Grundherrschaftsregistern rekonstruieren, aus Chroniken, aus archäologischen Beweisen, aus den trockenen Verwaltungsdokumenten, die irgendwie sechs Jahrhunderte von Kriegen und Bränden und Überschwemmungen überlebt haben.</p>
+
+            <p>Die Familie hätte in einem Haus mit Fachwerkrahmen gelebt, dessen Wände aus Flechtwerk und Lehm bestanden, die Lücken zwischen den Holzbalken mit geflochtenen Stöcken gefüllt und mit Schlamm vermischt mit Stroh und Dung bedeckt. Das Dach wäre mit Roggenstroh gedeckt gewesen, das etwa alle zehn Jahre ersetzt werden musste. Im Inneren könnte das Haus zwei oder drei Räume gehabt haben: eine Haupthalle, wo die Familie in den Wintermonaten kochte und aß und arbeitete, eine Kammer, wo sie schliefen, vielleicht einen separaten Raum zur Lagerung. Die Böden wären aus festgestampfter Erde gewesen, bedeckt mit Binsen, die ausgefegt und ersetzt wurden, wenn sie zu sehr mit Schlamm und Essensresten verschmutzt waren.</p>
+
+            <p>Wärme kam von einer zentralen Feuerstelle im Hauptraum. In einem adligen Haushalt hätte es vielleicht einen richtigen Kamin gegeben, der in die Wand eingebaut war, mit einem Schornstein, um den Rauch herauszuführen, aber solche Annehmlichkeiten waren außerhalb der großen Häuser noch selten. Wahrscheinlicher stieg der Rauch einfach zu den Dachbalken auf und sickerte durch das Strohdach. Die Familie stand mit der Sonne auf und ging bald nach Einbruch der Dunkelheit zu Bett. Kerzen waren teuer, aus Talg oder Bienenwachs gemacht. Gewöhnliche Menschen verließen sich auf Feuerlicht und vielleicht eine in Fett getauchte Binse, die eine schwache, rauchige Beleuchtung gab.</p>
+
+            <p>Als Familie niederen Adels hätten die Brauns Verpflichtungen gegenüber dem Abt und Rechte über ein Stück Land gehabt, vielleicht einige Dutzend Morgen Felder und Wiesen und Wald. Sie hätten Abgaben in Münze oder Naturalien geschuldet, Arbeitsdienste zur Erntezeit, Militärdienst, wenn der Abt bewaffnete Männer brauchte. Im Gegenzug hatten sie Besitzsicherheit und das Recht, ihren Besitz an ihre Kinder weiterzugeben.</p>
+
+            <p>Das landwirtschaftliche Jahr beherrschte alles. Im Frühling mussten die Felder gepflügt und besät werden. Der große Holzpflug, von Ochsen gezogen, schnitt Furchen in den schweren Lehmboden. Roggen und Hafer waren die Hauptkulturen in diesem Teil Schwabens, besser geeignet für das kühle, feuchte Klima als Weizen oder Gerste. Frauen und Kinder folgten hinter dem Pflug, brachen Schollen auf und streuten Samen. Durch den Sommer mussten die Felder gejätet, die Wiesen gemäht werden für Heu, um das Vieh durch den Winter zu füttern. Im August und September kam die Ernte, jener verzweifelte Wettlauf gegen Wetter und Zeit, wenn jeder arbeitsfähige Körper auf den Feldern gebraucht wurde. Das Getreide musste mit Sicheln geschnitten, zu Garben gebunden, zu den Scheunen getragen, gedroschen und geworfelt werden, bevor die Herbstregen kamen.</p>
+
+            <div class="historical-note">
+                Die Wirtschaft nach der Pest war charakterisiert durch chronischen Arbeitskräftemangel und steigende Löhne. Grundherren kämpften darum, Arbeiter für ihre Felder zu finden. Überall in Europa versuchten Regierungen, Löhne auf Vor-Pest-Niveau einzufrieren und die Mobilität der Arbeiter einzuschränken, aber diese Gesetze wurden weitgehend ignoriert. Arbeiter konnten höhere Löhne, bessere Bedingungen und mehr Freiheit verlangen. Das alte Gutsherrschaftssystem, in dem Bauern an das Land eines Herrn gebunden waren und ihm Arbeitsdienste schuldeten, brach zusammen. Um 1400 wurde die meiste landwirtschaftliche Arbeit in Süddeutschland von freien Arbeitern verrichtet, die für Löhne angestellt wurden, oder von Pachtbauern, die Miete in Münze statt Arbeit zahlten. Diese Verschiebung gab Bauern mehr Autonomie, aber auch mehr Unsicherheit. Eine schlechte Ernte konnte Hunger für Familien bedeuten, die keinen Speicher eines Herrn mehr hatten, auf den sie zurückgreifen konnten. Die Chronisten der Zeit notierten mit Missbilligung, dass Bauern bessere Kleidung trugen, öfter Fleisch aßen und weniger Ehrerbietung gegenüber ihren Vorgesetzten zeigten. Die alte Ordnung starb, obwohl sie noch wenige erkannten.
+            </div>
+
+            <h2>Die nächste Generation</h2>
+
+            <p><span class="person-name">Christian Braun</span>, geboren 1380, wuchs in dieser sich verändernden Welt zum Mann heran. Um 1399, im Alter von neunzehn Jahren, heiratete er <span class="person-name">Eva Catherina</span>, eine Frau, deren Nachname uns nicht überliefert ist, die aber 1382 in Ottobeuren geboren wurde. Wie sein Vater heiratete Christian eine einheimische Frau und hielt die Familie in den Ländereien der Abtei verwurzelt.</p>
+
+            <p>Ihr Sohn <span class="person-name">Johann Bernhard Braun</span> wurde im Jahr 1400 geboren, an der Wende des Jahrhunderts. Seine Geburt kam, als das alte Jahrhundert endete und das neue begann, obwohl solche kalendarischen Meilensteine für die meisten Menschen wenig bedeuteten, die die Zeit nach Festtagen und Ernten maßen, nach den Regierungszeiten von Kaisern und Päpsten, nach den Zyklen von Geburt und Tod in ihren eigenen Familien.</p>
+
+            <p>Johann Bernhards Kindheit im frühen fünfzehnten Jahrhundert in Ottobeuren wäre von den Rhythmen des Kirchenjahres geprägt gewesen. Weihnachten und Ostern, Pfingsten und Allerheiligen, Mariä Himmelfahrt und die Feier lokaler Schutzheiliger; diese markierten den Lauf der Zeit sicherer als jeder Kalender. An Sonntagen und Feiertagen ruhte die Arbeit und die Familie besuchte die Messe in der Abteikirche. Sie hätten im Kirchenschiff mit den anderen Laien gestanden, der große Lettner trennte sie vom Chor, wo die Mönche ihre lateinischen Stundengebete sangen. Der Priester erhob die Hostie und die Glocke läutete und alle knieten nieder. Die meisten konnten die lateinischen Worte nicht verstehen, aber sie kannten die Gesten, das Stehen und Knien und Kreuzschlagen, das Ritual, das sie mit Gott und ihren Vorfahren verband, die dieselben Bewegungen über Generationen ausgeführt hatten.</p>
+
+            <p>Johann Bernhard wäre Tage nach seiner Geburt getauft worden, die Zeremonie in der Abteikirche durchgeführt mit einem Priester, der Weihwasser über seinen Kopf goss, während Paten ihn hielten und Gelübde in seinem Namen sprachen. Wenn er das gefährliche erste Lebensjahr überlebte, in dem so viele Säuglinge starben, wäre er teilweise von seiner Mutter und teilweise von der Gemeinschaft der Kinder aufgezogen worden, die in den Gassen und Gässchen von Ottobeuren spielten. Mit etwa sieben Jahren hätte er begonnen, die Arbeit seines Vaters zu lernen, Christian auf die Felder zu folgen, zu beobachten, wie man pflügt und sät und erntet, wie man Pächter verwaltet und Abgaben eintreibt, wie man sich vor dem Gericht des Abtes präsentiert, wie man sich als Mann seines Standes verhält.</p>
+
+            <h2>Johann Bernhards Hochzeit</h2>
+
+            <p>Um 1425, im Alter von fünfundzwanzig Jahren, heiratete <span class="person-name">Johann Bernhard Braun</span> <span class="person-name">Eva Catherina Bauer</span>. Sie war neunzehn Jahre alt, geboren 1406 in Ottobeuren als Tochter von <span class="person-name">Christian Bauer</span> und seiner Frau. Der Name Bauer bedeutete „Landwirt", war aber irreführend als Statusmarkierung. Viele Familien trugen Berufsnamen, die ihre tatsächliche Arbeit nicht mehr widerspiegelten. Manche Bauers waren tatsächlich Landwirte, aber andere waren in den Handel oder in kleinere Verwaltungsposten gewechselt. Christian Bauer, Evas Vater, hatte von 1382 bis 1434 gelebt, und die Heirat seiner Tochter mit einem Braun, einer Familie mit der Auszeichnung „von", deutet darauf hin, dass die Bauers eine gewisse Stellung in der Gemeinschaft hatten.</p>
+
+            <p>Die Ehe war mit ziemlicher Sicherheit von den Vätern arrangiert worden, wie es üblich war. Junge Leute dieser Klasse heirateten nicht aus romantischer Liebe, obwohl Zuneigung mit der Zeit wachsen konnte. Sie heirateten, um Land zu konsolidieren, um Allianzen zwischen Familien zu schmieden, um Erben zu zeugen, die den Familiennamen weiterführen und sein Eigentum erben würden. Der Ehevertrag hätte spezifiziert, was jede Partei in die Ehe einbrachte: Land, Vieh, Haushaltsgüter, Münzen. Diese Vereinbarungen waren ernste Angelegenheiten, oft über Monate verhandelt und detailliert aufgezeichnet, um zukünftige Streitigkeiten zu verhindern.</p>
+
+            <p>Johann Bernhard und Eva Catherina gründeten ihren Haushalt in Ottobeuren und setzten die drei Generationen währende Ansässigkeit der Familie im Schatten der Abtei fort. Ihr erstes Kind, <span class="person-name">Jacob Braun</span>, wurde 1420 geboren, möglicherweise vor der formellen Ehe, was nicht ungewöhnlich war, wenn eine Braut bereits schwanger war. Fünf Jahre nach der Hochzeit kam ein bedeutsames Jahr: 1430 brachte nicht einen, sondern zwei Söhne, oder vielleicht vermischen die Aufzeichnungen zwei Geburten, die innerhalb eines Jahres voneinander stattfanden.</p>
+
+            <p><span class="person-name">Adam Luppert von Braun</span> und <span class="person-name">Blasius von Braun</span> kamen 1430 zur Welt. Das Vorhandensein des „von" in ihren Namen ist bedeutsam. Die Familie erhielt ihren Adelsstatus in die vierte Generation, gab ihn weiter von Hans Peter Adam über Christian zu Johann Bernhard und nun zu seinen Söhnen. Blasius wurde nach dem heiligen Blasius benannt, dem armenischen Bischof, der 316 gemartert wurde, dessen Festtag auf den dritten Februar fiel. Blasius wurde besonders in den deutschen Landen als Schutzpatron von Halsleiden verehrt, und an seinem Festtag segnete der Priester Kehlen mit zwei gekreuzten Kerzen. Der Name deutet darauf hin, dass die Familie ihre katholischen Andachten in einer Zeit beibehielt, als der Glaube noch universell und unangefochten war, Jahrzehnte bevor Martin Luther seine Thesen an eine Kirchentür nageln und die Christenheit entzweien würde.</p>
+
+            <img src="https://cdn2.picryl.com/photo/1250/12/31/cistercian-monks-at-work-23e0d2-small.jpg" alt="Mittelalterliche Mönche bei der Arbeit">
+            <p class="img-caption">Zisterziensermönche bei der Arbeit — Mittelalterliche Handschriftenillustration, die das klösterliche Alltagsleben zeigt, ca. 13. Jahrhundert</p>
+
+            <h2>Die Welt von 1430</h2>
+
+            <p>Das Geburtsjahr von Blasius und Adam kam achtzig Jahre nach dem ersten Pestausbruch. Europa hatte begonnen, sich zu erholen, wenn auch langsam. Die Bevölkerung kroch wieder nach oben. Dörfer, die aufgegeben worden waren, wurden neu besiedelt. Felder, die verwildert waren, wurden wieder gepflügt. Aber die Pest war nicht verschwunden. Sie kehrte im fünfzehnten Jahrhundert in Wellen zurück, schlug hier und dort mit scheinbar zufälliger Grausamkeit zu, raffte die Jungen und Gesunden dahin, verschonte andere ohne erkennbaren Grund.</p>
+
+            <p>In Ottobeuren speziell trat die Abtei in eine Phase des Niedergangs ein, die 1471 ihren Tiefpunkt erreichen würde, als nur noch zwei Mönche blieben. Die großen grundbesitzenden Klöster des Mittelalters kämpften darum, sich in einem Zeitalter sich verändernder Wirtschaft und sich verschiebender Machtverhältnisse zu behaupten. Der Schwarze Tod hatte ihre Arbeitskräfte und ihre Einnahmenquellen unterbrochen. Jüngere Söhne adliger Familien, die in früheren Jahrhunderten in Klöster geschickt worden sein könnten, um Mönche und Verwalter zu werden, suchten nun eher ihr Glück in den wachsenden Städten oder im Militärdienst von Fürsten und Kaisern. Die Abtei in Ottobeuren, einst ein Leuchtturm der Gelehrsamkeit und Frömmigkeit, wurde zunehmend als Wirtschaftsunternehmen geführt, ihre Äbte mehr besorgt um die Verwaltung von Gütern und das Eintreiben von Einnahmen als um das geistliche Leben ihrer Mönche.</p>
+
+            <p>Dennoch blieb die Abtei für eine Familie wie die Brauns das Zentrum ihrer Welt. Die Kirchenglocken ordneten noch immer den Tag. Der Abt hatte noch immer die Gerichtsbarkeit über lokale Streitigkeiten. Das Gericht der Abtei sprach noch immer Recht. Das Kloster besaß noch immer die Mühlen, wo Getreide gemahlen wurde, und die Öfen, wo Brot gebacken wurde, und jeder Haushalt zahlte seine Gebühren für diese Dienstleistungen.</p>
+
+            <h2>Das Ende einer Ära</h2>
+
+            <p>Johann Bernhards Frau, <span class="person-name">Eva Catherina Bauer</span>, starb 1448 im Alter von zweiundvierzig Jahren. Sie wurde auf dem Friedhof der Abtei begraben, jenem geweihten Boden, der seit sieben Jahrhunderten die Toten von Ottobeuren aufgenommen hatte. Kein Stein markierte ihr Grab, oder wenn doch, hat er nicht überlebt. Solche Denkmäler waren Äbten und großen Adligen vorbehalten, nicht den Frauen des niederen Adels. Aber ihre Söhne erinnerten sich an sie, und ihr Name ist durch die sorgfältigen Aufzeichnungen zu uns gekommen, die jemand, irgendwo, über die Jahrhunderte geführt hat.</p>
+
+            <p>Zwei Jahre später, 1450, starb <span class="person-name">Johann Bernhard Braun</span> selbst. Er war fünfzig Jahre alt, was für die Zeit kein schlechtes Alter war. Er hatte die Kindheit überlebt, die gefährlichste Lebenszeit. Er hatte bis zum Erwachsenenalter überlebt und geheiratet und Kinder gezeugt. Er hatte Pestjahre und Ernteausfälle überstanden, kalte Winter und nasse Sommer. Er hatte den Status seiner Familie bewahrt und an seine Söhne weitergegeben. Im großen Hauptbuch mittelalterlicher Leben zählte dies als Erfolg.</p>
+
+            <p>Er hinterließ drei Söhne: Jacob, nun dreißig Jahre alt; Adam Luppert, zwanzig; und Blasius, ebenfalls zwanzig. Die beiden jüngeren würden lange Leben führen, Blasius bis 1510 und Adam bis 1499, die gesamte zweite Hälfte des fünfzehnten Jahrhunderts umspannend. Sie würden das Ende des Mittelalters und den Beginn der Frühen Neuzeit bezeugen. Sie würden sehen, wie die Osmanen 1453 Konstantinopel eroberten und das tausendjährige Byzantinische Reich beendeten. Sie würden die Rosenkriege in England durchleben, die Konsolidierung Frankreichs unter Ludwig XI., die Heirat von Ferdinand und Isabella, die Spanien vereinigen würde. Adam würde nur sieben Jahre nach Christoph Kolumbus' Erreichen Amerikas sterben, obwohl er vielleicht nie von dieser Reise gehört hätte.</p>
+
+            <p>Aber unmittelbar relevanter für unsere Geschichte wären Johann Bernhards Söhne die Generation, die Ottobeuren verließ. Die Familie, die dort mindestens vier Generationen verwurzelt gewesen war, die den Schwarzen Tod und seine Nachwehen überlebt hatte, die ihren Adelsstatus durch sich verändernde Zeiten bewahrt hatte, würde nicht für immer im Schatten der Abtei bleiben. Irgendwo in den Aufzeichnungen, in den Lücken zwischen dem, was wir wissen, und dem, was wir nur vermuten können, wurde die Entscheidung getroffen zu gehen.</p>
+
+            <div class="historical-note">
+                Die mittleren Jahrzehnte des fünfzehnten Jahrhunderts sahen zunehmende Mobilität durch die deutschen Lande. Die Pest hatte Chancen ebenso geschaffen wie Tragödien. Leeres Land konnte beansprucht, freie Positionen besetzt werden. Die alten Bindungen, die Bauern an Gutshöfe gefesselt hatten, lockerten sich. Selbst Adelsfamilien waren in Bewegung, suchten bessere Aussichten, flohen vor lokalen Konflikten, verfolgten Möglichkeiten in den wachsenden Städten oder im Dienst von Fürsten. Der Schwarzwald, jene große Weite von Bergen und Tälern westlich von Schwaben, wurde für neue Besiedlung erschlossen. Klöster dort brauchten Verwalter, Dörfer brauchten Handwerker, Herren brauchten Soldaten und Verwalter. Die ruhelosen jüngeren Söhne des niederen Adels konnten dort Rollen finden, die Ottobeuren mit seinen etablierten Hierarchien und begrenzten Möglichkeiten nicht bieten konnte.
+            </div>
+
+            <h2>Das Erbe von Ottobeuren</h2>
+
+            <p>Fast ein Jahrhundert lang, von Hans Peter Adams Geburt 1352 bis Johann Bernhards Tod 1450, nannte die Familie Braun Ottobeuren ihr Zuhause. Vier Generationen wurden dort geboren, in der Abteikirche getauft, dort verheiratet, auf ihrem Friedhof begraben. Sie lebten durch die größte Katastrophe der europäischen Geschichte und überlebten sie. Sie behielten ihren Status als Adel in einer Welt bei, in der solche Unterscheidungen weniger absolut wurden. Sie passten sich den tiefgreifenden wirtschaftlichen und sozialen Veränderungen der Zeit nach der Pest an, während sie ihre Identität und ihren Namen bewahrten.</p>
+
+            <p>Als Blasius und Adam Ottobeuren irgendwann nach dem Tod ihres Vaters verließen, trugen sie dieses Erbe mit sich. Sie trugen die Erinnerung an die große Abtei und ihre Glocken, den Rhythmus des landwirtschaftlichen Jahres, die Pflichten und Privilegien ihres Standes. Sie trugen den Namen ihres Vaters und den Namen ihres Großvaters, zurückreichend durch Christian zu Hans Peter Adam. Sie trugen das „von", das sie als Adlige kennzeichnete, obwohl dieses Partikel nicht viele weitere Generationen überleben würde.</p>
+
+            <p>Sie trugen auch, ob sie es wussten oder nicht, die Widerstandsfähigkeit einer Familie, die durchgehalten hatte. Der Schwarze Tod hatte die Hälfte Europas getötet, aber die Brauns hatten gelebt. Die Hungersnöte und Klimaveränderungen des vierzehnten Jahrhunderts hatten Tausende von Familien zerstört, aber die Brauns hatten bestanden. Sie hatten sich mit den sich verändernden Zeiten gebeugt, aber nicht gebrochen. Diese Fähigkeit zur Anpassung, zum Überleben, sich zu bewegen, wenn nötig, und Wurzeln zu schlagen, wenn möglich, würde sich als ihr wertvollstes Erbe erweisen.</p>
+
+            <p>Die Festung Ottobeuren, jenes große Kloster, das sie beschützt und geformt hatte, würde ihre eigene bewegte Reise durch die Geschichte fortsetzen. Es würde 1471 seinen Tiefpunkt erreichen, dann sich langsam erholen. 1802 würde es in der Säkularisation der Kirchengüter aufgelöst und achtundvierzig Mönche zerstreut werden. Doch achtzehn von ihnen würden hartnäckig bleiben und die Tradition am Leben erhalten, bis die Abtei 1835 wiederhergestellt wurde. Heute, mehr als zwölfeinhalb Jahrhunderte nach ihrer Gründung, beten und arbeiten noch immer Benediktinermönche in Ottobeuren. Die barocke Basilika, die jetzt dort steht, im achtzehnten Jahrhundert erbaut, erhebt sich über demselben Boden, auf dem einst Hans Peter Adam Braun und seine Nachkommen wandelten.</p>
+
+            <p>Aber die Brauns selbst waren um 1450 aus Ottobeuren fort, westwärts in den Schwarzwald gezogen, in neue Länder und neue Leben, mit sich nur ihre Namen und ihre Erinnerungen tragend und welche Werkzeuge und Güter sie auch immer auf einen Wagen laden konnten. Der nächste Teil ihrer Geschichte würde sich in anderen Tälern entfalten, unter anderen Herren, in einer Landschaft tiefer Wälder und hoher Berge, ganz anders als das sanft hügelige schwäbische Ackerland ihrer Geburt.</p>
+
+            <p>Die Festung hatte sie ein Jahrhundert lang beschützt. Nun mussten sie ihren eigenen Weg gehen.</p>
+        </div>
+        
+        <footer>
+            <p>Teil Eins: Die Festung (1352–1450) | Die Festung und die Axt: Eine Familiengeschichte</p>
+            <p>Von den Benediktinerländern Schwabens zum Schwarzwald und darüber hinaus</p>
+        </footer>
+    </div>
+</body>
+</html>
