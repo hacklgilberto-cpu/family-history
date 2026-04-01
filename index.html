@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fortress and the Axe: A Family History</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            line-height: 1.8;
+            color: #2c2c2c;
+            background: #f8f6f0;
+            padding: 0;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #8b7355;
+            background: white;
+            color: #6b5639;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-btn:hover {
+            background: #8b7355;
+            color: white;
+        }
+
+        .lang-btn.active {
+            background: #6b5639;
+            color: white;
+            border-color: #6b5639;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
+            color: #f4f1e8;
+            padding: 60px 40px 40px 40px;
+            border-bottom: 4px solid #8b7355;
+        }
+
+        .title-main {
+            font-size: 2.8em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-variant: small-caps;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            color: #c4b5a0;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .period {
+            font-size: 1.1em;
+            color: #8b7355;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        .content {
+            padding: 50px 60px 60px 60px;
+        }
+
+        .chapter-intro {
+            font-size: 1.15em;
+            font-style: italic;
+            color: #5a5a5a;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #faf8f3;
+            border-left: 4px solid #8b7355;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #3d2817;
+            margin: 50px 0 25px 0;
+            font-weight: 400;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #e6dcc9;
+            padding-bottom: 10px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+
+        .historical-note {
+            background: #f5f2eb;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #a08968;
+            font-size: 0.98em;
+            color: #4a4a4a;
+        }
+
+        .toc {
+            list-style: none;
+            margin: 10px 0 30px 0;
+            padding: 0;
+        }
+
+        .toc-item {
+            border-bottom: 1px solid #e6dcc9;
+        }
+
+        .toc-item:last-child {
+            border-bottom: none;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 22px 0 18px 0;
+            text-decoration: none;
+            color: #2c2c2c;
+            transition: background 0.2s;
+        }
+
+        .toc-link:hover .toc-title {
+            color: #6b5639;
+        }
+
+        .toc-link:hover .toc-arrow {
+            transform: translateX(4px);
+        }
+
+        .toc-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .toc-title {
+            font-size: 1.25em;
+            font-weight: 400;
+            color: #3d2817;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .toc-dates {
+            font-size: 0.95em;
+            color: #8b7355;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .toc-description {
+            margin-top: 6px;
+            font-size: 0.98em;
+            font-style: italic;
+            color: #5a5a5a;
+        }
+
+        .toc-arrow {
+            display: inline-block;
+            margin-left: 8px;
+            color: #8b7355;
+            font-style: normal;
+            transition: transform 0.2s;
+        }
+
+        .divider {
+            border: none;
+            border-top: 2px solid #e6dcc9;
+            margin: 40px 0;
+        }
+
+        footer {
+            background: #3d3d3d;
+            color: #c4b5a0;
+            padding: 30px 60px;
+            font-size: 0.9em;
+            text-align: center;
+            border-top: 4px solid #8b7355;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+            header {
+                padding: 40px 25px 30px 25px;
+            }
+            .title-main {
+                font-size: 2em;
+            }
+            footer {
+                padding: 25px;
+            }
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px;
+                gap: 6px;
+            }
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            .toc-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <a href="index_PT.html" class="lang-btn">PT-BR</a>
+        <a href="index.html" class="lang-btn active">EN</a>
+        <a href="index_DE.html" class="lang-btn">DE</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="title-main">The Fortress and the Axe</div>
+            <div class="subtitle">A History of the Braun Family</div>
+            <div class="period">1352 — Present</div>
+        </header>
+
+        <div class="content">
+            <div class="chapter-intro">
+                From the serene, ordered world of a Benedictine monastery town in Swabia, through the deep valleys and high ridges of the Black Forest, and onward across centuries of change — this is the story of the Braun family. A family shaped first by the shelter of the fortress, and then by the work of the axe.
+            </div>
+
+            <h2>A History in Two Worlds</h2>
+
+            <p>Every family carries within it the memory of two forces: the impulse to hold fast, and the impulse to move on. For the Braun family, these two forces are written into their history as plainly as the names recorded in parish registers and abbey books across seven centuries. The first world was the fortress — stable, ancient, ecclesiastical. The second was the forest — dark, demanding, and open to those willing to claim it.</p>
+
+            <p>The story begins in <span style="font-style: italic; color: #5a4a3a;">Ottobeuren</span>, a small town in the Swabian uplands of southern Germany, where the great Benedictine abbey had governed the spiritual and temporal lives of its people since the year 764. Here, in the generation that followed the Black Death, the Braun family — bearing the noble particle <em>von</em> before their name — lived in the long shadow of the abbey's bells. They were neither great lords nor common labourers, but that modest, essential class of minor nobility whose lives were bound to the land, to the church, and to the rhythms of a world that had remained largely unchanged for four centuries.</p>
+
+            <p>What changed that world was not a single event but a slow accumulation of pressures: the devastating plague of 1347–53, the resulting collapse of old manorial bonds, the restlessness of younger sons, and the opening of new lands to the west. The Black Forest — the <span style="font-style: italic; color: #5a4a3a;">Schwarzwald</span> — beckoned. Monasteries there needed stewards, clearings needed hands, and the children of Swabia's minor gentry carried exactly the skills and the legal standing such a frontier required.</p>
+
+            <div class="historical-note">
+                The transition from the Benedictine heartland of Swabia to the Black Forest was not merely a change of geography. It was a change of identity. The Ottobeuren world was one of established order: abbey courts, manorial rolls, feast-day processions, and the steady ringing of canonical hours. The Black Forest world demanded something different — physical courage, practical skill, and the willingness to begin again in a landscape that offered rich resources only to those who worked hard enough to extract them. The axe, the woodsman's tool, became the symbol of that transformation.
+            </div>
+
+            <hr class="divider">
+
+            <h2>Chapters</h2>
+
+            <ul class="toc">
+                <li class="toc-item">
+                    <a href="Part_1_The_Fortress_1352_1450_EN.html" class="toc-link">
+                        <div class="toc-header">
+                            <span class="toc-title">Part I: The Fortress<span class="toc-arrow">›</span></span>
+                            <span class="toc-dates">1352 – 1450</span>
+                        </div>
+                        <div class="toc-description">Survival through the Black Death and life under the Ottobeuren Abbey. Four generations of the Braun family take root in the Benedictine lands of Swabia, enduring plague, famine, and the slow unravelling of the medieval order.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="Part_2_Into_the_Forest_1450_1700_EN.html" class="toc-link">
+                        <div class="toc-header">
+                            <span class="toc-title">Part II: Into the Forest<span class="toc-arrow">›</span></span>
+                            <span class="toc-dates">1450 – 1700</span>
+                        </div>
+                        <div class="toc-description">The migration westward and the clearing of the Black Forest. With the fortress of Ottobeuren behind them, the Brauns push into the deep valleys of the <em>Schwarzwald</em>, becoming pioneers, woodsmen, and settlers in a rougher, freer world.</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>The Fortress and the Axe: A Family History</p>
+            <p>From the Benedictine lands of Swabia to the Black Forest and beyond</p>
+        </footer>
+    </div>
+</body>
+</html>
