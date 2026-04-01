@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Fortaleza e o Machado: Uma História de Família</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            line-height: 1.8;
+            color: #2c2c2c;
+            background: #f8f6f0;
+            padding: 0;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #8b7355;
+            background: white;
+            color: #6b5639;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-btn:hover {
+            background: #8b7355;
+            color: white;
+        }
+
+        .lang-btn.active {
+            background: #6b5639;
+            color: white;
+            border-color: #6b5639;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
+            color: #f4f1e8;
+            padding: 60px 40px 40px 40px;
+            border-bottom: 4px solid #8b7355;
+        }
+
+        .title-main {
+            font-size: 2.8em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-variant: small-caps;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            color: #c4b5a0;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .period {
+            font-size: 1.1em;
+            color: #8b7355;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        .content {
+            padding: 50px 60px 60px 60px;
+        }
+
+        .chapter-intro {
+            font-size: 1.15em;
+            font-style: italic;
+            color: #5a5a5a;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #faf8f3;
+            border-left: 4px solid #8b7355;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #3d2817;
+            margin: 50px 0 25px 0;
+            font-weight: 400;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #e6dcc9;
+            padding-bottom: 10px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+
+        .historical-note {
+            background: #f5f2eb;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #a08968;
+            font-size: 0.98em;
+            color: #4a4a4a;
+        }
+
+        .toc {
+            list-style: none;
+            margin: 10px 0 30px 0;
+            padding: 0;
+        }
+
+        .toc-item {
+            border-bottom: 1px solid #e6dcc9;
+        }
+
+        .toc-item:last-child {
+            border-bottom: none;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 22px 0 18px 0;
+            text-decoration: none;
+            color: #2c2c2c;
+            transition: background 0.2s;
+        }
+
+        .toc-link:hover .toc-title {
+            color: #6b5639;
+        }
+
+        .toc-link:hover .toc-arrow {
+            transform: translateX(4px);
+        }
+
+        .toc-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .toc-title {
+            font-size: 1.25em;
+            font-weight: 400;
+            color: #3d2817;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .toc-dates {
+            font-size: 0.95em;
+            color: #8b7355;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .toc-description {
+            margin-top: 6px;
+            font-size: 0.98em;
+            font-style: italic;
+            color: #5a5a5a;
+        }
+
+        .toc-arrow {
+            display: inline-block;
+            margin-left: 8px;
+            color: #8b7355;
+            font-style: normal;
+            transition: transform 0.2s;
+        }
+
+        .divider {
+            border: none;
+            border-top: 2px solid #e6dcc9;
+            margin: 40px 0;
+        }
+
+        footer {
+            background: #3d3d3d;
+            color: #c4b5a0;
+            padding: 30px 60px;
+            font-size: 0.9em;
+            text-align: center;
+            border-top: 4px solid #8b7355;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+            header {
+                padding: 40px 25px 30px 25px;
+            }
+            .title-main {
+                font-size: 2em;
+            }
+            footer {
+                padding: 25px;
+            }
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px;
+                gap: 6px;
+            }
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            .toc-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <a href="index_PT.html" class="lang-btn active">PT-BR</a>
+        <a href="index.html" class="lang-btn">EN</a>
+        <a href="index_DE.html" class="lang-btn">DE</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="title-main">A Fortaleza e o Machado</div>
+            <div class="subtitle">Uma História da Família Braun</div>
+            <div class="period">1352 — Presente</div>
+        </header>
+
+        <div class="content">
+            <div class="chapter-intro">
+                Do mundo sereno e ordenado de uma cidade monástica beneditina na Suábia, passando pelos vales profundos e cumeadas altas da Floresta Negra, até além dos séculos de transformação — esta é a história da família Braun. Uma família moldada primeiro pelo abrigo da fortaleza, e depois pelo trabalho do machado.
+            </div>
+
+            <h2>Uma História em Dois Mundos</h2>
+
+            <p>Toda família carrega em si a memória de duas forças: o impulso de manter-se firme e o impulso de seguir em frente. Para a família Braun, essas duas forças estão escritas em sua história com a mesma clareza dos nomes registrados em livros paroquiais e registros abaciais ao longo de sete séculos. O primeiro mundo foi a fortaleza — estável, antiga, eclesiástica. O segundo foi a floresta — sombria, exigente e aberta àqueles dispostos a conquistá-la.</p>
+
+            <p>A história começa em <span style="font-style: italic; color: #5a4a3a;">Ottobeuren</span>, uma pequena cidade nos planaltos suábios do sul da Alemanha, onde a grande abadia beneditina governava a vida espiritual e temporal de seu povo desde o ano 764. Ali, na geração que se seguiu à Peste Negra, a família Braun — portando a partícula nobre <em>von</em> antes do sobrenome — vivia à longa sombra dos sinos da abadia. Não eram grandes senhores nem trabalhadores comuns, mas pertenciam àquela classe modesta e essencial da pequena nobreza cujas vidas estavam ligadas à terra, à Igreja e aos ritmos de um mundo que permanecera em grande parte inalterado durante quatro séculos.</p>
+
+            <p>O que transformou esse mundo não foi um único evento, mas uma lenta acumulação de pressões: a devastadora peste de 1347–53, o consequente colapso dos antigos vínculos senhoriais, a inquietação dos filhos mais novos e a abertura de novas terras a oeste. A Floresta Negra — a <span style="font-style: italic; color: #5a4a3a;">Schwarzwald</span> — acenava. Os mosteiros de lá precisavam de administradores, as clareiras precisavam de braços, e os filhos da pequena nobreza suábia possuíam exatamente as habilidades e a condição jurídica que aquela fronteira exigia.</p>
+
+            <div class="historical-note">
+                A transição do coração beneditino da Suábia para a Floresta Negra não foi apenas uma mudança geográfica. Foi uma mudança de identidade. O mundo de Ottobeuren era de ordem estabelecida: tribunais abaciais, registros senhoriais, procissões em dias santos e o soar constante das horas canônicas. O mundo da Floresta Negra exigia algo diferente — coragem física, habilidade prática e a disposição de recomeçar em uma paisagem que oferecia recursos abundantes apenas a quem trabalhasse com afinco para extraí-los. O machado, ferramenta do lenhador, tornou-se o símbolo dessa transformação.
+            </div>
+
+            <hr class="divider">
+
+            <h2>Capítulos</h2>
+
+            <ul class="toc">
+                <li class="toc-item">
+                    <a href="Part_1_The_Fortress_1352_1450_EN.html" class="toc-link">
+                        <div class="toc-header">
+                            <span class="toc-title">Parte I: A Fortaleza<span class="toc-arrow">›</span></span>
+                            <span class="toc-dates">1352 – 1450</span>
+                        </div>
+                        <div class="toc-description">A sobrevivência à Peste Negra e a vida sob a Abadia de Ottobeuren. Quatro gerações da família Braun lançam raízes nas terras beneditinas da Suábia, resistindo à peste, à fome e ao lento desmoronamento da ordem medieval.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="Part_2_Into_the_Forest_1450_1700_EN.html" class="toc-link">
+                        <div class="toc-header">
+                            <span class="toc-title">Parte II: Para a Floresta<span class="toc-arrow">›</span></span>
+                            <span class="toc-dates">1450 – 1700</span>
+                        </div>
+                        <div class="toc-description">A migração para o oeste e o desbravamento da Floresta Negra. Com a fortaleza de Ottobeuren para trás, os Braun adentram os vales profundos da <em>Schwarzwald</em>, tornando-se pioneiros, lenhadores e colonos em um mundo mais áspero e mais livre.</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>A Fortaleza e o Machado: Uma História de Família</p>
+            <p>Das terras beneditinas da Suábia à Floresta Negra e além</p>
+        </footer>
+    </div>
+</body>
+</html>
