@@ -5,249 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Fortress and the Axe: A Family History</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Garamond', 'Georgia', serif;
-            line-height: 1.8;
-            color: #2c2c2c;
-            background: #f8f6f0;
-            padding: 0;
-        }
-
-        .language-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .lang-btn {
-            padding: 8px 16px;
-            border: 2px solid #8b7355;
-            background: white;
-            color: #6b5639;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .lang-btn:hover {
-            background: #8b7355;
-            color: white;
-        }
-
-        .lang-btn.active {
-            background: #6b5639;
-            color: white;
-            border-color: #6b5639;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 40px rgba(0,0,0,0.1);
-        }
-
-        header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
-            color: #f4f1e8;
-            padding: 60px 40px 40px 40px;
-            border-bottom: 4px solid #8b7355;
-        }
-
-        .title-main {
-            font-size: 2.8em;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            font-variant: small-caps;
-        }
-
-        .subtitle {
-            font-size: 1.3em;
-            font-weight: 300;
-            color: #c4b5a0;
-            font-style: italic;
-            margin-bottom: 25px;
-        }
-
-        .period {
-            font-size: 1.1em;
-            color: #8b7355;
-            letter-spacing: 3px;
-            font-weight: 400;
-        }
-
-        .content {
-            padding: 50px 60px 60px 60px;
-        }
-
-        .chapter-intro {
-            font-size: 1.15em;
-            font-style: italic;
-            color: #5a5a5a;
-            margin-bottom: 40px;
-            padding: 25px;
-            background: #faf8f3;
-            border-left: 4px solid #8b7355;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            color: #3d2817;
-            margin: 50px 0 25px 0;
-            font-weight: 400;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #e6dcc9;
-            padding-bottom: 10px;
-        }
-
-        h2:first-of-type {
-            margin-top: 0;
-        }
-
-        p {
-            margin-bottom: 20px;
-            text-align: justify;
-            font-size: 1.05em;
-        }
-
-        .historical-note {
-            background: #f5f2eb;
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 4px solid #a08968;
-            font-size: 0.98em;
-            color: #4a4a4a;
-        }
-
-        .toc {
-            list-style: none;
-            margin: 10px 0 30px 0;
-            padding: 0;
-        }
-
-        .toc-item {
-            border-bottom: 1px solid #e6dcc9;
-        }
-
-        .toc-item:last-child {
-            border-bottom: none;
-        }
-
-        .toc-link {
-            display: block;
-            padding: 22px 0 18px 0;
-            text-decoration: none;
-            color: #2c2c2c;
-            transition: background 0.2s;
-        }
-
-        .toc-link:hover .toc-title {
-            color: #6b5639;
-        }
-
-        .toc-link:hover .toc-arrow {
-            transform: translateX(4px);
-        }
-
-        .toc-header {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .toc-title {
-            font-size: 1.25em;
-            font-weight: 400;
-            color: #3d2817;
-            font-variant: small-caps;
-            letter-spacing: 1px;
-            transition: color 0.2s;
-        }
-
-        .toc-dates {
-            font-size: 0.95em;
-            color: #8b7355;
-            letter-spacing: 2px;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .toc-description {
-            margin-top: 6px;
-            font-size: 0.98em;
-            font-style: italic;
-            color: #5a5a5a;
-        }
-
-        .toc-arrow {
-            display: inline-block;
-            margin-left: 8px;
-            color: #8b7355;
-            font-style: normal;
-            transition: transform 0.2s;
-        }
-
-        .divider {
-            border: none;
-            border-top: 2px solid #e6dcc9;
-            margin: 40px 0;
-        }
-
-        footer {
-            background: #3d3d3d;
-            color: #c4b5a0;
-            padding: 30px 60px;
-            font-size: 0.9em;
-            text-align: center;
-            border-top: 4px solid #8b7355;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Garamond', 'Georgia', serif; line-height: 1.8; color: #2c2c2c; background: #f8f6f0; padding: 0; }
+        .language-switcher { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 10px; background: rgba(255,255,255,0.95); padding: 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .lang-btn { padding: 8px 16px; border: 2px solid #8b7355; background: white; color: #6b5639; cursor: pointer; font-size: 14px; font-weight: 600; border-radius: 4px; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .lang-btn:hover { background: #8b7355; color: white; }
+        .lang-btn.active { background: #6b5639; color: white; border-color: #6b5639; }
+        .container { max-width: 800px; margin: 0 auto; background: white; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
+        header { background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%); color: #f4f1e8; padding: 60px 40px 40px 40px; border-bottom: 4px solid #8b7355; }
+        .title-main { font-size: 2.8em; font-weight: 300; letter-spacing: 2px; margin-bottom: 15px; font-variant: small-caps; }
+        .subtitle { font-size: 1.3em; font-weight: 300; color: #c4b5a0; font-style: italic; margin-bottom: 25px; }
+        .period { font-size: 1.1em; color: #8b7355; letter-spacing: 3px; font-weight: 400; }
+        .content { padding: 50px 60px 60px 60px; }
+        .chapter-intro { font-size: 1.15em; font-style: italic; color: #5a5a5a; margin-bottom: 40px; padding: 25px; background: #faf8f3; border-left: 4px solid #8b7355; }
+        h2 { font-size: 1.8em; color: #3d2817; margin: 50px 0 25px 0; font-weight: 400; letter-spacing: 1px; border-bottom: 2px solid #e6dcc9; padding-bottom: 10px; }
+        h2:first-of-type { margin-top: 0; }
+        p { margin-bottom: 20px; text-align: justify; font-size: 1.05em; }
+        img { width: 100%; height: auto; margin: 35px 0; border: 1px solid #c4b5a0; cursor: pointer; }
+        .img-caption { text-align: center; font-style: italic; color: #6b5639; font-size: 0.9em; margin-top: -25px; margin-bottom: 35px; }
+        .historical-note { background: #f5f2eb; padding: 25px; margin: 30px 0; border-left: 4px solid #a08968; font-size: 0.98em; color: #4a4a4a; }
+        .chapter-cards { display: flex; flex-direction: column; gap: 14px; margin: 10px 0 30px 0; }
+        .chapter-card { display: block; text-decoration: none; color: #2c2c2c; background: #fffdf8; border: 1px solid #d4c9b0; border-left: 5px solid #8b7355; border-radius: 6px; padding: 22px 26px; transition: all 0.25s ease; box-shadow: 0 1px 5px rgba(0,0,0,0.06); }
+        .chapter-card:hover { border-left-color: #5a3e20; box-shadow: 0 5px 18px rgba(0,0,0,0.13); transform: translateY(-2px); background: white; }
+        .chapter-card:hover .card-title { color: #5a3e20; }
+        .card-header { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 8px; }
+        .card-title { font-size: 1.2em; font-weight: 400; color: #3d2817; font-variant: small-caps; letter-spacing: 1px; transition: color 0.2s; }
+        .card-dates { font-size: 0.9em; color: #8b7355; letter-spacing: 2px; white-space: nowrap; flex-shrink: 0; background: #f0ebe0; padding: 3px 9px; border-radius: 12px; }
+        .card-description { font-size: 0.97em; font-style: italic; color: #5a5a5a; line-height: 1.6; }
+        .card-cta { margin-top: 12px; font-size: 0.88em; color: #8b7355; font-weight: 600; letter-spacing: 0.5px; }
+        @media (max-width: 768px) { .card-header { flex-direction: column; gap: 6px; } }
+        .divider { border: none; border-top: 2px solid #e6dcc9; margin: 40px 0; }
+        .surname-list { font-size: 1.05em; color: #3d2817; font-weight: 500; }
+        footer { background: #3d3d3d; color: #c4b5a0; padding: 30px 60px; font-size: 0.9em; text-align: center; border-top: 4px solid #8b7355; }
         @media (max-width: 768px) {
-            .content {
-                padding: 30px 25px;
-            }
-            header {
-                padding: 40px 25px 30px 25px;
-            }
-            .title-main {
-                font-size: 2em;
-            }
-            footer {
-                padding: 25px;
-            }
-            .language-switcher {
-                top: 10px;
-                right: 10px;
-                padding: 8px;
-                gap: 6px;
-            }
-            .lang-btn {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-            .toc-header {
-                flex-direction: column;
-                gap: 4px;
-            }
+            .content { padding: 30px 25px; }
+            header { padding: 40px 25px 30px 25px; }
+            .title-main { font-size: 2em; }
+            footer { padding: 25px; }
+            .language-switcher { top: 10px; right: 10px; padding: 8px; gap: 6px; }
+            .lang-btn { padding: 6px 12px; font-size: 12px; }
+            .toc-header { flex-direction: column; gap: 4px; }
         }
     </style>
 </head>
@@ -261,56 +58,86 @@
     <div class="container">
         <header>
             <div class="title-main">The Fortress and the Axe</div>
-            <div class="subtitle">A History of the Braun Family</div>
+            <div class="subtitle">A Family History of the Hackl and Würzburger Lines</div>
             <div class="period">1352 — Present</div>
         </header>
 
         <div class="content">
             <div class="chapter-intro">
-                From the serene, ordered world of a Benedictine monastery town in Swabia, through the deep valleys and high ridges of the Black Forest, and onward across centuries of change — this is the story of the Braun family. A family shaped first by the shelter of the fortress, and then by the work of the axe.
+                This is the story of two families that crossed the Atlantic from different corners of the German-speaking world and found each other in Brazil. It begins in 1352 — not with the Hackl name or the Würzburger name, but with a family called von Braun, in a Benedictine monastery town in Swabia. From that distant root, through six centuries and dozens of surnames, two lines descend: one through the Black Forest to the Glottertal, the other through the volcanic hills of Styria to the streets of Graz. Both end in Paraná, Brazil, where a carpenter's daughter from the highlands married a porter's son from the tropics, and a new family began.
             </div>
 
-            <h2>A History in Two Worlds</h2>
+            <h2>The Families in This Story</h2>
 
-            <p>Every family carries within it the memory of two forces: the impulse to hold fast, and the impulse to move on. For the Braun family, these two forces are written into their history as plainly as the names recorded in parish registers and abbey books across seven centuries. The first world was the fortress — stable, ancient, ecclesiastical. The second was the forest — dark, demanding, and open to those willing to claim it.</p>
+            <p>When Gilberto Hackl, born in São Paulo in 1982, began tracing his family's origins, he expected to find two lines: his grandfather <span class="surname-list">Friedrich Hackl</span> from Austria and his grandmother <span class="surname-list">Elisabeth Würzburger</span> from Germany. What he found instead was a web of families stretching back nearly seven hundred years, each name a thread in a tapestry that spans the breadth of Central Europe.</p>
 
-            <p>The story begins in <span style="font-style: italic; color: #5a4a3a;">Ottobeuren</span>, a small town in the Swabian uplands of southern Germany, where the great Benedictine abbey had governed the spiritual and temporal lives of its people since the year 764. Here, in the generation that followed the Black Death, the Braun family — bearing the noble particle <em>von</em> before their name — lived in the long shadow of the abbey's bells. They were neither great lords nor common labourers, but that modest, essential class of minor nobility whose lives were bound to the land, to the church, and to the rhythms of a world that had remained largely unchanged for four centuries.</p>
+            <p>On the Würzburger side, the trail leads back through the Black Forest villages of the Glottertal and Heuweiler, through a succession of families whose names still echo in those valleys today: <span class="surname-list">Würzburger</span> of Föhrental (from the 1710s), <span class="surname-list">Gehri</span> of Wildtal, <span class="surname-list">Schwehr</span> of Heuweiler (from the 1680s), <span class="surname-list">Gschwander</span> of Glottertal, <span class="surname-list">Schill</span>, <span class="surname-list">Merz</span>, <span class="surname-list">Reichenbach</span>, <span class="surname-list">Beck</span>, <span class="surname-list">Rüd/Ruth</span> of Simonswald, <span class="surname-list">Wehrle</span>, <span class="surname-list">Widmann</span>, <span class="surname-list">Ihringer</span>, <span class="surname-list">Strecker</span>, <span class="surname-list">Schurhammer</span>, <span class="surname-list">Blattmann</span>, and <span class="surname-list">Raufer</span>. Further back, the Schwehr line passes through the monastery lands of Sankt Peter as <span class="surname-list">Schwär</span>, then as <span class="surname-list">Rueff/Ruff</span>, <span class="surname-list">Dold</span>, and <span class="surname-list">Braun/von Braun</span>, reaching the Benedictine abbey town of Ottobeuren in the year 1352.</p>
 
-            <p>What changed that world was not a single event but a slow accumulation of pressures: the devastating plague of 1347–53, the resulting collapse of old manorial bonds, the restlessness of younger sons, and the opening of new lands to the west. The Black Forest — the <span style="font-style: italic; color: #5a4a3a;">Schwarzwald</span> — beckoned. Monasteries there needed stewards, clearings needed hands, and the children of Swabia's minor gentry carried exactly the skills and the legal standing such a frontier required.</p>
+            <p>On the Hackl side, the trail leads to the wine-growing hills of southeastern Styria, Austria: <span class="surname-list">Hackl/Hakl</span> of Sankt Anna am Aigen and Hochstraden (from the 1830s), <span class="surname-list">Gigl</span>, <span class="surname-list">Küschal</span> of Schöder in Upper Styria, and <span class="surname-list">Eberhard</span> of St. Peter am Kammersberg.</p>
+
+            <p>The title of this history, "The Fortress and the Axe," encodes the two oldest names in the story. The fortress is <span class="surname-list">Ottobeuren</span>, the great Benedictine abbey that sheltered the von Braun family in the fourteenth century. The axe is the <span class="surname-list">Hackl</span> name itself, derived from the Middle High German word for a small hatchet, the tool of the working man who cleared forests and shaped wood. When Friedrich Hackl married Elisabeth Würzburger in Brazil in 1955, these two traditions — the monastic shelter and the woodsman's labor, separated by five hundred years and a thousand kilometers — were united at last.</p>
+
+            <img src="Family_Tree_2.png" alt="Family tree from Hans Peter Adam von Braun (1352) to Afra Schwehr">
+            <p class="img-caption">The deep ancestry — From Hans Peter Adam von Braun in Ottobeuren (1352) through the Dold, Rueff, Schwär, and Schwehr lines to Afra Schwehr and Georg Gehri</p>
+
+            <img src="Family_Tree_1.png" alt="Family tree from Schwehr/Würzburger convergence to Elisabeth and Friedrich">
+            <p class="img-caption">The convergence — The Würzburger, Schwehr, Gschwander, Beck, Schill, Merz, and Ruth lines joining through Josef Würzburger and Anna Luise Gehri to Elisabeth, who married Friedrich Hackl</p>
 
             <div class="historical-note">
-                The transition from the Benedictine heartland of Swabia to the Black Forest was not merely a change of geography. It was a change of identity. The Ottobeuren world was one of established order: abbey courts, manorial rolls, feast-day processions, and the steady ringing of canonical hours. The Black Forest world demanded something different — physical courage, practical skill, and the willingness to begin again in a landscape that offered rich resources only to those who worked hard enough to extract them. The axe, the woodsman's tool, became the symbol of that transformation.
+                The research behind this history draws on parish Familienblätter from the Glottertal, baptismal and marriage records from the Diocese of Graz-Seckau, GEDCOM genealogical data, ship passenger manifests from the Brazilian National Archives, Austrian passports, Brazilian birth and death certificates, and the records of the Colônia Terra Nova in Castro, Paraná. Some documents were read in their original handwritten German and Portuguese; others were reconstructed from fragmentary sources. Not every date is certain. Not every connection is proven beyond doubt. But the broad arc of the story — from Swabia to the Black Forest, from Styria to Graz, from Europe to Brazil, and from Brazil to wherever the next generation carries these names — is as solid as the house that Josef Würzburger built in Terra Nova with his own hands.
             </div>
 
             <hr class="divider">
 
             <h2>Chapters</h2>
 
-            <ul class="toc">
-                <li class="toc-item">
-                    <a href="Part_1_The_Fortress_1352_1450_EN.html" class="toc-link">
-                        <div class="toc-header">
-                            <span class="toc-title">Part I: The Fortress<span class="toc-arrow">›</span></span>
-                            <span class="toc-dates">1352 – 1450</span>
-                        </div>
-                        <div class="toc-description">Survival through the Black Death and life under the Ottobeuren Abbey. Four generations of the Braun family take root in the Benedictine lands of Swabia, enduring plague, famine, and the slow unravelling of the medieval order.</div>
-                    </a>
-                </li>
-                <li class="toc-item">
-                    <a href="Part_2_Into_the_Forest_1450_1700_EN.html" class="toc-link">
-                        <div class="toc-header">
-                            <span class="toc-title">Part II: Into the Forest<span class="toc-arrow">›</span></span>
-                            <span class="toc-dates">1450 – 1700</span>
-                        </div>
-                        <div class="toc-description">The migration westward and the clearing of the Black Forest. With the fortress of Ottobeuren behind them, the Brauns push into the deep valleys of the <em>Schwarzwald</em>, becoming pioneers, woodsmen, and settlers in a rougher, freer world.</div>
-                    </a>
-                </li>
-            </ul>
+            <div class="chapter-cards">
+                <a href="Part_1_The_Fortress_1352_1450_EN.html" class="chapter-card">
+                    <div class="card-header">
+                        <span class="card-title">Part I: The Fortress</span>
+                        <span class="card-dates">1352 – 1450</span>
+                    </div>
+                    <div class="card-description">Survival through the Black Death and life under the Ottobeuren Abbey. Four generations of the von Braun family take root in the Benedictine lands of Swabia.</div>
+                    <div class="card-cta">Read chapter →</div>
+                </a>
+                <a href="Part_2_Into_the_Forest_1450_1700_EN.html" class="chapter-card">
+                    <div class="card-header">
+                        <span class="card-title">Part II: Into the Forest</span>
+                        <span class="card-dates">1450 – 1700</span>
+                    </div>
+                    <div class="card-description">The migration westward into the Black Forest. The von Braun become the Dold, the Rueff, and finally the Schwär, pioneers and craftsmen in the deep valleys of the Schwarzwald.</div>
+                    <div class="card-cta">Read chapter →</div>
+                </a>
+                <a href="Part_3_The_Valley_People_1700_1857_EN.html" class="chapter-card">
+                    <div class="card-header">
+                        <span class="card-title">Part III: The Valley People</span>
+                        <span class="card-dates">1700 – 1857</span>
+                    </div>
+                    <div class="card-description">Heuweiler, Glottertal, and the roots of departure. The Schwehr settle in the foothills while the Würzburger put down roots in Föhrental. The Ruth brothers emigrate to Canada. Afra Schwehr is born.</div>
+                    <div class="card-cta">Read chapter →</div>
+                </a>
+                <a href="Part_4_The_Other_Country_1839_1953_EN.html" class="chapter-card">
+                    <div class="card-header">
+                        <span class="card-title">Part IV: The Other Country</span>
+                        <span class="card-dates">1839 – 1953</span>
+                    </div>
+                    <div class="card-description">The Hackl family enters the story from the volcanic hills of Styria. Leonhard moves to Graz, works as a porter, raises twelve children, and boards a ship for Brazil. The mystery of Adolf.</div>
+                    <div class="card-cta">Read chapter →</div>
+                </a>
+                <a href="Part_5_Terra_Nova_1919_1955_EN.html" class="chapter-card">
+                    <div class="card-header">
+                        <span class="card-title">Part V: Terra Nova</span>
+                        <span class="card-dates">1919 – 1955</span>
+                    </div>
+                    <div class="card-description">Josef Würzburger loses his first wife, remarries, and emigrates to the Colônia Terra Nova in Castro, Paraná. His daughter Elisabeth meets Friedrich Hackl. The fortress and the axe are joined.</div>
+                    <div class="card-cta">Read chapter →</div>
+                </a>
+            </div>
         </div>
 
         <footer>
             <p>The Fortress and the Axe: A Family History</p>
-            <p>From the Benedictine lands of Swabia to the Black Forest and beyond</p>
+            <p>From Ottobeuren (1352) to São Paulo — six centuries, two continents, one family</p>
         </footer>
     </div>
 </body>

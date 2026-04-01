@@ -184,6 +184,14 @@
             letter-spacing: 1px;
         }
         
+        .chapter-nav-wrapper { padding: 0 60px 40px 60px; }
+        .chapter-nav { border-top: 2px solid #e6dcc9; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .back-link { text-decoration: none; color: #8b7355; font-size: 0.95em; letter-spacing: 0.5px; transition: color 0.2s; }
+        .back-link:hover { color: #3d2817; }
+        .next-link { text-decoration: none; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+        .next-label { font-size: 0.82em; text-transform: uppercase; letter-spacing: 1.5px; color: #8b7355; margin-bottom: 3px; }
+        .next-title { font-size: 1.15em; font-variant: small-caps; color: #3d2817; letter-spacing: 1px; transition: color 0.2s; }
+        .next-link:hover .next-title { color: #6b5639; }
         footer {
             background: #3d3d3d;
             color: #c4b5a0;
@@ -363,6 +371,15 @@
             <p>The fortress had protected them for a century. Now they would have to make their own way.</p>
         </div>
         
+        <div class="chapter-nav-wrapper">
+            <nav class="chapter-nav">
+                <a href="index.html" class="back-link">← Back to Contents</a>
+                <a href="Part_2_Into_the_Forest_1450_1700_EN.html" class="next-link">
+                    <span class="next-label">Next Chapter</span>
+                    <span class="next-title">Part II: Into the Forest →</span>
+                </a>
+            </nav>
+        </div>
         <footer>
             <p>Part One: The Fortress (1352–1450) | The Fortress and the Axe: A Family History</p>
             <p>From the Benedictine lands of Swabia to the Black Forest and beyond</p>
