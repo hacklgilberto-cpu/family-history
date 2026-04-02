@@ -24,16 +24,21 @@
         img { width: 100%; height: auto; margin: 35px 0; border: 1px solid #c4b5a0; cursor: pointer; }
         .img-caption { text-align: center; font-style: italic; color: #6b5639; font-size: 0.9em; margin-top: -25px; margin-bottom: 35px; }
         .historical-note { background: #f5f2eb; padding: 25px; margin: 30px 0; border-left: 4px solid #a08968; font-size: 0.98em; color: #4a4a4a; }
-        .chapter-cards { display: flex; flex-direction: column; gap: 14px; margin: 10px 0 30px 0; }
-        .chapter-card { display: block; text-decoration: none; color: #2c2c2c; background: #fffdf8; border: 1px solid #d4c9b0; border-left: 5px solid #8b7355; border-radius: 6px; padding: 22px 26px; transition: all 0.25s ease; box-shadow: 0 1px 5px rgba(0,0,0,0.06); }
-        .chapter-card:hover { border-left-color: #5a3e20; box-shadow: 0 5px 18px rgba(0,0,0,0.13); transform: translateY(-2px); background: white; }
-        .chapter-card:hover .card-title { color: #5a3e20; }
-        .card-header { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 8px; }
-        .card-title { font-size: 1.2em; font-weight: 400; color: #3d2817; font-variant: small-caps; letter-spacing: 1px; transition: color 0.2s; }
-        .card-dates { font-size: 0.9em; color: #8b7355; letter-spacing: 2px; white-space: nowrap; flex-shrink: 0; background: #f0ebe0; padding: 3px 9px; border-radius: 12px; }
-        .card-description { font-size: 0.97em; font-style: italic; color: #5a5a5a; line-height: 1.6; }
-        .card-cta { margin-top: 12px; font-size: 0.88em; color: #8b7355; font-weight: 600; letter-spacing: 0.5px; }
-        @media (max-width: 768px) { .card-header { flex-direction: column; gap: 6px; } }
+        .chapters-lead { font-size: 1em; color: #6b5639; margin-bottom: 22px; text-align: center; font-style: italic; }
+        .chapter-cards { display: flex; flex-direction: column; gap: 16px; margin: 10px 0 30px 0; }
+        .chapter-card { display: flex; text-decoration: none; color: #2c2c2c; border-radius: 8px; overflow: hidden; border: 1px solid #d4c9b0; transition: all 0.25s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.09); }
+        .chapter-card:hover { box-shadow: 0 6px 22px rgba(0,0,0,0.18); transform: translateY(-3px); }
+        .card-num { background: #8b7355; color: white; min-width: 72px; display: flex; align-items: center; justify-content: center; font-size: 1.6em; font-weight: 300; font-variant: small-caps; flex-shrink: 0; }
+        .chapter-card:hover .card-num { background: #5a3e20; }
+        .card-body { background: #fffdf8; flex: 1; padding: 20px 24px 16px 24px; display: flex; flex-direction: column; gap: 6px; }
+        .chapter-card:hover .card-body { background: white; }
+        .card-header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+        .card-title { font-size: 1.15em; font-weight: 600; color: #3d2817; letter-spacing: 0.5px; }
+        .card-dates { font-size: 0.85em; color: #8b7355; letter-spacing: 1.5px; white-space: nowrap; flex-shrink: 0; background: #f0ebe0; padding: 3px 9px; border-radius: 12px; }
+        .card-description { font-size: 0.95em; font-style: italic; color: #5a5a5a; line-height: 1.6; }
+        .card-cta { margin-top: 8px; display: inline-block; background: #8b7355; color: white; padding: 8px 18px; border-radius: 4px; font-size: 0.9em; font-weight: 600; letter-spacing: 0.5px; align-self: flex-start; }
+        .chapter-card:hover .card-cta { background: #5a3e20; }
+        @media (max-width: 768px) { .card-num { min-width: 54px; font-size: 1.3em; } .card-header { flex-direction: column; gap: 4px; } }
         .divider { border: none; border-top: 2px solid #e6dcc9; margin: 40px 0; }
         .surname-list { font-size: 1.05em; color: #3d2817; font-weight: 500; }
         footer { background: #3d3d3d; color: #c4b5a0; padding: 30px 60px; font-size: 0.9em; text-align: center; border-top: 4px solid #8b7355; }
@@ -46,12 +51,13 @@
             .lang-btn { padding: 3px 6px; font-size: 18px; }
             .toc-header { flex-direction: column; gap: 4px; }
         }
+        .chapter-intro, .img-caption, .card-description, .chapters-lead, .subtitle { font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.04em; }
     </style>
 </head>
 <body>
     <div class="language-switcher">
         <a href="index_PT.html" class="lang-btn">🇧🇷</a>
-        <a href="index.html" class="lang-btn active">🇬🇧</a>
+        <a href="index.html" class="lang-btn active">EN</a>
     </div>
 
     <div class="container">
@@ -90,46 +96,63 @@
 
             <h2>Chapters</h2>
 
+            <p class="chapters-lead">Click on any chapter below to begin reading.</p>
+
             <div class="chapter-cards">
                 <a href="Part_1_The_Fortress_1352_1450_EN.html" class="chapter-card">
-                    <div class="card-header">
-                        <span class="card-title">Part I: The Fortress</span>
-                        <span class="card-dates">1352 – 1450</span>
+                    <div class="card-num">I</div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-title">Part I: The Fortress</span>
+                            <span class="card-dates">1352 – 1450</span>
+                        </div>
+                        <div class="card-description">Survival through the Black Death and life under the Ottobeuren Abbey. Four generations of the von Braun family take root in the Benedictine lands of Swabia.</div>
+                        <span class="card-cta">Read chapter →</span>
                     </div>
-                    <div class="card-description">Survival through the Black Death and life under the Ottobeuren Abbey. Four generations of the von Braun family take root in the Benedictine lands of Swabia.</div>
-                    <div class="card-cta">Read chapter →</div>
                 </a>
                 <a href="Part_2_Into_the_Forest_1450_1700_EN.html" class="chapter-card">
-                    <div class="card-header">
-                        <span class="card-title">Part II: Into the Forest</span>
-                        <span class="card-dates">1450 – 1700</span>
+                    <div class="card-num">II</div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-title">Part II: Into the Forest</span>
+                            <span class="card-dates">1450 – 1700</span>
+                        </div>
+                        <div class="card-description">The migration westward into the Black Forest. The von Braun become the Dold, the Rueff, and finally the Schwär, pioneers and craftsmen in the deep valleys of the Schwarzwald.</div>
+                        <span class="card-cta">Read chapter →</span>
                     </div>
-                    <div class="card-description">The migration westward into the Black Forest. The von Braun become the Dold, the Rueff, and finally the Schwär, pioneers and craftsmen in the deep valleys of the Schwarzwald.</div>
-                    <div class="card-cta">Read chapter →</div>
                 </a>
                 <a href="Part_3_The_Valley_People_1700_1857_EN.html" class="chapter-card">
-                    <div class="card-header">
-                        <span class="card-title">Part III: The Valley People</span>
-                        <span class="card-dates">1700 – 1857</span>
+                    <div class="card-num">III</div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-title">Part III: The Valley People</span>
+                            <span class="card-dates">1700 – 1857</span>
+                        </div>
+                        <div class="card-description">Heuweiler, Glottertal, and the roots of departure. The Schwehr settle in the foothills while the Würzburger put down roots in Föhrental. The Ruth brothers emigrate to Canada. Afra Schwehr is born.</div>
+                        <span class="card-cta">Read chapter →</span>
                     </div>
-                    <div class="card-description">Heuweiler, Glottertal, and the roots of departure. The Schwehr settle in the foothills while the Würzburger put down roots in Föhrental. The Ruth brothers emigrate to Canada. Afra Schwehr is born.</div>
-                    <div class="card-cta">Read chapter →</div>
                 </a>
                 <a href="Part_4_The_Other_Country_1839_1953_EN.html" class="chapter-card">
-                    <div class="card-header">
-                        <span class="card-title">Part IV: The Other Country</span>
-                        <span class="card-dates">1839 – 1953</span>
+                    <div class="card-num">IV</div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-title">Part IV: The Other Country</span>
+                            <span class="card-dates">1839 – 1953</span>
+                        </div>
+                        <div class="card-description">The Hackl family enters the story from the volcanic hills of Styria. Leonhard moves to Graz, works as a porter, raises twelve children, and boards a ship for Brazil. The mystery of Adolf.</div>
+                        <span class="card-cta">Read chapter →</span>
                     </div>
-                    <div class="card-description">The Hackl family enters the story from the volcanic hills of Styria. Leonhard moves to Graz, works as a porter, raises twelve children, and boards a ship for Brazil. The mystery of Adolf.</div>
-                    <div class="card-cta">Read chapter →</div>
                 </a>
                 <a href="Part_5_Terra_Nova_1919_1955_EN.html" class="chapter-card">
-                    <div class="card-header">
-                        <span class="card-title">Part V: Terra Nova</span>
-                        <span class="card-dates">1919 – 1955</span>
+                    <div class="card-num">V</div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-title">Part V: Terra Nova</span>
+                            <span class="card-dates">1919 – 1955</span>
+                        </div>
+                        <div class="card-description">Josef Würzburger loses his first wife, remarries, and emigrates to the Colônia Terra Nova in Castro, Paraná. His daughter Elisabeth meets Friedrich Hackl. The fortress and the axe are joined.</div>
+                        <span class="card-cta">Read chapter →</span>
                     </div>
-                    <div class="card-description">Josef Würzburger loses his first wife, remarries, and emigrates to the Colônia Terra Nova in Castro, Paraná. His daughter Elisabeth meets Friedrich Hackl. The fortress and the axe are joined.</div>
-                    <div class="card-cta">Read chapter →</div>
                 </a>
             </div>
         </div>

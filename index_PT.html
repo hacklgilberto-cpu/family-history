@@ -24,17 +24,21 @@
         img { width: 100%; height: auto; margin: 35px 0; border: 1px solid #c4b5a0; cursor: pointer; }
         .img-caption { text-align: center; font-style: italic; color: #6b5639; font-size: 0.9em; margin-top: -25px; margin-bottom: 35px; }
         .historical-note { background: #f5f2eb; padding: 25px; margin: 30px 0; border-left: 4px solid #a08968; font-size: 0.98em; color: #4a4a4a; }
-        .toc { list-style: none; margin: 10px 0 30px 0; padding: 0; }
-        .toc-item { border-bottom: 1px solid #e6dcc9; }
-        .toc-item:last-child { border-bottom: none; }
-        .toc-link { display: block; padding: 22px 0 18px 0; text-decoration: none; color: #2c2c2c; transition: background 0.2s; }
-        .toc-link:hover .toc-title { color: #6b5639; }
-        .toc-link:hover .toc-arrow { transform: translateX(4px); }
-        .toc-header { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
-        .toc-title { font-size: 1.25em; font-weight: 400; color: #3d2817; font-variant: small-caps; letter-spacing: 1px; transition: color 0.2s; }
-        .toc-dates { font-size: 0.95em; color: #8b7355; letter-spacing: 2px; white-space: nowrap; flex-shrink: 0; }
-        .toc-description { margin-top: 6px; font-size: 0.98em; font-style: italic; color: #5a5a5a; }
-        .toc-arrow { display: inline-block; margin-left: 8px; color: #8b7355; font-style: normal; transition: transform 0.2s; }
+        .chapters-lead { font-size: 1em; color: #6b5639; margin-bottom: 22px; text-align: center; font-style: italic; }
+        .chapter-cards { display: flex; flex-direction: column; gap: 16px; margin: 10px 0 30px 0; }
+        .chapter-card { display: flex; text-decoration: none; color: #2c2c2c; border-radius: 8px; overflow: hidden; border: 1px solid #d4c9b0; transition: all 0.25s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.09); }
+        .chapter-card:hover { box-shadow: 0 6px 22px rgba(0,0,0,0.18); transform: translateY(-3px); }
+        .card-num { background: #8b7355; color: white; min-width: 72px; display: flex; align-items: center; justify-content: center; font-size: 1.6em; font-weight: 300; font-variant: small-caps; flex-shrink: 0; }
+        .chapter-card:hover .card-num { background: #5a3e20; }
+        .card-body { background: #fffdf8; flex: 1; padding: 20px 24px 16px 24px; display: flex; flex-direction: column; gap: 6px; }
+        .chapter-card:hover .card-body { background: white; }
+        .card-header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+        .card-title { font-size: 1.15em; font-weight: 600; color: #3d2817; letter-spacing: 0.5px; }
+        .card-dates { font-size: 0.85em; color: #8b7355; letter-spacing: 1.5px; white-space: nowrap; flex-shrink: 0; background: #f0ebe0; padding: 3px 9px; border-radius: 12px; }
+        .card-description { font-size: 0.95em; font-style: italic; color: #5a5a5a; line-height: 1.6; }
+        .card-cta { margin-top: 8px; display: inline-block; background: #8b7355; color: white; padding: 8px 18px; border-radius: 4px; font-size: 0.9em; font-weight: 600; letter-spacing: 0.5px; align-self: flex-start; }
+        .chapter-card:hover .card-cta { background: #5a3e20; }
+        @media (max-width: 768px) { .card-num { min-width: 54px; font-size: 1.3em; } .card-header { flex-direction: column; gap: 4px; } }
         .divider { border: none; border-top: 2px solid #e6dcc9; margin: 40px 0; }
         .surname-list { font-size: 1.05em; color: #3d2817; font-weight: 500; }
         footer { background: #3d3d3d; color: #c4b5a0; padding: 30px 60px; font-size: 0.9em; text-align: center; border-top: 4px solid #8b7355; }
@@ -45,14 +49,15 @@
             footer { padding: 25px; }
             .language-switcher { top: 10px; right: 10px; padding: 8px; gap: 6px; }
             .lang-btn { padding: 3px 6px; font-size: 18px; }
-            .toc-header { flex-direction: column; gap: 4px; }
+            .card-header { flex-direction: column; gap: 4px; }
         }
+        .chapter-intro, .img-caption, .card-description, .chapters-lead, .subtitle { font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.04em; }
     </style>
 </head>
 <body>
     <div class="language-switcher">
         <a href="index_PT.html" class="lang-btn active">🇧🇷</a>
-        <a href="index.html" class="lang-btn">🇬🇧</a>
+        <a href="index.html" class="lang-btn">EN</a>
     </div>
 
     <div class="container">
@@ -91,53 +96,65 @@
 
             <h2>Capítulos</h2>
 
-            <ul class="toc">
-                <li class="toc-item">
-                    <a href="Part_1_The_Fortress_1352_1450_PT.html" class="toc-link">
-                        <div class="toc-header">
-                            <span class="toc-title">Parte I: A Fortaleza<span class="toc-arrow">›</span></span>
-                            <span class="toc-dates">1352 – 1450</span>
+            <p class="chapters-lead">Clique em qualquer capítulo abaixo para começar a leitura.</p>
+
+            <div class="chapter-cards">
+                <a href="Part_1_The_Fortress_1352_1450_PT.html" class="chapter-card">
+                    <div class="card-num">I</div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-title">Parte I: A Fortaleza</span>
+                            <span class="card-dates">1352 – 1450</span>
                         </div>
-                        <div class="toc-description">A sobrevivência à Peste Negra e a vida sob a Abadia de Ottobeuren. Quatro gerações da família von Braun lançam raízes nas terras beneditinas da Suábia.</div>
-                    </a>
-                </li>
-                <li class="toc-item">
-                    <a href="Part_2_Into_the_Forest_1450_1700_PT.html" class="toc-link">
-                        <div class="toc-header">
-                            <span class="toc-title">Parte II: Para a Floresta<span class="toc-arrow">›</span></span>
-                            <span class="toc-dates">1450 – 1700</span>
+                        <div class="card-description">A sobrevivência à Peste Negra e a vida sob a Abadia de Ottobeuren. Quatro gerações da família von Braun lançam raízes nas terras beneditinas da Suábia.</div>
+                        <span class="card-cta">Ler capítulo →</span>
+                    </div>
+                </a>
+                <a href="Part_2_Into_the_Forest_1450_1700_PT.html" class="chapter-card">
+                    <div class="card-num">II</div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-title">Parte II: Para a Floresta</span>
+                            <span class="card-dates">1450 – 1700</span>
                         </div>
-                        <div class="toc-description">A migração para o oeste e o desbravamento da Floresta Negra. Os von Braun se tornam os Dold, os Rueff e finalmente os Schwär, pioneiros e artesãos nos vales profundos da Schwarzwald.</div>
-                    </a>
-                </li>
-                <li class="toc-item">
-                    <a href="Part_3_The_Valley_People_1700_1857_PT.html" class="toc-link">
-                        <div class="toc-header">
-                            <span class="toc-title">Parte III: O Povo do Vale<span class="toc-arrow">›</span></span>
-                            <span class="toc-dates">1700 – 1857</span>
+                        <div class="card-description">A migração para o oeste e o desbravamento da Floresta Negra. Os von Braun se tornam os Dold, os Rueff e finalmente os Schwär, pioneiros e artesãos nos vales profundos da Schwarzwald.</div>
+                        <span class="card-cta">Ler capítulo →</span>
+                    </div>
+                </a>
+                <a href="Part_3_The_Valley_People_1700_1857_PT.html" class="chapter-card">
+                    <div class="card-num">III</div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-title">Parte III: O Povo do Vale</span>
+                            <span class="card-dates">1700 – 1857</span>
                         </div>
-                        <div class="toc-description">Heuweiler, Glottertal e as raízes da partida. Os Schwehr se estabelecem no sopé enquanto os Würzburger fincam raízes em Föhrental. Os irmãos Ruth emigram para o Canadá. Afra Schwehr nasce.</div>
-                    </a>
-                </li>
-                <li class="toc-item">
-                    <a href="Part_4_The_Other_Country_1839_1953_PT.html" class="toc-link">
-                        <div class="toc-header">
-                            <span class="toc-title">Parte IV: O Outro País<span class="toc-arrow">›</span></span>
-                            <span class="toc-dates">1839 – 1953</span>
+                        <div class="card-description">Heuweiler, Glottertal e as raízes da partida. Os Schwehr se estabelecem no sopé enquanto os Würzburger fincam raízes em Föhrental. Os irmãos Ruth emigram para o Canadá. Afra Schwehr nasce.</div>
+                        <span class="card-cta">Ler capítulo →</span>
+                    </div>
+                </a>
+                <a href="Part_4_The_Other_Country_1839_1953_PT.html" class="chapter-card">
+                    <div class="card-num">IV</div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-title">Parte IV: O Outro País</span>
+                            <span class="card-dates">1839 – 1953</span>
                         </div>
-                        <div class="toc-description">A família Hackl entra na história desde as colinas vulcânicas da Estíria. Leonhard muda-se para Graz, trabalha como carregador, cria doze filhos e embarca num navio rumo ao Brasil. O mistério de Adolf.</div>
-                    </a>
-                </li>
-                <li class="toc-item">
-                    <a href="Part_5_Terra_Nova_1919_1955_PT.html" class="toc-link">
-                        <div class="toc-header">
-                            <span class="toc-title">Parte V: Terra Nova<span class="toc-arrow">›</span></span>
-                            <span class="toc-dates">1919 – 1955</span>
+                        <div class="card-description">A família Hackl entra na história desde as colinas vulcânicas da Estíria. Leonhard muda-se para Graz, trabalha como carregador, cria doze filhos e embarca num navio rumo ao Brasil. O mistério de Adolf.</div>
+                        <span class="card-cta">Ler capítulo →</span>
+                    </div>
+                </a>
+                <a href="Part_5_Terra_Nova_1919_1955_PT.html" class="chapter-card">
+                    <div class="card-num">V</div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-title">Parte V: Terra Nova</span>
+                            <span class="card-dates">1919 – 1955</span>
                         </div>
-                        <div class="toc-description">Josef Würzburger perde sua primeira esposa, casa-se novamente e emigra para a Colônia Terra Nova em Castro, Paraná. Sua filha Elisabeth conhece Friedrich Hackl. A fortaleza e o machado se unem.</div>
-                    </a>
-                </li>
-            </ul>
+                        <div class="card-description">Josef Würzburger perde sua primeira esposa, casa-se novamente e emigra para a Colônia Terra Nova em Castro, Paraná. Sua filha Elisabeth conhece Friedrich Hackl. A fortaleza e o machado se unem.</div>
+                        <span class="card-cta">Ler capítulo →</span>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <footer>
