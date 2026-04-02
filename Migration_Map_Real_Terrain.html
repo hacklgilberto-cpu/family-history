@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fortress and the Axe — Migration Map</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Spectral:wght@300;400;600&display=swap');
+
+  :root {
+    --parchment: #f4efe4;
+    --parchment-t: rgba(244,239,228,0.96);
+    --ink: #2a2520;
+    --ink-light: #6a625a;
+    --gold: #c4a25f;
+    --gold-dark: #8a7340;
+    --braun: #c45a2e;
+    --rueff: #3a8a5a;
+    --schwehr: #3a6a9a;
+    --wuerz: #7a5aaf;
+    --hackl: #c43a3a;
+    --ruth: #d4943a;
+    --convergence: #c4a25f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Spectral', Georgia, serif;
+    background: var(--parchment);
+    color: var(--ink);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(180deg, #ebe5d6, var(--parchment));
+    border-bottom: 1px solid var(--gold);
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    z-index: 1000;
+  }
+
+  .header-left h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+  }
+
+  .header-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-light);
+  }
+
+  .header-right {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .btn-tile {
+    background: rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 0.3rem 0.7rem;
+    font-family: 'Spectral', serif;
+    font-size: 0.72rem;
+    cursor: pointer;
+    color: var(--ink-light);
+    transition: all 0.2s;
+  }
+
+  .btn-tile:hover { background: rgba(0,0,0,0.1); }
+  .btn-tile.active { background: var(--gold); color: white; border-color: var(--gold-dark); }
+
+  /* ── MAP ── */
+  #map {
+    flex: 1;
+    z-index: 1;
+  }
+
+  /* ── LEGEND PANEL ── */
+  .legend-panel {
+    position: absolute;
+    top: 80px;
+    left: 12px;
+    z-index: 1000;
+    background: var(--parchment-t);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+    width: 260px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    backdrop-filter: blur(6px);
+  }
+
+  .legend-panel h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(196,162,95,0.3);
+    padding-bottom: 0.4rem;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.55rem;
+    cursor: pointer;
+    padding: 0.25rem 0.3rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .legend-item:hover { background: rgba(196,162,95,0.12); }
+
+  .legend-item.dimmed {
+    opacity: 0.22;
+  }
+
+  .legend-swatch {
+    width: 22px;
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .legend-text {
+    font-size: 0.76rem;
+    line-height: 1.4;
+    color: var(--ink-light);
+  }
+
+  .legend-text strong {
+    color: var(--ink);
+    font-weight: 600;
+    display: block;
+    font-size: 0.8rem;
+  }
+
+  .legend-divider {
+    height: 1px;
+    background: rgba(196,162,95,0.25);
+    margin: 0.6rem 0;
+  }
+
+  .legend-note {
+    font-size: 0.68rem;
+    color: var(--ink-light);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* ── TIMELINE BAR ── */
+  .timeline-bar {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: var(--parchment-t);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 0.5rem 1rem 0.4rem;
+    width: min(92vw, 900px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    backdrop-filter: blur(6px);
+  }
+
+  .timeline-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+    text-align: center;
+  }
+
+  .timeline-track {
+    position: relative;
+    height: 28px;
+    background: rgba(0,0,0,0.04);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .tl-seg {
+    position: absolute;
+    top: 3px;
+    height: 22px;
+    border-radius: 2px;
+    opacity: 0.7;
+    font-size: 0;
+    cursor: pointer;
+    transition: opacity 0.25s, transform 0.15s;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .tl-seg:hover {
+    opacity: 1;
+    transform: scaleY(1.15);
+    z-index: 2;
+  }
+
+  .tl-seg.dimmed { opacity: 0.1; }
+
+  .tl-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.62rem;
+    color: var(--ink-light);
+    padding-top: 0.15rem;
+  }
+
+  /* ── CUSTOM POPUPS ── */
+  .leaflet-popup-content-wrapper {
+    background: var(--parchment-t) !important;
+    border: 1px solid var(--gold) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+    font-family: 'Spectral', serif !important;
+    backdrop-filter: blur(4px);
+  }
+
+  .leaflet-popup-tip { background: var(--parchment) !important; }
+
+  .popup-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .popup-date {
+    font-size: 0.72rem;
+    color: var(--gold-dark);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .popup-body {
+    font-size: 0.78rem;
+    color: var(--ink-light);
+    line-height: 1.5;
+    max-width: 240px;
+  }
+
+  .popup-family-tag {
+    display: inline-block;
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: white;
+    margin-top: 0.3rem;
+  }
+
+  /* ── FLY-TO BUTTONS ── */
+  .flyto-panel {
+    position: absolute;
+    top: 80px;
+    right: 12px;
+    z-index: 1000;
+    background: var(--parchment-t);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 0.7rem 0.8rem;
+    width: 170px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    backdrop-filter: blur(6px);
+  }
+
+  .flyto-panel h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .flyto-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font-family: 'Spectral', serif;
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    padding: 0.3rem 0.4rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s;
+    margin-bottom: 0.15rem;
+  }
+
+  .flyto-btn:hover {
+    background: rgba(196,162,95,0.15);
+    color: var(--ink);
+  }
+
+  .flyto-btn strong { font-weight: 600; color: var(--ink); }
+
+  /* ── SCROLLBAR ── */
+  .legend-panel::-webkit-scrollbar { width: 4px; }
+  .legend-panel::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+  @media (max-width: 700px) {
+    .legend-panel { width: 200px; padding: 0.6rem; font-size: 0.7rem; }
+    .flyto-panel { display: none; }
+    .header-left h1 { font-size: 1.1rem; }
+    .header-left h2 { font-size: 0.72rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>THE FORTRESS AND THE AXE</h1>
+    <h2>Six Centuries of Migration — 1352 to Present</h2>
+  </div>
+  <div class="header-right">
+    <button class="btn-tile" onclick="setTiles('terrain')" id="btnTerrain">Terrain</button>
+    <button class="btn-tile" onclick="setTiles('osm')" id="btnOsm">Street</button>
+    <button class="btn-tile active" onclick="setTiles('topo')" id="btnTopo">Topo</button>
+  </div>
+</div>
+
+<div id="map"></div>
+
+<!-- Legend -->
+<div class="legend-panel" id="legendPanel">
+  <h3>Family Lines</h3>
+  <div class="legend-item" data-fam="braun" onclick="toggleFam('braun')">
+    <div class="legend-swatch" style="background:var(--braun)"></div>
+    <div class="legend-text"><strong>von Braun</strong>Reimlingen → Ottobeuren → Calw → Sankt Peter (1352–1551)</div>
+  </div>
+  <div class="legend-item" data-fam="rueff" onclick="toggleFam('rueff')">
+    <div class="legend-swatch" style="background:var(--rueff)"></div>
+    <div class="legend-text"><strong>Rueff</strong>Gütenbach → Sankt Peter (1470s–1600s)</div>
+  </div>
+  <div class="legend-item" data-fam="schwehr" onclick="toggleFam('schwehr')">
+    <div class="legend-swatch" style="background:var(--schwehr)"></div>
+    <div class="legend-text"><strong>Schwehr (Schwär)</strong>Sankt Peter → Heuweiler (1615–1857)</div>
+  </div>
+  <div class="legend-item" data-fam="wuerz" onclick="toggleFam('wuerz')">
+    <div class="legend-swatch" style="background:var(--wuerz)"></div>
+    <div class="legend-text"><strong>Würzburger</strong>Glottertal → Castro → Mandaguaçu (1714–1950s)</div>
+  </div>
+  <div class="legend-item" data-fam="hackl" onclick="toggleFam('hackl')">
+    <div class="legend-swatch" style="background:var(--hackl)"></div>
+    <div class="legend-text"><strong>Hackl</strong>St. Anna → Graz → Santos → Paraná (1839–1955)</div>
+  </div>
+  <div class="legend-item" data-fam="ruth" onclick="toggleFam('ruth')">
+    <div class="legend-swatch" style="background:var(--ruth)"></div>
+    <div class="legend-text"><strong>Ruth</strong>Heuweiler → Ontario, Canada (~1850s)</div>
+  </div>
+  <div class="legend-item" data-fam="convergence" onclick="toggleFam('convergence')">
+    <div class="legend-swatch" style="background:var(--convergence)"></div>
+    <div class="legend-text"><strong>Gil's Journey</strong>Paraná → Kitchener. Two branches reunite.</div>
+  </div>
+  <div class="legend-divider"></div>
+  <div class="legend-note">Click a family line to isolate it. Click again to show all.</div>
+</div>
+
+<!-- Fly-to nav -->
+<div class="flyto-panel">
+  <h3>Navigate</h3>
+  <button class="flyto-btn" onclick="flyTo('overview')"><strong>Overview</strong> — all routes</button>
+  <button class="flyto-btn" onclick="flyTo('swabia')"><strong>Swabia</strong> — Ottobeuren</button>
+  <button class="flyto-btn" onclick="flyTo('blackforest')"><strong>Black Forest</strong> — detail</button>
+  <button class="flyto-btn" onclick="flyTo('styria')"><strong>Styria</strong> — Hackl origins</button>
+  <button class="flyto-btn" onclick="flyTo('atlantic')"><strong>Atlantic</strong> — crossings</button>
+  <button class="flyto-btn" onclick="flyTo('parana')"><strong>Paraná</strong> — convergence</button>
+  <button class="flyto-btn" onclick="flyTo('ontario')"><strong>Ontario</strong> — Ruth branch</button>
+</div>
+
+<!-- Timeline -->
+<div class="timeline-bar">
+  <div class="timeline-title">Timeline</div>
+  <div class="timeline-track" id="tlTrack"></div>
+  <div class="tl-labels">
+    <span>1350</span><span>1450</span><span>1550</span><span>1650</span><span>1750</span><span>1850</span><span>1950</span><span>2025</span>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════
+// MAP INITIALIZATION
+// ════════════════════════════════════════
+
+const map = L.map('map', {
+  center: [20, -15],
+  zoom: 3,
+  minZoom: 2,
+  maxZoom: 16,
+  zoomControl: false
+});
+
+L.control.zoom({ position: 'topright' }).addTo(map);
+
+// Tile layers
+const tiles = {
+  terrain: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: '© OpenTopoMap / OpenStreetMap contributors'
+  }),
+  osm: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap contributors'
+  }),
+  topo: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 18,
+    attribution: '© Esri, HERE, Garmin, OpenStreetMap contributors'
+  })
+};
+
+let activeTile = tiles.topo;
+activeTile.addTo(map);
+
+function setTiles(key) {
+  map.removeLayer(activeTile);
+  activeTile = tiles[key];
+  activeTile.addTo(map);
+  document.querySelectorAll('.btn-tile').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn' + key.charAt(0).toUpperCase() + key.slice(1)).classList.add('active');
+}
+
+// ════════════════════════════════════════
+// PLACES DATA
+// ════════════════════════════════════════
+
+const colors = {
+  braun: '#c45a2e',
+  rueff: '#3a8a5a',
+  schwehr: '#3a6a9a',
+  wuerz: '#7a5aaf',
+  hackl: '#c43a3a',
+  ruth: '#d4943a',
+  convergence: '#c4a25f'
+};
+
+const places = [
+  {
+    id: 'reimlingen', lat: 48.868, lng: 10.514, fam: 'braun',
+    title: 'Reimlingen, Swabia',
+    date: '1352',
+    body: 'Hans Peter Adam Braun born here in 1352. Marries Maria Catharina Stiff and settles in Ottobeuren.',
+    radius: 5
+  },
+  {
+    id: 'ottobeuren', lat: 47.941, lng: 10.298, fam: 'braun',
+    title: 'Ottobeuren, Swabia',
+    date: '1380–1450',
+    body: 'The Braun family seat for a century. Seat of the great Benedictine abbey. Christian Braun (b. ~1380) and Johann Bernhard Braun (b. 1400) live here before the westward move.',
+    radius: 7
+  },
+  {
+    id: 'eschenbach', lat: 49.752, lng: 11.832, fam: 'braun',
+    title: 'Eschenbach, Upper Palatinate',
+    date: '~1430',
+    body: 'Blasius von Braun (b. ~1430) originates here. Moves southwest to Calw, carrying the family into the northern Black Forest region.',
+    radius: 5
+  },
+  {
+    id: 'calw', lat: 48.714, lng: 8.740, fam: 'braun',
+    title: 'Calw, Württemberg',
+    date: '1450–1525',
+    body: 'Jakob von Braun (b. 1450) establishes the family here. Gateway town to the Black Forest. His son Adolph moves to Calmbach.',
+    radius: 6
+  },
+  {
+    id: 'calmbach', lat: 48.775, lng: 8.554, fam: 'braun',
+    title: 'Calmbach / Bad Wildbad',
+    date: '~1485',
+    body: 'Adolph von Braun (b. 1485) settles here in the Enz valley. His son Hans Peter "Mang" will make the decisive leap into the Black Forest.',
+    radius: 4
+  },
+  {
+    id: 'haiterbach', lat: 48.523, lng: 8.645, fam: 'braun',
+    title: 'Haiterbach, Württemberg',
+    date: '~1530s',
+    body: 'Some of the von Braun children settle here (Frantz Braun, b. ~1533). A waystation between the northern Württemberg towns and the deep forest.',
+    radius: 4
+  },
+  {
+    id: 'guetenbach', lat: 48.048, lng: 8.137, fam: 'rueff',
+    title: 'Gütenbach / Furtwangen',
+    date: '1470s–1600',
+    body: 'The Ruff/Rueff clockmaker dynasty. Jacob Ruff (b. 1473), Andreas Ruf (b. 1501), Michael Ruef (b. 1527) — generations of craftsmen in the deep Schwarzwald. Their daughter Christina Rueff will marry Christianus Schwär.',
+    radius: 6
+  },
+  {
+    id: 'sanktpeter', lat: 47.977, lng: 8.031, fam: 'schwehr',
+    title: 'Sankt Peter im Schwarzwald',
+    date: '1615–1700',
+    body: 'The crucible. Christianus Schwär (b. ~1615) marries Christina Rueff on 25 June 1656 — the von Braun nobility line and the Ruff craftsmen line converge. Their children carry the Schwehr name down to Heuweiler.',
+    radius: 8
+  },
+  {
+    id: 'glottertal', lat: 48.050, lng: 7.953, fam: 'wuerz',
+    title: 'Glottertal · Föhrental',
+    date: '1714–1920s',
+    body: 'The Würzburger family is rooted here from Simon Würzburger (b. ~1714), through Georg (b. 1740) and Joseph (b. 1764), to Barbara (b. 1829). Josef Würzburger (b. 1893) emigrates to Brazil in the 1920s.',
+    radius: 7
+  },
+  {
+    id: 'heuweiler', lat: 48.055, lng: 7.899, fam: 'ruth',
+    title: 'Heuweiler',
+    date: '1700s–1860s',
+    body: 'The Schwehr line descends from Sankt Peter to the Rhine plain. Afra Schwehr (b. 1857) is born here. Also the Ruth family homeland: Theresia Ruth (b. 1832), whose brothers Joseph, Peter, Jakob, and Lambert emigrate to Ontario and Missouri in the 1850s.',
+    radius: 7
+  },
+  {
+    id: 'stanna', lat: 46.832, lng: 15.975, fam: 'hackl',
+    title: 'St. Anna am Aigen, Styria',
+    date: '1839–1869',
+    body: 'Johan Hackl born here in 1839. His son Leonhard Hackl born here 6 November 1869. The Hackl ancestral ground in southeastern Styria, near the Slovenian border.',
+    radius: 7
+  },
+  {
+    id: 'schoeder', lat: 47.198, lng: 14.082, fam: 'hackl',
+    title: 'Schöder, Murau, Styria',
+    date: '1871',
+    body: 'Birthplace of Aurelia Küschal (21 June 1871), daughter of Franz Küschal from Schönberg. She marries Leonhard Hackl.',
+    radius: 5
+  },
+  {
+    id: 'graz', lat: 47.070, lng: 15.439, fam: 'hackl',
+    title: 'Graz, Styria',
+    date: '~1895–1925',
+    body: 'Leonhard and Aurelia\'s family residence. Their children are born here, including Friedrich (28 Jan 1914). On 16 January 1925, they receive the Brazilian travel visa from the consulate in Vienna. Route: Graz → Buchs (Switzerland) → France → Belgium → Holland → Santos.',
+    radius: 8
+  },
+  {
+    id: 'santos', lat: -23.960, lng: -46.333, fam: 'hackl',
+    title: 'Santos, São Paulo',
+    date: '1925',
+    body: 'Port of arrival for the Hackl family. The immigration stamp on Leonhard\'s Reisepass reads "SANTOS — IMIGRAÇÃO". From here they move inland.',
+    radius: 7
+  },
+  {
+    id: 'maringa', lat: -23.420, lng: -51.938, fam: 'hackl',
+    title: 'Maringá, Paraná',
+    date: '1930s–1953',
+    body: 'Leonhard Hackl dies here 8 July 1953. Aurelia Küschal dies here 30 July 1962. The Hackl family\'s Brazilian base in the pioneer frontier of northern Paraná.',
+    radius: 7
+  },
+  {
+    id: 'mandaguacu', lat: -23.345, lng: -52.095, fam: 'convergence',
+    title: 'Mandaguaçu, Paraná',
+    date: '3 December 1955',
+    body: 'Friedrich Hackl marries Elisabeth Würzburger. The Austrian Hackl line and the Baden Würzburger line, separated by 1,000 km of European geography and centuries of history, converge in the red earth of northern Paraná. Their son Frederico is born here 15 April 1957.',
+    radius: 9
+  },
+  {
+    id: 'castro', lat: -24.790, lng: -49.998, fam: 'wuerz',
+    title: 'Castro, Paraná',
+    date: '1920s–1930s',
+    body: 'Early settlement point for the Würzburger family in Paraná. Castro was one of the oldest towns in Paraná\'s interior, a staging ground for German-speaking settlers moving into the northern frontier.',
+    radius: 6
+  },
+  {
+    id: 'terranova', lat: -23.478, lng: -52.564, fam: 'wuerz',
+    title: 'Terra Nova do Norte / Altônia',
+    date: '1920s–1950s',
+    body: 'The Würzburger settlement area. Josef Würzburger brings the Glottertal family to the Paraná frontier. His daughter Elisabeth (b. 1922, Ohrensbach) grows up here.',
+    radius: 5
+  },
+  {
+    id: 'saopaulo', lat: -23.550, lng: -46.633, fam: 'hackl',
+    title: 'São Paulo',
+    date: '1980s–2000s',
+    body: 'Friedrich Hackl dies here 23 August 1996. Gilberto Hackl born here 20 December 1982.',
+    radius: 6
+  },
+  {
+    id: 'kitchener', lat: 43.450, lng: -80.483, fam: 'ruth',
+    title: 'Kitchener / Waterloo, Ontario',
+    date: '1850s → present',
+    body: 'Waterloo County: Joseph Ruth (b. 1821 Heuweiler, d. 1904 Woolwich), Jakob Ruth (b. 1836, d. 1889 Wilmot), Peter Ruth (b. 1834, d. 1915 Riversdale). Over a century and a half later, Gil arrives from Brazil — the two Heuweiler branches, separated since the 1850s, share the same soil again.',
+    radius: 8
+  },
+  {
+    id: 'elmira', lat: 43.598, lng: -80.557, fam: 'ruth',
+    title: 'Elmira / Woolwich, Ontario',
+    date: '1850s–1900s',
+    body: 'Joseph Ruth and Barbara Fuhry settle here. Their descendants rest at St. Teresa of Avila Roman Catholic Cemetery. Jakob Ruth settles in nearby Wilmot.',
+    radius: 5
+  }
+];
+
+// ════════════════════════════════════════
+// ROUTES DATA (polylines)
+// ════════════════════════════════════════
+
+const routes = [
+  {
+    id: 'braun-swabia',
+    fam: 'braun',
+    label: 'von Braun: Reimlingen → Ottobeuren',
+    coords: [[48.868,10.514],[47.941,10.298]],
+    dash: '8,6',
+    weight: 2.5
+  },
+  {
+    id: 'braun-palatinate',
+    fam: 'braun',
+    label: 'von Braun: Eschenbach → Calw',
+    coords: [[49.752,11.832],[49.2,10.8],[48.714,8.740]],
+    dash: '8,6',
+    weight: 2.5
+  },
+  {
+    id: 'braun-calw-forest',
+    fam: 'braun',
+    label: 'von Braun: Calw → Calmbach → Haiterbach → Sankt Peter',
+    coords: [[48.714,8.740],[48.775,8.554],[48.523,8.645],[48.13,8.25],[47.977,8.031]],
+    dash: null,
+    weight: 3
+  },
+  {
+    id: 'rueff-forest',
+    fam: 'rueff',
+    label: 'Rueff: Gütenbach → Sankt Peter',
+    coords: [[48.048,8.137],[47.977,8.031]],
+    dash: null,
+    weight: 3
+  },
+  {
+    id: 'schwehr-descent',
+    fam: 'schwehr',
+    label: 'Schwehr: Sankt Peter → Heuweiler',
+    coords: [[47.977,8.031],[48.02,7.96],[48.055,7.899]],
+    dash: null,
+    weight: 3
+  },
+  {
+    id: 'wuerz-roots',
+    fam: 'wuerz',
+    label: 'Würzburger: Föhrental/Glottertal',
+    coords: [[48.050,7.953],[48.055,7.899]],
+    dash: '6,5',
+    weight: 2
+  },
+  {
+    id: 'wuerz-brazil',
+    fam: 'wuerz',
+    label: 'Würzburger: Glottertal → Castro, Paraná',
+    coords: [
+      [48.050,7.953],[47.5,5.0],[45.0,0.0],[42.0,-5.0],
+      [37.0,-10.0],[30.0,-15.0],[20.0,-20.0],[10.0,-25.0],
+      [0.0,-30.0],[-10.0,-35.0],[-18.0,-38.0],[-23.960,-46.333],[-24.790,-49.998]
+    ],
+    dash: null,
+    weight: 3
+  },
+  {
+    id: 'wuerz-castro-mandaguacu',
+    fam: 'wuerz',
+    label: 'Würzburger: Castro → Mandaguaçu',
+    coords: [[-24.790,-49.998],[-24.0,-51.0],[-23.478,-52.564],[-23.345,-52.095]],
+    dash: null,
+    weight: 3
+  },
+  {
+    id: 'hackl-styria',
+    fam: 'hackl',
+    label: 'Hackl: St. Anna → Graz',
+    coords: [[46.832,15.975],[47.070,15.439]],
+    dash: null,
+    weight: 3.5
+  },
+  {
+    id: 'hackl-atlantic',
+    fam: 'hackl',
+    label: 'Hackl: Graz → Santos (via CH, FR, NL)',
+    coords: [
+      [47.070,15.439],[47.27,9.51],[47.0,7.0],[46.5,5.0],
+      [48.0,2.5],[49.5,2.0],[50.5,2.5],[51.5,3.5],[52.0,4.5],
+      [50.0,0.0],[47.0,-5.0],[42.0,-10.0],[35.0,-15.0],
+      [25.0,-20.0],[15.0,-28.0],[5.0,-33.0],[-5.0,-37.0],
+      [-15.0,-40.0],[-23.960,-46.333]
+    ],
+    dash: null,
+    weight: 3.5
+  },
+  {
+    id: 'hackl-parana',
+    fam: 'hackl',
+    label: 'Hackl: Santos → Maringá',
+    coords: [[-23.960,-46.333],[-23.550,-46.633],[-23.420,-51.938]],
+    dash: null,
+    weight: 3
+  },
+  {
+    id: 'ruth-atlantic',
+    fam: 'ruth',
+    label: 'Ruth: Heuweiler → Ontario (~1850s)',
+    coords: [
+      [48.055,7.899],[48.5,4.0],[49.0,0.0],[50.0,-5.0],
+      [50.5,-15.0],[49.5,-25.0],[48.0,-40.0],[46.0,-55.0],
+      [44.5,-65.0],[43.8,-75.0],[43.598,-80.557]
+    ],
+    dash: null,
+    weight: 3
+  },
+  {
+    id: 'convergence-canada',
+    fam: 'convergence',
+    label: 'Gil: Paraná → Kitchener',
+    coords: [
+      [-23.345,-52.095],[-23.550,-46.633],[-15.0,-45.0],[-5.0,-50.0],
+      [10.0,-60.0],[25.0,-70.0],[35.0,-75.0],[40.0,-78.0],[43.450,-80.483]
+    ],
+    dash: '10,6',
+    weight: 3.5
+  },
+  {
+    id: 'convergence-marriage',
+    fam: 'convergence',
+    label: 'Hackl ↔ Würzburger convergence',
+    coords: [[-23.420,-51.938],[-23.345,-52.095],[-23.478,-52.564]],
+    dash: '5,4',
+    weight: 2.5
+  }
+];
+
+// ════════════════════════════════════════
+// CUSTOM MARKER ICON
+// ════════════════════════════════════════
+
+function makeIcon(color, size) {
+  const s = size || 10;
+  return L.divIcon({
+    className: '',
+    html: `<div style="
+      width:${s}px; height:${s}px; 
+      background:${color}; 
+      border:2px solid white; 
+      border-radius:50%; 
+      box-shadow:0 1px 4px rgba(0,0,0,0.3);
+    "></div>`,
+    iconSize: [s, s],
+    iconAnchor: [s/2, s/2],
+    popupAnchor: [0, -s/2 - 4]
+  });
+}
+
+// ════════════════════════════════════════
+// RENDER MARKERS & ROUTES
+// ════════════════════════════════════════
+
+const markerLayers = {};
+const routeLayers = {};
+const allLayers = L.layerGroup().addTo(map);
+
+// Draw routes
+routes.forEach(r => {
+  const opts = {
+    color: colors[r.fam],
+    weight: r.weight,
+    opacity: 0.75,
+    smoothFactor: 1.5
+  };
+  if (r.dash) opts.dashArray = r.dash;
+  
+  const line = L.polyline(r.coords, opts);
+  line._fam = r.fam;
+  line.bindTooltip(r.label, { sticky: true, className: '' });
+  allLayers.addLayer(line);
+  
+  if (!routeLayers[r.fam]) routeLayers[r.fam] = [];
+  routeLayers[r.fam].push(line);
+});
+
+// Draw markers
+places.forEach(p => {
+  const m = L.marker([p.lat, p.lng], {
+    icon: makeIcon(colors[p.fam], p.radius * 1.8)
+  });
+  m._fam = p.fam;
+  
+  const popupHtml = `
+    <div class="popup-title">${p.title}</div>
+    <div class="popup-date">${p.date}</div>
+    <div class="popup-body">${p.body}</div>
+    <span class="popup-family-tag" style="background:${colors[p.fam]}">${p.fam.replace('wuerz','Würzburger').replace('braun','von Braun').replace('rueff','Rueff').replace('schwehr','Schwehr').replace('hackl','Hackl').replace('ruth','Ruth').replace('convergence','Convergence')}</span>
+  `;
+  m.bindPopup(popupHtml, { maxWidth: 280 });
+  allLayers.addLayer(m);
+  
+  if (!markerLayers[p.fam]) markerLayers[p.fam] = [];
+  markerLayers[p.fam].push(m);
+});
+
+// Animated pulsing circles at convergence points
+function addPulse(lat, lng, color) {
+  const pulse = L.circleMarker([lat, lng], {
+    radius: 15,
+    color: color,
+    fillColor: color,
+    fillOpacity: 0.15,
+    weight: 1.5,
+    opacity: 0.4
+  });
+  allLayers.addLayer(pulse);
+  // Simple CSS animation via class won't work on SVG circles in Leaflet,
+  // so we just make them static glow markers
+  return pulse;
+}
+
+addPulse(-23.345, -52.095, colors.convergence); // Mandaguaçu
+addPulse(43.450, -80.483, colors.convergence);  // Kitchener
+
+// ════════════════════════════════════════
+// FAMILY LINE TOGGLE
+// ════════════════════════════════════════
+
+let activeFam = null;
+
+function toggleFam(fam) {
+  if (activeFam === fam) {
+    activeFam = null;
+    // Show all
+    allLayers.eachLayer(layer => {
+      if (layer.setStyle) layer.setStyle({ opacity: 0.75 });
+      if (layer.setOpacity) layer.setOpacity(1);
+      if (layer._icon) layer._icon.style.opacity = '1';
+    });
+    document.querySelectorAll('.legend-item[data-fam]').forEach(el => el.classList.remove('dimmed'));
+    document.querySelectorAll('.tl-seg').forEach(el => el.classList.remove('dimmed'));
+  } else {
+    activeFam = fam;
+    allLayers.eachLayer(layer => {
+      const lf = layer._fam;
+      if (!lf) return;
+      const dim = lf !== fam;
+      if (layer.setStyle) layer.setStyle({ opacity: dim ? 0.08 : 0.85 });
+      if (layer._icon) layer._icon.style.opacity = dim ? '0.15' : '1';
+    });
+    document.querySelectorAll('.legend-item[data-fam]').forEach(el => {
+      el.classList.toggle('dimmed', el.dataset.fam !== fam);
+    });
+    document.querySelectorAll('.tl-seg').forEach(el => {
+      el.classList.toggle('dimmed', el.dataset.fam !== fam);
+    });
+  }
+}
+
+// ════════════════════════════════════════
+// FLY-TO VIEWS
+// ════════════════════════════════════════
+
+const views = {
+  overview: { center: [20, -15], zoom: 3 },
+  swabia: { center: [48.4, 10.3], zoom: 8 },
+  blackforest: { center: [48.02, 8.05], zoom: 12 },
+  styria: { center: [47.0, 15.5], zoom: 8 },
+  atlantic: { center: [15, -25], zoom: 3 },
+  parana: { center: [-23.4, -51.5], zoom: 9 },
+  ontario: { center: [43.5, -80.4], zoom: 10 }
+};
+
+function flyTo(key) {
+  const v = views[key];
+  map.flyTo(v.center, v.zoom, { duration: 1.8 });
+}
+
+// ════════════════════════════════════════
+// TIMELINE
+// ════════════════════════════════════════
+
+const tlSegments = [
+  { label: 'Braun in Swabia', start: 1352, end: 1450, fam: 'braun' },
+  { label: 'Braun → Forest', start: 1450, end: 1555, fam: 'braun' },
+  { label: 'Rueff in Gütenbach', start: 1470, end: 1610, fam: 'rueff' },
+  { label: 'Schwär in St. Peter', start: 1615, end: 1750, fam: 'schwehr' },
+  { label: 'Schwehr → Heuweiler', start: 1700, end: 1860, fam: 'schwehr' },
+  { label: 'Würzburger', start: 1714, end: 1925, fam: 'wuerz' },
+  { label: 'Hackl in Styria', start: 1839, end: 1925, fam: 'hackl' },
+  { label: 'Ruth → Canada', start: 1850, end: 1870, fam: 'ruth' },
+  { label: 'Hackl → Brazil', start: 1925, end: 1955, fam: 'hackl' },
+  { label: 'Würzburger → Brazil', start: 1919, end: 1955, fam: 'wuerz' },
+  { label: 'Convergence', start: 1955, end: 2025, fam: 'convergence' },
+];
+
+const tMin = 1340, tMax = 2040;
+const tlTrack = document.getElementById('tlTrack');
+
+tlSegments.forEach(seg => {
+  const pct = (v) => ((v - tMin) / (tMax - tMin)) * 100;
+  const el = document.createElement('div');
+  el.className = 'tl-seg';
+  el.dataset.fam = seg.fam;
+  el.style.left = pct(seg.start) + '%';
+  el.style.width = pct(seg.end) - pct(seg.start) + '%';
+  el.style.background = colors[seg.fam];
+  el.title = seg.label + ' (' + seg.start + '–' + seg.end + ')';
+  el.onclick = () => toggleFam(seg.fam);
+  tlTrack.appendChild(el);
+});
+
+// ════════════════════════════════════════
+// FIT INITIAL VIEW
+// ════════════════════════════════════════
+setTimeout(() => {
+  map.flyTo([25, -10], 3, { duration: 1.5 });
+}, 500);
+
+</script>
+</body>
+</html>

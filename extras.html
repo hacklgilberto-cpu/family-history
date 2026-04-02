@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extras: Maps &amp; Gallery | The Fortress and the Axe</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Garamond', 'Georgia', serif; line-height: 1.8; color: #2c2c2c; background: #f8f6f0; padding: 0; }
+        .language-switcher { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 10px; background: rgba(255,255,255,0.95); padding: 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .lang-btn { padding: 8px 16px; border: 2px solid #8b7355; background: white; color: #6b5639; cursor: pointer; font-size: 14px; font-weight: 600; border-radius: 4px; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .lang-btn:hover { background: #8b7355; color: white; }
+        .lang-btn.active { background: #6b5639; color: white; border-color: #6b5639; }
+        .container { max-width: 800px; margin: 0 auto; background: white; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
+        header { background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%); color: #f4f1e8; padding: 60px 40px 40px 40px; border-bottom: 4px solid #8b7355; }
+        .title-main { font-size: 2.8em; font-weight: 300; letter-spacing: 2px; margin-bottom: 15px; font-variant: small-caps; }
+        .subtitle { font-size: 1.3em; font-weight: 300; color: #c4b5a0; font-style: italic; margin-bottom: 25px; }
+        .period { font-size: 1.1em; color: #8b7355; letter-spacing: 3px; font-weight: 400; }
+        .content { padding: 50px 60px 60px 60px; }
+        .chapter-intro { font-size: 1.15em; font-style: italic; color: #5a5a5a; margin-bottom: 40px; padding: 25px; background: #faf8f3; border-left: 4px solid #8b7355; }
+        h2 { font-size: 1.8em; color: #3d2817; margin: 50px 0 25px 0; font-weight: 400; letter-spacing: 1px; border-bottom: 2px solid #e6dcc9; padding-bottom: 10px; }
+        h2:first-of-type { margin-top: 0; }
+        h3 { font-size: 1.3em; color: #6b5639; margin: 40px 0 15px 0; font-weight: 400; letter-spacing: 1px; }
+        p { margin-bottom: 20px; text-align: justify; font-size: 1.05em; }
+        .divider { border: none; border-top: 2px solid #e6dcc9; margin: 40px 0; }
+        .back-link { display: inline-block; margin-bottom: 30px; text-decoration: none; color: #8b7355; font-size: 0.95em; transition: color 0.2s; }
+        .back-link:hover { color: #6b5639; }
+        footer { background: #3d3d3d; color: #c4b5a0; padding: 30px 60px; font-size: 0.9em; text-align: center; border-top: 4px solid #8b7355; }
+
+        /* Map embed */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 75%;
+            margin: 30px 0;
+            border: 1px solid #c4b5a0;
+            overflow: hidden;
+            background: #f4efe4;
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .map-caption {
+            text-align: center;
+            font-style: italic;
+            color: #6b5639;
+            font-size: 0.9em;
+            margin-top: 8px;
+            margin-bottom: 35px;
+        }
+        .map-fullscreen-link {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 8px 20px;
+            border: 2px solid #8b7355;
+            color: #6b5639;
+            text-decoration: none;
+            font-size: 0.9em;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .map-fullscreen-link:hover { background: #8b7355; color: white; }
+
+        /* Photo gallery */
+        .gallery-region {
+            margin-top: 35px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #c4b5a0;
+            background: #f5f2eb;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+        .gallery-item:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .gallery-item.wide {
+            grid-column: 1 / -1;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            margin: 0;
+            border: none;
+            transition: transform 0.4s;
+        }
+        .gallery-item.wide img {
+            height: 300px;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+        .gallery-info {
+            padding: 12px 14px;
+        }
+        .gallery-place {
+            font-size: 1em;
+            font-weight: 600;
+            color: #3d2817;
+            margin-bottom: 3px;
+        }
+        .gallery-location {
+            font-size: 0.82em;
+            color: #8b7355;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        .gallery-desc {
+            font-size: 0.88em;
+            color: #5a5a5a;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        .gallery-chapter-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #f5f2eb;
+            border: 1px solid #e6dcc9;
+            border-radius: 3px;
+            font-size: 0.72em;
+            color: #8b7355;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border: none;
+            margin: 0;
+            border-radius: 4px;
+        }
+        .lightbox-caption {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #c4b5a0;
+            font-size: 0.95em;
+            font-style: italic;
+            text-align: center;
+            max-width: 80vw;
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 25px;
+            color: #c4b5a0;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 10001;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .content { padding: 30px 25px; }
+            header { padding: 40px 25px 30px 25px; }
+            .title-main { font-size: 2em; }
+            footer { padding: 25px; }
+            .language-switcher { top: 10px; right: 10px; padding: 8px; gap: 6px; }
+            .lang-btn { padding: 6px 12px; font-size: 12px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item img, .gallery-item.wide img { height: 200px; }
+            .map-container { padding-bottom: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="language-switcher">
+        <a href="extras_PT.html" class="lang-btn">PT-BR</a>
+        <a href="extras.html" class="lang-btn active">EN</a>
+        <a href="extras_DE.html" class="lang-btn">DE</a>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="title-main">Extras</div>
+            <div class="subtitle">Maps, Photographs, and the Places in This Story</div>
+            <div class="period">The Fortress and the Axe</div>
+        </header>
+
+        <div class="content">
+
+            <a href="index.html" class="back-link">&larr; Back to Table of Contents</a>
+
+            <div class="chapter-intro">
+                The chapters of this history use only historical images, to keep the reader inside the period being described. But every place in this story still exists today. The abbey at Ottobeuren still stands. The valleys of the Glottertal still grow wine on their south-facing slopes. The house that Josef Würzburger built in Terra Nova still shelters a family. This page collects the places as they are now, alongside the migration map that traces the family's six-century journey from Swabia to Brazil and beyond.
+            </div>
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- MIGRATION MAP                          -->
+            <!-- ═══════════════════════════════════════ -->
+
+            <h2>The Migration Map</h2>
+
+            <p>Six family lines, seven centuries, three continents. This interactive map traces every documented movement in the story, from the von Braun family's departure from Ottobeuren in the 1450s to Gilberto Hackl's arrival in Kitchener, Ontario. Click on any marker for details. Use the legend to isolate individual family lines.</p>
+
+            <div class="map-container">
+                <iframe src="Migration_Map_Real_Terrain.html" title="Interactive migration map of the Hackl and Würzburger family lines" loading="lazy"></iframe>
+            </div>
+            <div class="map-caption">
+                Interactive map showing the migrations of the von Braun, Rueff, Schwehr, Würzburger, Hackl, and Ruth family lines from 1352 to the present.
+                <br>
+                <a href="Migration_Map_Real_Terrain.html" target="_blank" class="map-fullscreen-link">Open map in full screen</a>
+            </div>
+
+            <hr class="divider">
+
+            <!-- ═══════════════════════════════════════ -->
+            <!-- PHOTO GALLERY                          -->
+            <!-- ═══════════════════════════════════════ -->
+
+            <h2>The Places Today</h2>
+
+            <p>The photographs below show the locations in this story as they appear in the twenty-first century. They are arranged by region, following the family's path from east to west across the German-speaking world, then across the Atlantic to Brazil and north to Canada.</p>
+
+            <!-- ── SWABIA ── -->
+            <div class="gallery-region">
+                <h3>Swabia: The Beginning</h3>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item wide" onclick="openLightbox(this)">
+                        <img src="https://baroqueart.museumwnf.org/database_item.php?id=monument;BAR;de;Mon12;35;en" alt="Ottobeuren Abbey and Basilica" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Ottobeuren Abbey and Basilica</div>
+                            <div class="gallery-location">Ottobeuren, Bavaria, Germany</div>
+                            <div class="gallery-desc">The "fortress" of the title. The baroque basilica (1737-1766) stands on foundations dating to 764 CE. Four generations of the von Braun family lived in this abbey's shadow from 1352 to 1450.</div>
+                            <span class="gallery-chapter-tag">Part I</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://globerovers.com/wp-content/uploads/2020/07/Germany-Ottobeuren-Bavarian-Allgau-1.jpg" alt="Ottobeuren village" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Ottobeuren Village</div>
+                            <div class="gallery-location">Ottobeuren, Bavaria</div>
+                            <div class="gallery-desc">The town that "clung to the abbey's walls like a child to its mother's skirts." Hans Peter Adam von Braun was married here in 1380.</div>
+                            <span class="gallery-chapter-tag">Part I</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://static.campspace.com/media/space/medium/f85832de1095fd2b590d3f7dc6a22be7.jpg" alt="The Unterallgäu landscape" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">The Unterallgäu Landscape</div>
+                            <div class="gallery-location">Between Memmingen and Mindelheim, Bavaria</div>
+                            <div class="gallery-desc">The rolling Swabian farmland the Braun family left behind when they turned westward toward the mountains of the Black Forest.</div>
+                            <span class="gallery-chapter-tag">Parts I &amp; II</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://reimlingen.de/wp-content/uploads/2016/12/Winter_Reimlingen017_1140.jpg" alt="Reimlingen" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Reimlingen</div>
+                            <div class="gallery-location">Ries Basin, Bavaria, Germany</div>
+                            <div class="gallery-desc">Birthplace of Hans Peter Adam von Braun in 1352. The earliest fixed point in the family geography.</div>
+                            <span class="gallery-chapter-tag">Part I</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ── BLACK FOREST ── -->
+            <div class="gallery-region">
+                <h3>The Black Forest: Into the Mountains</h3>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item wide" onclick="openLightbox(this)">
+                        <img src="https://www.blackforest-highlights.com/_Resources/Persistent/e4ef16ac6c49c9da2abc59c3c4ec7fe8e4ee851b/Schwarzwaldhof%C2%A9Hochschwarzwald%20Tourismus%20GmbH.jpg" alt="The Black Forest highlands" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">The Black Forest Highlands</div>
+                            <div class="gallery-location">Between Furtwangen and Sankt Peter, Baden-Württemberg</div>
+                            <div class="gallery-desc">A traditional Black Forest farmhouse amid the high country where the Schwär and Rueff families lived for generations. Houses like these sheltered both people and livestock under one massive roof.</div>
+                            <span class="gallery-chapter-tag">Part II</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.schwarzwaldportal.com/wp-content/uploads/2022/01/AdobeStock_250480578-1024x389.jpeg" alt="Calw on the Nagold" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Calw on the Nagold</div>
+                            <div class="gallery-location">Calw, Baden-Württemberg, Germany</div>
+                            <div class="gallery-desc">The woodworking centre where the Braun family likely first settled after leaving Swabia. The Nagold provided waterpower for the mills that drove the timber trade.</div>
+                            <span class="gallery-chapter-tag">Part II</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.schwarzwaelder-bote.de/media.media.3220ba38-6a62-4080-b3c6-c98e9e5ab592.16x9_1024.jpg" alt="Calmbach" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Calmbach</div>
+                            <div class="gallery-location">Bad Wildbad, Baden-Württemberg</div>
+                            <div class="gallery-desc">Home of Adolph von Braun and Catharina Lauxen around 1485. A woodworking settlement where the family still carried the "von" particle marking noble status.</div>
+                            <span class="gallery-chapter-tag">Part II</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Furtwangen%2C_VS_-_Fatimakapelle_-_Furtwangen_v_N_02.jpg" alt="Furtwangen" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Furtwangen</div>
+                            <div class="gallery-location">Furtwangen im Schwarzwald, Baden-Württemberg</div>
+                            <div class="gallery-desc">Centre of the Black Forest clockmaking tradition. The Ruff family worked here from the 1520s onward. Home of the German Clock Museum.</div>
+                            <span class="gallery-chapter-tag">Part II</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://img3.oastatic.com/img2/14550614/max/variant.jpg" alt="Gütenbach" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Gütenbach</div>
+                            <div class="gallery-location">Gütenbach, Baden-Württemberg</div>
+                            <div class="gallery-desc">Birthplace of Thomas Ruf in 1529, the earliest documented Ruff craftsman. Christina Rueff, who married Christianus Schwär in the "critical marriage" of the story, traces back here.</div>
+                            <span class="gallery-chapter-tag">Part II</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://mein.toubiz.de/api/v1/media/b0239854-2c64-11ee-9479-47fd27d49fd8/view" alt="Sankt Peter monastery" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Sankt Peter</div>
+                            <div class="gallery-location">Sankt Peter im Schwarzwald, Baden-Württemberg</div>
+                            <div class="gallery-desc">The Benedictine monastery where Christianus Schwär was born, lived his entire life, fathered thirteen children, and was buried in 1692. The nexus of the Black Forest family network.</div>
+                            <span class="gallery-chapter-tag">Parts II &amp; III</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://mein.toubiz.de/api/v1/media/d5ac9acc-2c63-11ee-b902-6f41a7d6c8bb/view" alt="Sankt Märgen" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Sankt Märgen</div>
+                            <div class="gallery-location">Sankt Märgen, Baden-Württemberg</div>
+                            <div class="gallery-desc">Where Hans Peter "Mang" von Braun died in 1551. Christina Rueff's home territory. The other pole of the monastery network that connected the family lines.</div>
+                            <span class="gallery-chapter-tag">Part II</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Sankt_Peter%2C_St._Ursulakapelle%2C_Fassade_1.jpg/960px-Sankt_Peter%2C_St._Ursulakapelle%2C_Fassade_1.jpg.webp" alt="Oberibental chapel" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Oberibental</div>
+                            <div class="gallery-location">Sankt Märgen district, Baden-Württemberg</div>
+                            <div class="gallery-desc">Birthplace of Christina Rueff (c. 1638), whose marriage to Christianus Schwär united the Braun nobility with the Ruff craftsmen, the pivotal union of Part II.</div>
+                            <span class="gallery-chapter-tag">Part II</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ── GLOTTERTAL & FOOTHILLS ── -->
+            <div class="gallery-region">
+                <h3>The Valley: Glottertal and the Foothills</h3>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item wide" onclick="openLightbox(this)">
+                        <img src="https://mein.toubiz.de/api/v1/media/b04facf7-06dd-4fcd-8fc3-d36f53dcfe2a/view?width=3840&quality=96&format=image/webp" alt="Glottertal valley" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">The Glottertal</div>
+                            <div class="gallery-location">Glottertal, Baden-Württemberg, Germany</div>
+                            <div class="gallery-desc">The valley of the Glotter, stretching from the Rhine plain into the Black Forest. The Würzburger family has lived here since the 1730s. The Gschwander family settled here from Switzerland. Wine still grows on the south-facing slopes.</div>
+                            <span class="gallery-chapter-tag">Parts III &amp; V</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.heuweiler.de/fileadmin/_processed_/1/0/csm_Heuweiler_Bild_1_a9c3fc87e6.jpg" alt="Heuweiler" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Heuweiler</div>
+                            <div class="gallery-location">Heuweiler, Baden-Württemberg</div>
+                            <div class="gallery-desc">The Schwehr family's home for seven generations, from Bartholomäus's arrival around 1717 through Afra's childhood. One of the smallest municipalities in Baden-Württemberg.</div>
+                            <span class="gallery-chapter-tag">Parts II &amp; III</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.alemannische-seiten.de/bild/glottertal/glottertal_foehrental.jpg" alt="Föhrental" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Föhrental</div>
+                            <div class="gallery-location">Föhrental, Glottertal, Baden-Württemberg</div>
+                            <div class="gallery-desc">Home of the Würzburgerhof, the family's named farmstead. Josef Würzburger grew up here before emigrating to Brazil in 1933. The most isolated of the four Glottertal villages.</div>
+                            <span class="gallery-chapter-tag">Parts III &amp; V</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://mein.toubiz.de/api/v1/media/0936db0f-6960-4468-a950-68a43c30fd14/view?fm=image/jpeg&w=420" alt="Unterglottertal" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Unterglottertal</div>
+                            <div class="gallery-location">Unterglottertal, Glottertal, Baden-Württemberg</div>
+                            <div class="gallery-desc">The lower village, where the valley opens to the Rhine plain. Birthplace of Josef Würzburger's father Kasimir in 1858. The highest vineyards in Germany climb these south-facing slopes.</div>
+                            <span class="gallery-chapter-tag">Part III</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.alemannische-seiten.de/bild/glottertal/glottertal_ohrensbach.jpg" alt="Ohrensbach" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Ohrensbach</div>
+                            <div class="gallery-location">Ohrensbach, Glottertal, Baden-Württemberg</div>
+                            <div class="gallery-desc">Where Josef and Anna Luise married in 1919. Where Elisabeth was born in 1922. Where Anna Luise died at thirty-six in 1925. A place of beginnings and endings.</div>
+                            <span class="gallery-chapter-tag">Parts III &amp; V</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.alemannische-seiten.de/bild/gundelfingen/gundelfingen_waldbrunnenhof-wildtal.jpg" alt="Wildtal" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Wildtal</div>
+                            <div class="gallery-location">Wildtal, near Gundelfingen, Baden-Württemberg</div>
+                            <div class="gallery-desc">Birthplace of Anna Luise Gehri in 1889. Home of the Gehri family. Where Georg Schwehr died at thirty-eight in 1866.</div>
+                            <span class="gallery-chapter-tag">Part III</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.gundelfingen-donau.de/wp-content/uploads/2023/02/Luftbild-Gundelfingen-schmal-scaled.jpg" alt="Gundelfingen" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Gundelfingen</div>
+                            <div class="gallery-location">Gundelfingen, Baden-Württemberg</div>
+                            <div class="gallery-desc">Birthplace of Afra Schwehr in 1857, before her parents' formal marriage. Where Georg Schwehr and Theresia Ruth settled when Heuweiler had no more land to offer.</div>
+                            <span class="gallery-chapter-tag">Part III</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://img.mauritius-images.com/dsf/preview_watermarked/ME-PI-13802674" alt="The Kandel" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">The Kandel</div>
+                            <div class="gallery-location">Kandel (1,241 m), Black Forest, Baden-Württemberg</div>
+                            <div class="gallery-desc">The highest point visible from the Glottertal. The mountain that defined the valley's eastern wall for every generation who lived below it.</div>
+                            <span class="gallery-chapter-tag">Part III</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://visit.freiburg.de/images/VpEd1k0YsXQ/g:ce/aHR0cHM6Ly9pbXhwbGF0Zm9ybS1jdXN0LWZ3dG0uZnNuMS55b3VyLW9iamVjdHN0b3JhZ2UuY29tL21lZGlhL1N0YWVtbWUvZnJlaWJ1cmdfbXVlbnN0ZXJfY29weXJpZ2h0LWZ3dG0tYmFzY2hpLWJlbmRlci0xMy1taW4uanBn" alt="Freiburg Münster" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Freiburg Münster</div>
+                            <div class="gallery-location">Freiburg im Breisgau, Baden-Württemberg</div>
+                            <div class="gallery-desc">The great cathedral that dominated the Rhine plain, visible from the Black Forest heights above. The regional capital that oriented the entire valley world.</div>
+                            <span class="gallery-chapter-tag">Parts II &amp; III</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ── STYRIA ── -->
+            <div class="gallery-region">
+                <h3>Styria: The Other Country</h3>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item wide" onclick="openLightbox(this)">
+                        <img src="https://www.steiermark.com/00_Regionen/02_Thermen-Vulkanland/Die%20Region/Gemeinden/st.-anna-am-aigen/Panorama2%20%C2%A9%20Thermen-%20%26%20Vulkanland_Edgar%20Strasser.jpg" alt="Sankt Anna am Aigen" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Sankt Anna am Aigen</div>
+                            <div class="gallery-location">Southeastern Styria, Austria</div>
+                            <div class="gallery-desc">The wine-growing village where the Hackl family originated. Johan Hackl was born here in 1839. Leonhard and Aurelia married in the parish church in 1896. The landscape could not be more different from the Black Forest.</div>
+                            <span class="gallery-chapter-tag">Part IV</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://oewm.geo.univie.ac.at/oewm-api/v1_9/data/images/203680_1_11-Hochstraden-001-2.jpg" alt="Hochstraden" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Hochstraden</div>
+                            <div class="gallery-location">Sankt Anna am Aigen parish, Styria</div>
+                            <div class="gallery-desc">Leonhard Hackl's birthplace in 1869, on the volcanic basalt ridge above the village. About 145 residents today. Vineyards grow on two-million-year-old lava.</div>
+                            <span class="gallery-chapter-tag">Part IV</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqSVgAI8dAPsPEOf6tRgIs5i4JsKty4fGAgA&s" alt="The Stradner Kogel" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">The Stradner Kogel</div>
+                            <div class="gallery-location">Southeastern Styria, Austria (609 m)</div>
+                            <div class="gallery-desc">The highest point in southeastern Styria. Views stretch east toward Hungary and south toward Slovenia. The volcanic landmark that dominates the Hackl homeland.</div>
+                            <span class="gallery-chapter-tag">Part IV</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/fc/dd/a3/trostlos.jpg?w=900&h=500&s=1" alt="Jakomini district, Graz" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Graz: Jakomini District</div>
+                            <div class="gallery-location">6th District, Graz, Styria, Austria</div>
+                            <div class="gallery-desc">The working-class neighbourhood where Leonhard raised twelve children at Pestalozzistraße 78. Dense apartment blocks, modest rents. Friedrich was born here in 1914.</div>
+                            <span class="gallery-chapter-tag">Part IV</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.katholische-kirche-steiermark.at/img/db/49/14d217701ac5309ef718/Segnung_des_Kirchturmes_in_Graz-St__Josef-_N_M3996.jpg" alt="Pfarrkirche St. Josef" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Pfarrkirche St. Josef</div>
+                            <div class="gallery-location">Jakomini, Graz, Austria</div>
+                            <div class="gallery-desc">Where Friedrich Hackl was baptised on 29 January 1914, the day after his birth. The church had only been completed in 1908. The paint on the walls was barely dry.</div>
+                            <span class="gallery-chapter-tag">Part IV</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Graz_Hauptbahnhof_bei_Nacht.jpg" alt="Graz Hauptbahnhof" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Graz Hauptbahnhof</div>
+                            <div class="gallery-location">Graz, Styria, Austria</div>
+                            <div class="gallery-desc">Leonhard worked as a Dienstmann, a porter, meeting trains and carrying passengers' luggage. The station was likely one of his daily workplaces.</div>
+                            <span class="gallery-chapter-tag">Part IV</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.steiermark.com/00_Regionen/06_Murau/extern/Gemeinden/schoeder/189949/image-thumb__189949__lightbox/blick-auf-schoeder.5a82d9d1.jpg" alt="Schöder" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Schöder</div>
+                            <div class="gallery-location">Murau district, Upper Styria, Austria</div>
+                            <div class="gallery-desc">Birthplace of Aurelia Küschal in 1871, Leonhard's wife. A mountain village in the Mur valley, colder and higher than the wine country where Leonhard grew up.</div>
+                            <span class="gallery-chapter-tag">Part IV</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ── BRAZIL: ARRIVAL ── -->
+            <div class="gallery-region">
+                <h3>Brazil: The Crossing</h3>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item wide" onclick="openLightbox(this)">
+                        <img src="https://clickpetroleoegas.com.br/wp-content/uploads/2025/07/Porto-de-Santos-vai-ganhar-terminal-de-passageiros-com-investimento-de-R-124-bilhao-%E2%80%94-e-gerar-milhares-de-empregos-ate-2028.jpg" alt="Port of Santos" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Port of Santos</div>
+                            <div class="gallery-location">Santos, São Paulo, Brazil</div>
+                            <div class="gallery-desc">Where the Hackl family disembarked from the SS Orania on 10 February 1925. Their first moment on Brazilian soil. Still the largest port in Latin America.</div>
+                            <span class="gallery-chapter-tag">Part IV</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item wide" onclick="openLightbox(this)">
+                        <img src="https://f.i.uol.com.br/fotografia/2024/03/05/170965122465e735182f7bc_1709651224_3x2_md.jpg" alt="Hospedaria dos Imigrantes" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Hospedaria dos Imigrantes</div>
+                            <div class="gallery-location">Mooca, São Paulo, Brazil (now Museu da Imigração)</div>
+                            <div class="gallery-desc">The immigrant processing centre through which every newcomer to São Paulo state passed. Medical inspection, registration, temporary housing. The Hackl family was processed here in February 1925.</div>
+                            <span class="gallery-chapter-tag">Part IV</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ── BRAZIL: PARANÁ & SÃO PAULO ── -->
+            <div class="gallery-region">
+                <h3>Brazil: Paraná and São Paulo</h3>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.mandaguacu.pr.gov.br/admin/globalarq/noticia/noticia/651_366/0148856755ef575961e658d43a9168fd.webp" alt="Mandaguaçu" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Mandaguaçu</div>
+                            <div class="gallery-location">Mandaguaçu, Paraná, Brazil</div>
+                            <div class="gallery-desc">Where the Hackl family settled and farmed. Where Friedrich and Elisabeth married in 1955. Where Frederico was born in 1957. Where Leonhard's grave lies in Brazilian soil, far from the churchyard at Sankt Anna am Aigen.</div>
+                            <span class="gallery-chapter-tag">Parts IV &amp; V</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Maring%C3%A1_City.jpg" alt="Maringá and its Cathedral" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Maringá</div>
+                            <div class="gallery-location">Maringá, Paraná, Brazil</div>
+                            <div class="gallery-desc">Where Leonhard Hackl died in 1953 and Aurelia in 1962. The conical Cathedral of Maringá, visible in this photograph, is where Gilberto Hackl and Eveline were later married, adding yet another generation's ceremony to the family story.</div>
+                            <span class="gallery-chapter-tag">Parts IV &amp; V</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item wide" onclick="openLightbox(this)">
+                        <img src="https://reservanews.com.br/wp-content/uploads/2022/03/terra-nova-castro.jpg" alt="Colônia Terra Nova" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Colônia Terra Nova</div>
+                            <div class="gallery-location">~10 km from Castro, Paraná, Brazil</div>
+                            <div class="gallery-desc">The German immigrant colony where Josef Würzburger built his house and raised his family. Still home to some sixty families descended from the original 116 who arrived in 1933. German traditions, festivals, and language persist here to this day.</div>
+                            <span class="gallery-chapter-tag">Part V</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://www.davidduggleby.com/files/images/auctions/GUID/ff36073b-d4af-464b-9768-77b58ccd35c2.jpg" alt="Iron Cross, First World War" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">The Iron Cross: Josef Würzburger's War</div>
+                            <div class="gallery-location">Imperial Germany, 1914–1918</div>
+                            <div class="gallery-desc">Before he was a carpenter in Brazil, Josef Würzburger was a soldier. He fought in the First World War and was awarded the Iron Cross for his service. The man who later built a house in the Paraná highlands with his own hands had first survived the trenches of Europe.</div>
+                            <span class="gallery-chapter-tag">Part V</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://medicinasa.com.br/wp-content/uploads/2025/07/Hospital-Santa-Catarina-Paulista-850x560.jpg" alt="São Paulo — Avenida Paulista and Hospital Santa Catarina" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">São Paulo: Avenida Paulista</div>
+                            <div class="gallery-location">São Paulo, Brazil</div>
+                            <div class="gallery-desc">Where Friedrich and Elisabeth eventually settled. Where Friedrich died in the 1990s. Where Gilberto was born in 1982. The Hospital Santa Catarina on the Avenida Paulista, visible here, is where Sabrina Hackl was born, another generation arriving in the city that absorbed the immigrant families.</div>
+                            <span class="gallery-chapter-tag">Part V</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="historical-note" style="background: #f5f2eb; padding: 25px; margin: 30px 0; border-left: 4px solid #a08968; font-size: 0.98em; color: #4a4a4a;">
+                    <strong style="color: #3d2817; display: block; margin-bottom: 8px;">Terra Nova on Film</strong>
+                    Two television reports by Globo document the life of Colônia Terra Nova and its German-descendant families. They capture the traditions, the architecture, and the community that Josef Würzburger helped to build:
+                    <br><br>
+                    <a href="https://globoplay.globo.com/v/11836183/" target="_blank" style="color: #6b5639;">Watch: Terra Nova — Part 1 (Globoplay)</a>
+                    <br>
+                    <a href="https://globoplay.globo.com/v/11836191/" target="_blank" style="color: #6b5639;">Watch: Terra Nova — Part 2 (Globoplay)</a>
+                </div>
+            </div>
+
+            <!-- ── CANADA ── -->
+            <div class="gallery-region">
+                <h3>Canada: The Circle Closes</h3>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item wide" onclick="openLightbox(this)">
+                        <img src="https://www.regionofwaterloo.ca/en/exploring-the-region/resources/Downtown.jpg" alt="Kitchener-Waterloo, Ontario" loading="lazy">
+                        <div class="gallery-info">
+                            <div class="gallery-place">Kitchener-Waterloo</div>
+                            <div class="gallery-location">Ontario, Canada</div>
+                            <div class="gallery-desc">The city once called Berlin, where the Ruth brothers from Heuweiler settled in the 1850s. A century and a half later, Gilberto Hackl's son Michael was born here in 2020. The family's Canadian hometown and second home, closing a circle no one had planned.</div>
+                            <span class="gallery-chapter-tag">Parts III &amp; V (Epilogue)</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <p style="text-align: center; font-style: italic; color: #5a5a5a;">
+                Every place in this gallery is still inhabited, still serving the communities that grew up around them. The abbey bells still ring at Ottobeuren. The vineyards still climb the slopes of the Glottertal. And the house that Josef Würzburger built in Terra Nova with Araucaria pine and Black Forest joinery still stands, nearly a century after he raised its walls.
+            </p>
+
+        </div>
+
+        <footer>
+            <p>The Fortress and the Axe: A Family History</p>
+            <p>From Ottobeuren (1352) to São Paulo — six centuries, two continents, one family</p>
+        </footer>
+    </div>
+
+    <script>
+        function openLightbox(el) {
+            const img = el.querySelector('img');
+            const place = el.querySelector('.gallery-place');
+            const desc = el.querySelector('.gallery-desc');
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lightbox-img');
+            const lbCap = document.getElementById('lightbox-caption');
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lbCap.textContent = place.textContent + ' — ' + desc.textContent;
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+</body>
+</html>
