@@ -5,211 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parte 2: Para Dentro da Floresta (1450–1700)</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Garamond', 'Georgia', serif;
-            line-height: 1.8;
-            color: #2c2c2c;
-            background: #f8f6f0;
-            padding: 0;
-        }
-        
-        .language-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .lang-btn {
-            padding: 8px 16px;
-            border: 2px solid #8b7355;
-            background: white;
-            color: #6b5639;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .lang-btn:hover {
-            background: #8b7355;
-            color: white;
-        }
-        
-        .lang-btn.active {
-            background: #6b5639;
-            color: white;
-            border-color: #6b5639;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 40px rgba(0,0,0,0.1);
-        }
-        
-        header {
-            background: linear-gradient(135deg, #1a3a1a 0%, #2d5a2d 100%);
-            color: #f4f1e8;
-            padding: 60px 40px 40px 40px;
-            border-bottom: 4px solid #5a7355;
-        }
-        
-        .title-main {
-            font-size: 2.8em;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            font-variant: small-caps;
-        }
-        
-        .subtitle {
-            font-size: 1.3em;
-            font-weight: 300;
-            color: #c4d5a0;
-            font-style: italic;
-            margin-bottom: 25px;
-        }
-        
-        .period {
-            font-size: 1.1em;
-            color: #8ba085;
-            letter-spacing: 3px;
-            font-weight: 400;
-        }
-        
-        .content {
-            padding: 50px 60px 60px 60px;
-        }
-        
-        .chapter-intro {
-            font-size: 1.15em;
-            font-style: italic;
-            color: #5a5a5a;
-            margin-bottom: 40px;
-            padding: 25px;
-            background: #f8faf3;
-            border-left: 4px solid #5a7355;
-        }
-        
-        h2 {
-            font-size: 1.8em;
-            color: #2d4a2d;
-            margin: 50px 0 25px 0;
-            font-weight: 400;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #d9e6c9;
-            padding-bottom: 10px;
-        }
-        
-        h2:first-of-type {
-            margin-top: 0;
-        }
-        
-        p {
-            margin-bottom: 20px;
-            text-align: justify;
-            font-size: 1.05em;
-        }
-        
-        img {
-            width: 100%;
-            height: auto;
-            margin: 35px 0;
-            border: 1px solid #c4b5a0;
-        }
-        
-        .img-caption {
-            text-align: center;
-            font-style: italic;
-            color: #6b5639;
-            font-size: 0.9em;
-            margin-top: -25px;
-            margin-bottom: 35px;
-        }
-        
-        .historical-note {
-            background: #f5f7eb;
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 4px solid #7a9168;
-            font-size: 0.98em;
-            color: #4a4a4a;
-        }
-        
-        .date-marker {
-            font-weight: 600;
-            color: #5a6b39;
-            font-variant: small-caps;
-            letter-spacing: 1px;
-        }
-        
-        .place-name {
-            font-style: italic;
-            color: #4a5a3a;
-        }
-        
-        .person-name {
-            font-weight: 500;
-            color: #2d4a2d;
-        }
-        
-        footer {
-            background: #2d4a2d;
-            color: #c4d5a0;
-            padding: 30px 60px;
-            font-size: 0.9em;
-            text-align: center;
-            border-top: 4px solid #5a7355;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Garamond', 'Georgia', serif; line-height: 1.8; color: #2c2c2c; background: #f8f6f0; padding: 0; }
+        .language-switcher { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 10px; background: rgba(255, 255, 255, 0.95); padding: 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .lang-btn { padding: 4px 8px; border: 2px solid #8b7355; background: white; color: #6b5639; cursor: pointer; font-size: 22px; font-weight: 600; border-radius: 4px; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .lang-btn:hover { background: #8b7355; color: white; }
+        .lang-btn.active { background: #6b5639; color: white; border-color: #6b5639; }
+        .container { max-width: 800px; margin: 0 auto; background: white; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
+        header { background: linear-gradient(135deg, #1a3a1a 0%, #2d5a2d 100%); color: #f4f1e8; padding: 60px 40px 40px 40px; border-bottom: 4px solid #5a7355; }
+        .title-main { font-size: 2.8em; font-weight: 300; letter-spacing: 2px; margin-bottom: 15px; font-variant: small-caps; }
+        .subtitle { font-size: 1.3em; font-weight: 300; color: #c4d5a0; font-style: italic; margin-bottom: 25px; }
+        .period { font-size: 1.1em; color: #8ba085; letter-spacing: 3px; font-weight: 400; }
+        .content { padding: 50px 60px 60px 60px; }
+        .chapter-intro { font-size: 1.15em; font-style: italic; color: #5a5a5a; margin-bottom: 40px; padding: 25px; background: #f8faf3; border-left: 4px solid #5a7355; }
+        h2 { font-size: 1.8em; color: #2d4a2d; margin: 50px 0 25px 0; font-weight: 400; letter-spacing: 1px; border-bottom: 2px solid #d9e6c9; padding-bottom: 10px; }
+        h2:first-of-type { margin-top: 0; }
+        p { margin-bottom: 20px; text-align: justify; font-size: 1.05em; }
+        img { width: 100%; height: auto; margin: 35px 0; border: 1px solid #c4b5a0; }
+        .img-caption { text-align: center; font-style: italic; color: #6b5639; font-size: 0.9em; margin-top: -25px; margin-bottom: 35px; }
+        .historical-note { background: #f5f7eb; padding: 25px; margin: 30px 0; border-left: 4px solid #7a9168; font-size: 0.98em; color: #4a4a4a; }
+        .date-marker { font-weight: 600; color: #5a6b39; font-variant: small-caps; letter-spacing: 1px; }
+        .place-name { font-style: italic; color: #4a5a3a; }
+        .person-name { font-weight: 500; color: #2d4a2d; }
+        .chapter-nav-wrapper { padding: 0 60px 40px 60px; }
+        .chapter-nav { border-top: 2px solid #d4e0c9; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .back-link { text-decoration: none; color: #5a7355; font-size: 0.95em; letter-spacing: 0.5px; transition: color 0.2s; }
+        .back-link:hover { color: #2d4a2d; }
+        .next-link { text-decoration: none; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+        .next-label { font-size: 0.82em; text-transform: uppercase; letter-spacing: 1.5px; color: #5a7355; margin-bottom: 3px; }
+        .next-title { font-size: 1.15em; font-variant: small-caps; color: #2d4a2d; letter-spacing: 1px; transition: color 0.2s; }
+        .next-link:hover .next-title { color: #5a7355; }
+        footer { background: #2d4a2d; color: #c4d5a0; padding: 30px 60px; font-size: 0.9em; text-align: center; border-top: 4px solid #5a7355; }
         @media (max-width: 768px) {
-            .content {
-                padding: 30px 25px;
-            }
-            header {
-                padding: 40px 25px 30px 25px;
-            }
-            .title-main {
-                font-size: 2em;
-            }
-            footer {
-                padding: 25px;
-            }
-            .language-switcher {
-                top: 10px;
-                right: 10px;
-                padding: 8px;
-                gap: 6px;
-            }
-            .lang-btn {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
+            .content { padding: 30px 25px; }
+            header { padding: 40px 25px 30px 25px; }
+            .title-main { font-size: 2em; }
+            footer { padding: 25px; }
+            .language-switcher { top: 10px; right: 10px; padding: 8px; gap: 6px; }
+            .lang-btn { padding: 3px 6px; font-size: 18px; }
         }
     </style>
 </head>
 <body>
     <div class="language-switcher">
-        <a href="Part_2_Into_the_Forest_1450_1700_PT.html" class="lang-btn active">PT-BR</a>
-        <a href="Part_2_Into_the_Forest_1450_1700_EN.html" class="lang-btn">EN</a>
-        <a href="Part_2_Into_the_Forest_1450_1700_DE.html" class="lang-btn">DE</a>
+        <a href="Part_2_Into_the_Forest_1450_1700_PT.html" class="lang-btn active">🇧🇷</a>
+        <a href="Part_2_Into_the_Forest_1450_1700_EN.html" class="lang-btn">🇬🇧</a>
     </div>
 
     <div class="container">
@@ -221,162 +61,130 @@
         
         <div class="content">
             <div class="chapter-intro">
-                Quando Blasius e Adam von Braun deixaram Ottobeuren em algum momento dos anos centrais do século XV, eles viraram seus rostos para o oeste em direção às montanhas que os romanos haviam chamado de Silva Nigra, a Floresta Negra. Era uma paisagem completamente diferente das suaves terras agrícolas suábias de seu nascimento, um país de vales íngremes e cumes escuros onde abetos e pinheiros cresciam tão densos que o chão da floresta permanecia em perpétuo crepúsculo mesmo ao meio-dia. Aqui os riachos corriam rápidos e frios sobre pedras de granito. Aqui os invernos traziam neve que poderia ter um metro e oitenta de profundidade de novembro a abril. Aqui os velhos deuses das tribos germânicas haviam permanecido por mais tempo do que nas terras civilizadas, e as florestas ainda abrigavam lobos, ursos e javalis. Mas aqui também havia oportunidades que Ottobeuren não podia mais oferecer, pois a Floresta Negra em meados do século XV era uma fronteira, um lugar onde homens com habilidade e ambição podiam esculpir novas vidas longe das hierarquias restritivas das terras monásticas.
+                Quando Blasius e Adam von Braun deixaram Ottobeuren em algum momento na metade do século XV, viraram o rosto para o oeste, em direção às montanhas que os romanos chamavam de Silva Nigra, a Floresta Negra. Era uma paisagem totalmente diferente dos suaves campos suábios onde haviam nascido — um território de vales íngremes e cristas escuras onde abetos e pinheiros cresciam tão densos que o chão da floresta ficava em penumbra permanente mesmo ao meio-dia. Ali os riachos corriam rápidos e frios sobre pedregulhos de granito. Ali os invernos traziam neve que podia se acumular com quase dois metros de altura de novembro a abril. Ali os velhos deuses das tribos germânicas haviam permanecido por mais tempo do que nas terras baixas civilizadas, e as florestas ainda abrigavam lobos, ursos e javalis. Mas ali também havia oportunidades que Ottobeuren já não podia oferecer — pois a Floresta Negra em meados do século XV era uma fronteira, um lugar onde homens com habilidade e ambição podiam abrir caminho para novas vidas, longe das hierarquias restritivas das terras monásticas.
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB4lRmsbJOqEWMjhQXPeL5BEsjm7SuO7zASA&s" alt="Paisagem do Alb Suábio">
-            <p class="img-caption">O Alb Suábio — A paisagem suavemente ondulada que a família Braun deixou para trás quando viraram para o oeste em direção às montanhas</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB4lRmsbJOqEWMjhQXPeL5BEsjm7SuO7zASA&s" alt="Paisagem da Alb Suábica">
+            <p class="img-caption">A Alb Suábica — A paisagem suave e ondulada que a família Braun deixou para trás quando se virou para o oeste em direção às montanhas</p>
 
             <h2>A Geografia da Oportunidade</h2>
 
-            <p>A Floresta Negra não era uma entidade única, mas uma série de cadeias de montanhas paralelas correndo aproximadamente de norte a sul, separadas por vales profundos onde os afluentes do Reno e do Danúbio encontravam suas nascentes. A extremidade norte da cordilheira ficava não muito a oeste de Ottobeuren, elevando-se abruptamente da planície suábia. Aqui a terra era mais baixa, os vales mais amplos, e o assentamento havia chegado cedo. Cidades como <span class="place-name">Calw</span> e <span class="place-name">Pforzheim</span> existiam desde os tempos romanos, e no século XV eram centros prósperos de artesanato e comércio.</p>
+            <p>A Floresta Negra não era uma entidade única, mas uma série de cristas paralelas correndo aproximadamente de norte a sul, separadas por vales profundos onde os afluentes do Reno e do Danúbio encontravam suas nascentes. A extremidade norte da cordilheira ficava não muito a oeste de Ottobeuren, subindo abruptamente da planície suábica. Cidades como <span class="place-name">Calw</span> e <span class="place-name">Pforzheim</span> existiam desde os tempos romanos, e no século XV eram prósperos centros de artesanato e comércio.</p>
 
-            <p>Calw em particular havia se tornado conhecida por suas guildas de marcenaria. A cidade ficava no rio Nagold, que fornecia energia hidráulica para moinhos e transporte para produtos acabados. As florestas ao redor ofereciam madeira em quantidades aparentemente inesgotáveis. Carvalho para trabalho estrutural, faia para móveis, pinho e abeto para tudo, desde telhas de telhado até aduelas de barril. As guildas de artesãos eram antigas e bem organizadas, com regras estritas sobre aprendizagem e qualidade, mas também eram pragmáticas. As perdas populacionais dos anos de peste significavam que artesãos qualificados podiam encontrar trabalho, e famílias com alguns recursos podiam se estabelecer se estivessem dispostas a aprender o ofício.</p>
+            <p>Calw em particular havia se tornado conhecida por suas guildas de marceneiros. A cidade ficava às margens do rio Nagold, que fornecia energia hidráulica para os moinhos e transporte para os produtos acabados. As florestas ao redor ofereciam madeira em quantidades aparentemente inesgotáveis. As guildas de artesãos eram antigas e bem organizadas, mas também pragmáticas. As perdas populacionais dos anos de praga significavam que artesãos qualificados podiam encontrar trabalho, e famílias com alguns recursos podiam se estabelecer se estivessem dispostas a aprender o ofício.</p>
 
-            <p>Ao sul de Calw, a floresta crescia mais alta e mais selvagem. A Floresta Negra central atingia elevações de mais de mil metros, com picos subindo ainda mais alto. Aqui os vales estreitavam-se em desfiladeiros, e os assentamentos agarravam-se a qualquer terreno plano que pudesse ser encontrado ao longo dos riachos. Esta era região de mineração, onde homens cavavam em busca de prata, chumbo e ferro nos flancos das montanhas, e onde a necessidade de madeira para escorar os túneis das minas e fundir minério criava demanda constante por cortadores de madeira e carvoeiros.</p>
+            <p>Ao sul de Calw, a floresta crescia mais alta e selvagem. A Floresta Negra central atingia elevações de mais de novecentos metros. Lá os vales se estreitavam em gargantas, e os assentamentos se agarravam a qualquer terreno plano que pudesse ser encontrado ao longo dos riachos. Era território de mineração, onde homens cavavam prata, chumbo e ferro nas encostas das montanhas, e onde a necessidade de madeira criava demanda constante por lenhadores e carvoeiros.</p>
 
-            <p>Mais profundamente nas montanhas ficavam as terras monásticas. <span class="place-name">Sankt Märgen</span> e <span class="place-name">Sankt Peter</span>, duas fundações beneditinas que espelhavam na Floresta Negra o que Ottobeuren havia sido na Suábia, ficavam em cumes adjacentes no alto país ao sul de Freiburg. Sankt Märgen havia sido fundado por volta de 1118 como uma fundação agostiniana, embora mais tarde se afiliasse a outras casas. Sankt Peter, estabelecido na década de 1090 pelos Duques de Zähringen, era puramente beneditino. Ambos os mosteiros possuíam terras extensas, ambos precisavam de administradores e artesãos, ambos ofereciam o tipo de mundo estruturado e hierárquico que uma família como os Braun teria entendido de suas origens em Ottobeuren.</p>
+            <p>Mais fundo ainda nas montanhas ficavam as terras dos mosteiros. <span class="place-name">Sankt Märgen</span> e <span class="place-name">Sankt Peter</span> — duas fundações que espelhavam na Floresta Negra o que Ottobeuren havia sido na Suábia — ficavam em cristas adjacentes no alto país ao sul de Freiburg. Ambos os mosteiros detinham extensas terras, ambos precisavam de administradores e artesãos, ambos ofereciam o tipo de mundo estruturado e hierárquico que uma família como os Brauns teria entendido desde suas origens em Ottobeuren.</p>
 
             <div class="historical-note">
-                A Floresta Negra no século XV estava passando por um desenvolvimento rápido. A população estava se recuperando da peste, e novas tecnologias estavam impulsionando a expansão. Moinhos movidos a água tornaram-se mais eficientes, permitindo serragem mecanizada de madeira e trituração de minério. A demanda por produtos de madeira crescia a cada década que passava. Por volta de 1500, as florestas ao redor de Calw e Pforzheim estavam sendo sistematicamente colhidas, com regulamentações para garantir corte sustentável. A alta Floresta Negra, mais remota e de difícil acesso, permanecia praticamente intocada, exceto ao redor dos mosteiros e acampamentos de mineração. Era uma paisagem que recompensava aqueles dispostos a trabalhar duro em condições severas, oferecendo em troca um grau de independência que era cada vez mais raro nas partes mais povoadas da Alemanha.
+                A Floresta Negra no século XV estava passando por um desenvolvimento rápido. A população estava se recuperando da praga, e novas tecnologias impulsionavam a expansão. Moinhos movidos a água tornaram-se mais eficientes, permitindo a serragem mecanizada de madeira e a trituração de minério. A demanda por produtos de madeira crescia a cada década que passava. Por volta de 1500, as florestas ao redor de Calw e Pforzheim estavam sendo colhidas sistematicamente, com regulamentações para garantir um corte sustentável. A alta Floresta Negra, mais remota e de difícil acesso, permanecia em grande parte intocada, exceto ao redor dos mosteiros e acampamentos de mineração. Era uma paisagem que recompensava quem estava disposto a trabalhar duro em condições severas, oferecendo em troca um grau de independência que era cada vez mais raro nas partes mais estabelecidas da Alemanha.
             </div>
 
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPDey7AxmzcomsSNjcjMsPnblnh7lG8zht7w&s" alt="Calw no rio Nagold">
-            <p class="img-caption">Calw no Nagold — O centro de marcenaria onde a família Braun provavelmente se estabeleceu primeiro na Floresta Negra</p>
+            <p class="img-caption">Calw no Nagold — O centro de marcenaria onde a família Braun provavelmente se estabeleceu pela primeira vez na Floresta Negra</p>
 
             <h2>A Conexão com Calw</h2>
 
-            <p>O rastro esfria nos registros entre Ottobeuren e a Floresta Negra. Sabemos que <span class="person-name">Blasius von Braun</span> viveu até 1510 e seu irmão <span class="person-name">Adam Luppert von Braun</span> até 1499. Sabemos que um ou ambos tiveram filhos que continuaram a linhagem familiar. Sabemos que no início do século XVI, membros da família Braun estavam estabelecidos na região de Calw, porque podemos rastrear seus descendentes lá. Mas o caminho exato que tomaram, o ano exato em que partiram, as razões pelas quais escolheram a Floresta Negra em vez de outros destinos, tudo isso se perdeu no tempo.</p>
+            <p>O rastro esfria nos registros entre Ottobeuren e a Floresta Negra. Sabemos que <span class="person-name">Blasius von Braun</span> viveu até 1510 e seu irmão <span class="person-name">Adam Luppert von Braun</span> até 1499. Sabemos que um ou ambos tiveram filhos que continuaram a linhagem familiar. Sabemos que no início do século XVI, membros da família Braun estavam estabelecidos na região de Calw. Mas o caminho exato que percorreram, o ano exato em que partiram, as razões pelas quais escolheram a Floresta Negra em vez de outros destinos — tudo isso se perdeu no tempo.</p>
 
-            <p>O que podemos reconstruir é o mundo em que teriam entrado. Calw em meados do final de 1450 era uma cidade de talvez duas mil almas, agrupadas ao longo de ambas as margens do Nagold em um vale onde o rio fazia um vau conveniente. A cidade tinha muralhas e portões, uma praça de mercado, várias igrejas, um castelo ducal nas alturas acima. As guildas controlavam a maior parte da atividade econômica. Trabalhar como mestre artesão exigia anos de aprendizado, jornadas como jornaleiro e, finalmente, a produção de uma obra-prima para provar suas habilidades. Mas as guildas também reconheciam a nobreza, e uma família portando a designação "von" teria certas vantagens na negociação de entrada na economia artesanal.</p>
+            <p>Calw em meados a fins dos anos 1450 era uma cidade de talvez duas mil almas, reunidas às duas margens do Nagold. A cidade tinha muralhas e portões, uma praça do mercado, várias igrejas, um castelo ducal nas alturas acima. As guildas controlavam a maior parte da atividade econômica. Para trabalhar como mestre artesão eram necessários anos de aprendizagem, vagabundagem como trabalhador itinerante e, finalmente, a produção de uma obra-prima para provar a habilidade. Mas as guildas também reconheciam a nobreza, e uma família com a designação "von" teria certas vantagens na negociação de entrada na economia artesanal.</p>
 
-            <p>Calmbach, um assentamento menor alguns quilômetros rio acima de Calw, aparece nos registros familiares como local de residência de <span class="person-name">Adolph von Braun</span> e sua esposa <span class="person-name">Catharina Lauxen</span>, ambos nascidos por volta de 1485. Se este Adolph era neto dos irmãos que deixaram Ottobeuren, ou talvez um sobrinho, não podemos dizer com certeza. Mas o "von" permanece em seu nome, sugerindo que a família ainda reivindicava status nobre, e a conexão Lauxen indica laços locais sendo formados através do casamento.</p>
+            <p>Calmbach, um assentamento menor alguns quilômetros rio acima, aparece nos registros familiares como local de residência de <span class="person-name">Adolph von Braun</span> e sua esposa <span class="person-name">Catharina Lauxen</span>, ambos nascidos por volta de 1485. Se esse Adolph era neto dos irmãos que deixaram Ottobeuren, ou talvez sobrinho, não podemos dizer com certeza. Mas o "von" permanece em seu nome, e a ligação com os Lauxen indica que laços locais estavam sendo formados através do casamento.</p>
 
-            <p>Calmbach era principalmente um centro de marcenaria, conhecido particularmente pela produção de telhas de telhado e componentes de barril. As encostas íngremes ao redor do assentamento tornavam a agricultura difícil, mas forneciam fácil acesso à madeira em pé. Os homens derrubavam árvores nas encostas acima da cidade, deixavam os troncos deslizarem morro abaixo até o rio e os flutuavam rio abaixo até as serrarias. Era trabalho perigoso. Todos os anos homens eram esmagados por troncos rolantes ou se afogavam na corrente rápida tentando guiar jangadas de madeira através de corredeiras. Mas também era trabalho lucrativo para aqueles que sobreviviam, e exigia habilidades que podiam ser aprendidas através da prática em vez de aprendizado formal.</p>
+            <p>Calmbach era principalmente um centro de marcenaria, conhecido pela produção de telhas de madeira e componentes de barris. As encostas íngremes dificultavam o cultivo, mas forneciam fácil acesso à madeira em pé. Os homens derrubavam árvores nas encostas acima da cidade, deixavam os troncos deslizarem morro abaixo até o rio, e os flutuavam rio abaixo até as serrarias. Era trabalho perigoso. Todo ano homens eram esmagados por troncos rolantes ou afogavam na correnteza rápida tentando guiar jangadas de madeira pelos rápidos. Mas era trabalho lucrativo para quem sobrevivia, e exigia habilidades que podiam ser aprendidas na prática em vez de num aprendizado formal.</p>
 
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6oUIJgsN9OCtYsH0kcCROY4LiGSDRb42ZlA&s" alt="Paisagem da Floresta Negra">
-            <p class="img-caption">A Floresta Negra — Densas florestas de abetos e pinheiros onde o inverno trazia neve de um metro e oitenta de profundidade e os verões eram breves</p>
+            <p class="img-caption">A Floresta Negra — Densas florestas de abeto onde o inverno trazia neve de quase dois metros e os verões eram curtos</p>
 
-            <h2>Para o Interior da Floresta</h2>
+            <h2>Para Dentro da Alta Floresta</h2>
 
-            <p>O próximo ponto claro na geografia familiar vem de um único nome e lugar: <span class="person-name">Hans Peter "Mang" von Braun</span>, nascido em 1505 em <span class="place-name">Haiterbach</span>, morto em 1551 em <span class="place-name">Sankt Märgen</span>. Este homem representa a penetração mais profunda da família no interior da Floresta Negra, e sua morte em uma cidade monástica sugere conexões que se provariam cruciais para entender como a linhagem Braun eventualmente se fundiu com outras famílias.</p>
+            <p>O próximo ponto claro na geografia familiar vem de um único nome e lugar: <span class="person-name">Hans Peter "Mang" von Braun</span>, nascido em 1505 em <span class="place-name">Haiterbach</span>, falecido em 1551 em <span class="place-name">Sankt Märgen</span>. Esse homem representa a penetração mais profunda da família no interior da Floresta Negra, e sua morte numa cidade monástica sugere conexões que se provariam cruciais para como a linhagem Braun eventualmente se fundiu com outras famílias.</p>
 
-            <p>Haiterbach fica a noroeste de Calw, ainda nas regiões mais baixas da floresta. Mas Sankt Märgen fica a quase novecentos metros de altitude em um cume na alta Floresta Negra, acessível apenas por estradas íngremes e sinuosas que no século XVI teriam sido pouco mais que trilhas para mulas. O mosteiro ali vinha lutando há séculos com incêndios, conflitos com seus senhores seculares e escassez crônica de fundos. Em 1430, um incêndio devastador quase acabou com a fundação, e por décadas depois os cônegos viveram mais em suas propriedades em Freiburg do que na casa da montanha.</p>
+            <p>Haiterbach fica a noroeste de Calw, ainda nas partes baixas da floresta. Mas Sankt Märgen fica a quase novecentos metros de altitude numa crista na alta Floresta Negra, acessível apenas por estradas íngremes e sinuosas que no século XVI seriam pouco mais que trilhas de carga. O mosteiro de lá havia lutado por séculos contra incêndios, conflitos e crônica escassez de fundos. Em 1430, um incêndio devastador quase acabou com a fundação, e por décadas depois os cânones viveram mais em suas propriedades em Freiburg do que na casa da montanha.</p>
 
-            <p>O que atrairia um homem da região de Calw para Sankt Märgen no início a meados de 1500? O mosteiro, apesar de todos os seus problemas, ainda controlava extensas terras florestais e ainda precisava de homens para administrá-las. Uma família com experiência administrativa e credenciais nobres, mesmo menores, poderia encontrar oportunidades ali que Calw não poderia oferecer. O apelido "Mang" é intrigante, possivelmente um diminutivo ou apelido cujo significado se perdeu. Sua morte em Sankt Märgen em 1551 o coloca lá nos anos intermediários do século XVI, exatamente quando o mosteiro estava começando uma lenta recuperação sob liderança mais enérgica.</p>
+            <p>O que levaria um homem da região de Calw a Sankt Märgen? O mosteiro, apesar de todos os seus problemas, ainda controlava extensas terras florestais e ainda precisava de homens para administrá-las. Uma família com experiência administrativa e credenciais nobres, mesmo que menores, poderia encontrar ali oportunidades que Calw não podia oferecer. Sua morte em Sankt Märgen em 1551 o coloca ali nos anos medianos do século XVI, exatamente quando o mosteiro estava começando uma lenta recuperação.</p>
 
-            <p>Mas Hans Peter "Mang" von Braun não deixou descendentes diretos em nossa linhagem. A conexão adiante passa por seus parentes, através de primos ou sobrinhos cuja relação exata os registros não preservam. O que importa é que em 1551, alguns membros da família Braun haviam se estabelecido nas partes mais profundas da Floresta Negra, nas terras monásticas onde a próxima peça crucial de nossa história se desenrolaria.</p>
+            <p>Mas Hans Peter "Mang" von Braun não deixou descendentes diretos em nossa linhagem. A conexão para frente corre através de seus parentes, primos ou sobrinhos cuja relação exata os registros não preservam. Mas por 1551, alguns membros da família Braun tinham se estabelecido nas partes mais profundas da Floresta Negra, nas terras do mosteiro onde o próximo trecho crucial da nossa história se desenrolaria.</p>
 
             <img src="https://www.leo-bw.de/media/lmz_bilddatenbank_02/current/delivered/files/124066.jpg" alt="Mapa histórico Silva Nigra">
             <p class="img-caption">Silva Nigra — Mapa histórico mostrando a região da Floresta Negra e seus assentamentos monásticos</p>
 
             <h2>Os Artesãos Ruff</h2>
 
-            <p>Enquanto os Braun faziam seu caminho para a Floresta Negra pelo oeste, outra família já estava estabelecida no alto país, trabalhando um ofício que definiria a região por séculos. O sobrenome <span class="person-name">Ruff</span>, com suas muitas variações ortográficas (Ruef, Ruf, Rueff), aparece nos registros de <span class="place-name">Furtwangen</span> e <span class="place-name">Gütenbach</span> desde o início de 1500 em diante, marcando uma linhagem de artesãos cujas habilidades eventualmente se fundiriam com a nobreza Braun.</p>
+            <p>Enquanto os Brauns abriam caminho para a Floresta Negra pelo oeste, outra família já estava estabelecida no alto país. O sobrenome <span class="person-name">Ruff</span>, com suas muitas variações de grafia (Ruef, Ruf, Rueff), aparece nos registros de <span class="place-name">Furtwangen</span> e <span class="place-name">Gütenbach</span> desde o início dos anos 1500 em diante — marcando uma linhagem de artesãos cujas habilidades eventualmente se fundiriam com a linhagem Braun.</p>
 
-            <p><span class="person-name">Thomas Ruf</span> nasceu em 1529 em Gütenbach, um pequeno assentamento em um vale lateral fora do cume principal onde Furtwangen ficava. Gütenbach em 1529 teria sido talvez trinta ou quarenta fazendas dispersas ao longo de um riacho, cada uma combinando agricultura de subsistência com alguma forma de produção artesanal. A estação de crescimento nesta altitude era curta, apenas quatro meses entre a última geada da primavera e a primeira geada do outono. O solo era fino e rochoso, raspado das encostas por gerações de camponeses fazendo terraços em cada encosta que pudesse segurar um arado. Nenhuma família poderia viver apenas da agricultura.</p>
-
-            <p>Então eles faziam coisas. No inverno, quando a neve estava profunda e o gado ficava em seus estábulos mastigando feno cortado no verão anterior, os homens de Gütenbach e Furtwangen trabalhavam em bancadas e tornos, moldando madeira em objetos úteis. Colheres e tigelas, lançadeiras para teares, fusos para linha, peças para carroças e arados. Mas especialmente relógios.</p>
+            <p><span class="person-name">Thomas Ruf</span> nasceu em 1529 em Gütenbach, um minúsculo assentamento num vale lateral da crista principal. Gütenbach seria talvez trinta ou quarenta propriedades espalhadas ao longo de um riacho, cada uma combinando agricultura de subsistência com algum tipo de produção artesanal. A temporada de crescimento nessa altitude mal durava quatro meses. O solo era magro e pedregoso. Nenhuma família podia viver só da agricultura. Então faziam coisas. No inverno, quando a neve estava funda e o gado ficava nos currais, os homens trabalhavam em bancadas e tornos, moldando madeira em objetos úteis: colheres e tigelas, lançadeiras para teares, fusos para fiar, peças para carroças e arados. E cada vez mais, à medida que as décadas passavam: relógios.</p>
 
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Furtwangen_1808.jpg?_=20051019065131" alt="Furtwangen 1808">
-            <p class="img-caption">Furtwangen em 1808 — O centro de relojoaria onde a família Ruff trabalhou seu ofício por gerações</p>
+            <p class="img-caption">Furtwangen em 1808 — O centro de fabricação de relógios onde a família Ruff exerceu seu ofício por gerações</p>
+
+            <p>Thomas Ruf casou-se com <span class="person-name">Rosina Seng</span> em 1554. Ela também era de Gütenbach, filha de outra família de artesãos. O casamento deles representa o padrão normal dessas comunidades da alta floresta: endogamia, casamento dentro do mesmo círculo fechado de famílias que compartilhavam as mesmas habilidades e enfrentavam os mesmos desafios. Os nomes Ruf, Seng, Dilger e Faller aparecem repetidamente nos registros de Gütenbach, entrelaçando-se através de casamentos, compadrios e parcerias comerciais. A família Ruf continuou em Furtwangen e Gütenbach até o final dos anos 1500 e avançando pelos 1600, e foram seus descendentes que se conectariam às famílias dos mosteiros crista abaixo em Sankt Märgen e Sankt Peter.</p>
 
             <div class="historical-note">
-                O Schwarzwälder Uhr, o relógio da Floresta Negra, tem suas origens no século XVII, mas as bases foram lançadas mais cedo. Nas décadas de 1520 e 1530, artesãos na alta Floresta Negra já estavam experimentando com trens de engrenagem de madeira e mecanismos movidos a peso, adaptando os princípios dos relógios de torre à escala doméstica. Os primeiros verdadeiros relógios da Floresta Negra, peças de tempo totalmente de madeira com movimentos simples e escudos pintados, apareceram por volta de 1640. Mas a cultura de marcenaria de precisão que tornou esses relógios possíveis vinha se desenvolvendo há um século antes disso. A família Ruff, trabalhando em Gütenbach e Furtwangen desde a década de 1520, fazia parte dessa geração fundacional. Eles esculpiam as engrenagens, tornavam os fusos, desenvolviam as técnicas que seus netos e bisnetos usariam para criar uma indústria que tornaria a Floresta Negra famosa em toda a Europa.
+                O Schwarzwälder Uhr, o relógio da Floresta Negra, tem suas origens no século XVII, mas o alicerce foi lançado antes. Já na década de 1520, artesãos da alta Floresta Negra estavam experimentando trens de engrenagens de madeira e mecanismos movidos a peso. Os primeiros relógios verdadeiros da Floresta Negra — peças completamente em madeira com movimentos simples e escudos pintados — surgiram por volta de 1640. Por volta de 1700, a fabricação de relógios havia se tornado uma grande indústria, com movimentos brutos produzidos em oficinas de vales elevados e carregados para as terras baixas por vendedores ambulantes que os vendiam por toda a Europa. A cultura de marcenaria de precisão que tornou esses relógios possíveis — o entalhe de engrenagens, o torneamento de fusos, o desenvolvimento paciente de técnicas passadas de pai para filho — estava se desenvolvendo por um século antes que o primeiro relógio fosse feito. A família Ruff, trabalhando em Gütenbach e Furtwangen desde os anos 1520 em diante, fazia parte dessa geração fundacional.
             </div>
 
-            <p><span class="person-name">Thomas Ruf</span> casou-se com <span class="person-name">Rosina Seng</span> em 1554. Ela também era de Gütenbach, nascida em 1533, filha de outra família de artesãos. Seu casamento representa o padrão normal dessas comunidades de alta floresta: endogamia, casamento dentro do mesmo círculo restrito de famílias que compartilhavam as mesmas habilidades e enfrentavam os mesmos desafios. Todos eram parentes de todos dentro de poucas gerações. Os nomes Ruf, Seng, Dilger e Faller aparecem repetidamente nos registros de Gütenbach, entrelaçando-se através de casamentos, padrinhos e parcerias comerciais.</p>
-
-            <p>A família Ruf continuou em Furtwangen e Gütenbach através do final de 1500 e até 1600. Eram marceneiros, relojoeiros, às vezes agricultores, sempre habitantes daquele alto, severo e belo país onde o inverno durava oito meses e o verão era uma breve explosão de verde antes que as primeiras neves retornassem. E foram seus descendentes, gerações depois, que se conectariam às famílias monásticas no cume em Sankt Märgen e Sankt Peter.</p>
-
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Schwarzwald_-_Deutsche_Mittelgebirge%2C_Serie_A-de.png/960px-Schwarzwald_-_Deutsche_Mittelgebirge%2C_Serie_A-de.png" alt="Mapa topográfico da Floresta Negra">
-            <p class="img-caption">As terras altas da Floresta Negra — Mapa topográfico mostrando as cadeias de montanhas e vales onde essas famílias viviam</p>
+            <p class="img-caption">Os Altos da Floresta Negra — Mapa topográfico mostrando as cristas e vales onde essas famílias viviam</p>
 
-            <h2>O Nexo Monástico</h2>
+            <h2>O Nexo dos Mosteiros</h2>
 
-            <p>A chave para entender como essas famílias se fundiram está na geografia e economia peculiares da alta Floresta Negra nos séculos XVI e XVII. <span class="place-name">Sankt Märgen</span> e <span class="place-name">Sankt Peter</span> ficavam em cumes adjacentes separados por apenas alguns quilômetros em linha reta, mas por um vale íngreme entre eles que tornava a jornada entre os dois uma caminhada de meio dia. Ambos os mosteiros controlavam florestas extensas. Ambos precisavam de suprimentos constantes de madeira para construção, lenha para aquecimento, carvão para metalurgia. Ambos empregavam guardas florestais, cortadores de madeira e artesãos para gerenciar e explorar esses recursos.</p>
+            <p>Sankt Märgen queimou em 1430, de novo em 1560, e de novo em 1704. Cada vez, o mosteiro precisava ser reconstruído, e cada reconstrução exigia grandes quantidades de madeira e mão de obra qualificada. Entre os incêndios havia conflitos com Freiburg sobre direitos e receitas, conflitos com os protetores seculares da abadia sobre jurisdições, problemas crônicos com a disciplina entre os cânones. Mas através de todos esses problemas, o mosteiro persistia, e a comunidade ao seu redor persistia, porque não havia para onde ir. A alta Floresta Negra oferecia poucas escolhas: ou você trabalhava com o mosteiro, ou partia para as terras baixas.</p>
 
-            <p>Os mosteiros também serviam como centros sociais para os assentamentos dispersos ao seu redor. Realizavam mercados, forneciam as únicas escolas por quilômetros, serviam como tribunais para resolver disputas, mantinham as únicas estradas decentes através das montanhas. Se você nascesse dentro de vinte quilômetros de Sankt Märgen ou Sankt Peter nos anos 1500 ou 1600, sua vida estava orientada para uma ou ambas essas casas, quer você fosse um cônego no claustro ou um fazendeiro em uma aldeia do vale.</p>
+            <p><span class="place-name">Sankt Märgen</span> e <span class="place-name">Sankt Peter</span> ficavam em cristas adjacentes separadas por apenas alguns quilômetros em linha reta, mas por um vale íngreme no meio que tornava a jornada uma caminhada de meio dia. Ambos os mosteiros controlavam extensas florestas. Ambos serviam como centros sociais para os assentamentos espalhados ao redor, realizando mercados, fornecendo as únicas escolas por quilômetros, servindo como tribunais para resolver disputas, mantendo as únicas estradas decentes pelas montanhas. Sankt Peter, fundado como casa beneditina pelos Duques de Zähringen nos anos 1090, havia sido o mosteiro e a igreja funerária da família. A igreja barroca que os turistas visitam hoje foi construída nos anos 1720, mas substituiu estruturas que remontavam ao edifício românico original. Cada versão exigia artesãos — marceneiros, pedreiros, todos os ofícios que um grande projeto de construção demandava.</p>
 
-            <p>Sankt Märgen tinha uma história particularmente conturbada. O grande incêndio de 1430 foi seguido por mais incêndios em 1560 e 1704. Cada vez, o mosteiro tinha que ser reconstruído, e cada reconstrução exigia vastas quantidades de madeira e mão de obra qualificada. Entre os incêndios, havia conflitos com a cidade de Freiburg sobre direitos e receitas, conflitos com os protetores seculares da abadia sobre jurisdições, problemas crônicos com disciplina entre os cônegos. Mas através de todos esses problemas, o mosteiro perdurou, e a comunidade ao seu redor perdurou, porque não havia outro lugar para ir. A alta Floresta Negra oferecia poucas escolhas: você trabalhava com o mosteiro, ou partia para as terras baixas.</p>
-
-            <p>Sankt Peter, embora menos catastroficamente afetado, enfrentou desafios semelhantes. Fundado como uma casa beneditina pelos Duques de Zähringen na década de 1090, havia sido seu mosteiro familiar e igreja de sepultamento. No século XVI, a linhagem Zähringer estava extinta há muito tempo, mas Sankt Peter continuou como um centro de aprendizado e posse de terras. A igreja barroca que os turistas agora visitam foi construída na década de 1720, mas substituiu uma estrutura gótica anterior que por sua vez substituiu o edifício românico original. Cada iteração exigia artesãos, marceneiros, cortadores de pedra, vidreiros e todos os outros ofícios que um grande projeto de construção demandava.</p>
-
-            <p>Para este mundo de trabalho monástico e artesanato de montanha vieram as famílias cujos nomes percorrem nossa genealogia: Braun do oeste através de Calw e Calmbach, Ruff do sul através de Furtwangen e Gütenbach, e outros cujas origens podemos rastrear menos claramente, mas cuja presença nas terras monásticas está bem documentada. Steurenthaler, Dilger, Gschwander, Schurhammer. Sobrenomes suíço-alemães, muitos deles, sugerindo migração do sul e leste, dos cantões através do Reno onde filhos mais novos sem terra buscavam sua fortuna nas montanhas alemãs.</p>
+            <p>Nesse mundo de trabalho em mosteiros e artesanato montanhês chegaram as famílias cujos nomes percorrem nossa genealogia: Braun pelo oeste através de Calw e Calmbach, Ruff pelo sul através de Furtwangen e Gütenbach, e outros cuja origem podemos traçar com menos clareza. Steurenthaler, Dilger, Gschwander, Schurhammer — sobrenomes alemânicos-suíços em sua maioria, sugerindo migração dos cantões além do Reno, onde filhos mais novos sem terras buscavam fortuna nas montanhas alemãs. Falavam alemânico, um dialeto quase impenetrável para forasteiros, que havia evoluído nos vales isolados em formas que diferiam de assentamento para assentamento. Os mosteiros, conduzindo seus negócios em latim e alto alemão, serviam como as únicas pontes linguísticas com o mundo mais amplo.</p>
 
             <img src="https://mein.toubiz.de/api/v1/media/42353626-60e7-4bf6-a158-e65d69526e9b/view" alt="Mosteiro de Sankt Peter">
             <p class="img-caption">Mosteiro de Sankt Peter — A casa beneditina onde Christianus Schwär nasceu, viveu e morreu</p>
 
-            <h2>O Casamento Crítico</h2>
+            <h2>O Casamento Decisivo</h2>
 
-            <p>Todas essas linhagens, esses movimentos de pessoas e famílias através da paisagem da Floresta Negra ao longo de 150 anos, convergem em um único casamento que ocorreu em algum momento de meados de 1600. O noivo era <span class="person-name">Christianus Schwär</span>, nascido por volta de 1615 em <span class="place-name">Sankt Peter</span>. A noiva era <span class="person-name">Christina Rueff</span>, nascida por volta de 1638 em <span class="place-name">Oberibental</span>, uma aldeia no distrito de Sankt Märgen.</p>
+            <p>Todas essas linhagens — esses movimentos de pessoas e famílias pela paisagem da Floresta Negra ao longo de 150 anos — convergem num único casamento que aconteceu em algum momento em meados dos anos 1600. O noivo era <span class="person-name">Christianus Schwär</span>, nascido por volta de 1615 em <span class="place-name">Sankt Peter</span>. A noiva era <span class="person-name">Christina Rueff</span>, nascida por volta de 1638 em <span class="place-name">Oberibental</span>, um lugarejo no distrito de Sankt Märgen.</p>
 
-            <p>Este casamento é a dobradiça sobre a qual toda a nossa história familiar gira. Através de Christianus Schwär, rastreamos de volta às famílias monásticas de Sankt Peter e, eventualmente, através de várias gerações de conexões mal documentadas, à linhagem Braun de Ottobeuren. Através de Christina Rueff, rastreamos de volta a Thomas Ruf e Rosina Seng de Gütenbach, aos artesãos e relojoeiros da alta floresta. Sua união reuniu nobreza e artesanato, administração monástica e ofícios de montanha, dois séculos de histórias familiares separadas que vinham lentamente convergindo através da geografia complexa da Floresta Negra.</p>
+            <p>Esse casamento é a dobradiça em que toda a nossa história de família gira. Através de Christianus Schwär, chegamos às famílias de Sankt Peter e, eventualmente, através de várias gerações de conexões mal documentadas, à linhagem Braun de Ottobeuren. Através de Christina Rueff, chegamos a Thomas Ruf e Rosina Seng de Gütenbach — aos artesãos da alta floresta. A união deles juntou dois séculos de histórias familiares separadas que vinham convergindo lentamente pela complexa geografia da Floresta Negra.</p>
 
-            <p>Christianus Schwär viveu toda a sua vida em e ao redor de Sankt Peter. Ele nasceu lá por volta de 1615, provavelmente batizado na igreja do mosteiro, criado à sombra da grande casa. A família Schwär (a grafia varia: Schwär, Schwer, Schwehr) estava estabelecida nas terras de Sankt Peter, provavelmente ocupando alguma posição administrativa ou artesanal menor na economia do mosteiro. Christianus casou-se duas vezes. Sua primeira esposa foi <span class="person-name">Margareta Kaltenbach</span>, nascida em 1614 em Sankt Peter, que morreu em 1656. Com ela teve filhos cujos nomes não sobreviveram. Após a morte de Margareta, Christianus casou-se com Christina Rueff.</p>
+            <p>Christianus viveu toda a sua vida em torno de Sankt Peter. A família Schwär (a grafia varia: Schwär, Schwer, Schwehr) estava estabelecida nas terras de Sankt Peter, provavelmente ocupando alguma posição administrativa ou artesanal menor na economia do mosteiro. Christianus casou-se duas vezes. Sua primeira esposa foi <span class="person-name">Margareta Kaltenbach</span>, nascida em 1614 em Sankt Peter, que morreu em 1656. Após a morte de Margareta, Christianus casou-se com Christina Rueff.</p>
 
-            <p>Christina veio de Oberibental, um conjunto de fazendas em um alto vale no lado de Sankt Märgen do cume. O nome significa literalmente "vale superior do Iben", Iben sendo uma espécie de árvore. Este era país selvagem, terra de floresta e pasto, o tipo de lugar onde uma família poderia ter algumas vacas, um terreno de jardim e uma oficina onde os homens tornavam madeira nas noites de inverno. A família Rueff lá rastreava de volta aos artesãos de Furtwangen/Gütenbach, embora os links exatos através das gerações permaneçam obscuros. O que importa é que Christina trouxe consigo as habilidades e conexões da tradição de marcenaria, o conhecimento prático de homens que faziam coisas com as mãos.</p>
+            <p>Christina vinha de Oberibental, um conjunto de fazendas num vale elevado no lado de Sankt Märgen da crista. O nome significa literalmente "vale superior do Iben" — Iben sendo uma espécie de árvore. Era território selvagem, floresta e campo, o tipo de lugar onde uma família poderia ter algumas vacas, um canteiro de horta e uma oficina onde os homens tornavam madeira nas noites de inverno. Através de Christina, o conhecimento prático das famílias de marceneiros — as mãos que podiam moldar uma roda dentada a partir de um bloco de madeira de pereira, que entendiam a fibra e a tensão e o comportamento da madeira no frio e no calor — entrou na linhagem Schwär.</p>
 
-            <p>O casamento de Christianus e Christina produziu treze filhos. Treze. Em uma época de alta mortalidade infantil, este era um número espantoso, e sugere que a maioria deles sobreviveu até a idade adulta. Essas crianças, nascidas aproximadamente entre 1660 e 1680, espalharam-se pela alta Floresta Negra, casando-se com outras famílias, levando adiante tanto o nome Schwär quanto a herança mista de conexões monásticas e tradições artesanais. Através deles, a linhagem eventualmente alcançaria a família Gschwander em <span class="place-name">Glottertal</span>, outro sistema de vale ao norte de Sankt Peter, e através dos Gschwander à família Schwehr de <span class="place-name">Heuweiler</span>, e através dos Schwehr finalmente a <span class="person-name">Afra Schwehr</span> em 1857, cuja vida examinaremos em capítulos posteriores.</p>
+            <p>Christianus e Christina tiveram treze filhos. Treze, numa época em que talvez metade de todas as crianças morressem antes dos cinco anos. Que a maioria aparentemente sobreviveu até a idade adulta é em si notável — e fala de algo sobre a família: talvez a competência de Christina, talvez a relativa segurança da economia do mosteiro de Sankt Peter, talvez simples sorte genética. Uma família de quinze pessoas teria enchido uma das imponentes casas rurais da Floresta Negra até a capacidade: a grande estrutura de madeira talvez com vinte metros de comprimento e doze de largura, com o gado no andar de baixo e o palheiro se erguendo acima, a família ocupando o andar do meio ao redor do Kachelofen de cerâmica que mantinha o calor por horas depois que o fogo se apagava. Alimentar tantas bocas exigia todos os recursos disponíveis — pão de centeio e mingau de aveia, leite e queijo das vacas abaixo, couves e nabos da horta, o que quer que a floresta pudesse fornecer. Essas crianças, nascidas aproximadamente entre 1660 e 1680, se espalharam pela alta Floresta Negra, casando-se com outras famílias, carregando adiante tanto o nome Schwär quanto a herança mista de conexões monásticas e tradições artesanais.</p>
 
-            <p>Christianus Schwär morreu em 12 de julho de 1692, em Sankt Peter. Ele foi enterrado no mesmo dia no cemitério do mosteiro, como era costume em uma época antes do embalsamamento, quando os corpos não podiam ser guardados por muito tempo no calor do verão. Ele havia vivido setenta e sete anos, uma idade excepcional para o século XVII. Ele havia sobrevivido às doenças da infância, à Guerra dos Trinta Anos (que devastou a Alemanha de 1618 a 1648, certamente afetando a região da Floresta Negra), múltiplas epidemias, as fomes e fracassos de colheita que atingiam periodicamente as altas montanhas. Ele havia se casado duas vezes, gerado pelo menos treze filhos, visto pelo menos alguns deles se casarem e produzirem netos. Ele havia vivido toda a sua vida dentro de um raio de talvez vinte quilômetros, provavelmente nunca viajando mais longe de Sankt Peter do que uma longa caminhada de um dia poderia levá-lo. No entanto, sua vida conectou famílias e tradições que haviam estado separadas por duzentos anos.</p>
+            <p>Christianus Schwär morreu em 12 de julho de 1692, em Sankt Peter. Foi enterrado no mesmo dia, como era costume no verão. Havia vivido setenta e sete anos — uma idade excepcional para o século XVII. Havia sobrevivido à Guerra dos Trinta Anos, que assolou a Alemanha de 1618 a 1648 e pode ter reduzido a população da Floresta Negra em um terço. Havia casado duas vezes, gerado pelo menos treze filhos, visto pelo menos alguns deles casar e ter netos. Havia vivido toda a vida num raio de talvez vinte quilômetros, provavelmente nunca viajando mais longe de Sankt Peter do que uma longa caminhada de um dia poderia levá-lo. E ainda assim sua vida conectou famílias e tradições que haviam sido separadas por duzentos anos.</p>
 
             <div class="historical-note">
-                O século XVII na Floresta Negra foi dominado pela Guerra dos Trinta Anos e suas consequências. De 1618 a 1648, as terras de língua alemã foram devastadas por um conflito que começou como uma guerra religiosa entre príncipes católicos e protestantes e evoluiu para uma luta europeia pelo poder. A Floresta Negra, situada ao longo das rotas entre o vale do Reno e a bacia do Danúbio, viu passagens repetidas de exércitos. Tropas suecas, francesas, espanholas e imperiais marcharam através dela em vários momentos, vivendo da terra e deixando devastação em seu rastro. Terras monásticas como Sankt Märgen e Sankt Peter eram teoricamente protegidas por seu status eclesiástico, mas na prática os soldados respeitavam pouco. Sankt Märgen em particular sofreu muito, com seus edifícios ocupados, suas florestas cortadas para lenha, seus celeiros de grãos requisitados. A população da região da Floresta Negra pode ter caído em até um terço durante os anos de guerra. A recuperação foi lenta, levando gerações. No entanto, as pessoas perseveraram, as famílias continuaram, as crianças nasceram e foram criadas. A longa vida de Christianus Schwär, abrangendo 1615 a 1692, englobou todo o período da guerra e a difícil reconstrução que se seguiu. Seus treze filhos representaram uma espécie de recuperação demográfica, uma reafirmação da vida diante da morte.
+                O século XVII na Floresta Negra foi dominado pela Guerra dos Trinta Anos e seus desdobramentos. De 1618 a 1648, as terras de língua alemã foram devastadas por um conflito que começou como guerra religiosa e evoluiu para uma luta europeia pelo poder. A Floresta Negra, situada ao longo das rotas entre o vale do Reno e a bacia do Danúbio, viu passagens repetidas de exércitos. Tropas suecas, francesas, espanholas e imperiais marcharam por ela, vivendo da terra e deixando devastação por onde passavam. As terras dos mosteiros, como Sankt Märgen e Sankt Peter, eram teoricamente protegidas por seu status eclesiástico, mas na prática os soldados respeitavam pouco. A recuperação foi lenta, levando gerações. Mas as pessoas resistiram, as famílias continuaram, as crianças nasceram e foram criadas. Os treze filhos de Christianus Schwär representavam um tipo de recuperação demográfica — uma reafirmação da vida diante da morte.
             </div>
-
-            <h2>O Mundo da Alta Floresta</h2>
-
-            <p>Como era realmente a vida para famílias como os Schwär e Rueff na Floresta Negra dos anos 1600? Podemos reconstruí-la a partir de fontes dispersas, dos inventários que às vezes sobrevivem quando propriedades eram liquidadas, de registros judiciais quando disputas surgiam, das cuidadosas contabilidades que administradores monásticos mantinham de seus inquilinos e trabalhadores.</p>
-
-            <p>As casas eram construídas de madeira, é claro, já que madeira era o único recurso que a floresta fornecia em abundância. A típica casa da Floresta Negra deste período era uma estrutura maciça, frequentemente abrigando tanto pessoas quanto animais sob um teto. O térreo poderia ser uma fundação de pedra contendo estábulos para vacas e armazenamento para feno e ferramentas. Acima disso, alcançado por uma escada externa, ficava o andar habitável: uma grande sala aquecida onde a família cozinhava, comia, trabalhava e dormia; talvez um quarto separado para o mestre e a senhora; áreas de armazenamento para grãos e alimentos preservados. Acima disso ficava o palheiro, preenchendo o enorme espaço do sótão sob o telhado inclinado. Toda a estrutura poderia ter dezoito metros de comprimento e doze metros de largura, com paredes de sessenta centímetros de espessura e um telhado estendendo-se bem além das paredes para proteger a madeira da chuva.</p>
-
-            <p>O calor vinha de um grande fogão de cerâmica, embutido na parede entre a sala principal e o quarto para que pudesse aquecer ambos os espaços. Esses fogões, chamados Kachelofen em alemão, eram obras de arte, construídos com telhas de cerâmica moldadas que irradiavam calor uniformemente e mantinham o calor por horas depois que o fogo morria. O combustível era madeira, é claro, e uma família poderia queimar vários metros cúbicos ao longo de um inverno, mas essa era uma despesa que podiam atender com seu próprio trabalho, cortando, rachando e empilhando madeira da floresta comum ou de seu próprio bosque.</p>
-
-            <p>A comida era simples e sazonal. Pão de centeio ou aveia, mingau de cevada ou trigo sarraceno, produtos lácteos da vaca da família, ovos de galinhas, vegetais da horta no verão, repolho e nabos preservados no inverno. Carne era uma raridade para a maioria das famílias, reservada para dias de festa e casamentos. As florestas forneciam algum alimento suplementar: cogumelos e frutas silvestres no outono, caça para aqueles com direitos de caça. Mas a estação de crescimento era curta, os solos eram pobres, e cada família vivia perto da beira da fome. Uma única falha de colheita poderia significar desastre.</p>
-
-            <p>Então eles trabalhavam em outras coisas para complementar sua agricultura. Teciam linho de linho que cultivavam. Faziam utensílios de madeira e os vendiam nos mercados das terras baixas. E cada vez mais, conforme o século XVII avançava, faziam relógios. Os primeiros verdadeiros relógios da Floresta Negra apareceram por volta de 1640, mecanismos simples de madeira com um único ponteiro e um mostrador de madeira pintado. Em 1700, a fabricação de relógios havia se tornado uma indústria importante, com movimentos brutos de relógio sendo produzidos nas oficinas dos altos vales e depois levados para as terras baixas por vendedores ambulantes que os vendiam por toda a Europa. A família Rueff fazia parte dessa transformação, e as habilidades foram transmitidas através de Christina para seus filhos e netos.</p>
-
-            <h2>Língua e Cultura</h2>
-
-            <p>O povo da Floresta Negra nesta era falava um dialeto de alemão que era quase impenetrável para estranhos. O alemão alemânico, a tradição linguística do sudoeste da Alemanha, Suíça e Alsácia, havia evoluído nos vales montanhosos isolados em formas que diferiam de vale para vale. Uma pessoa de Sankt Märgen poderia ter dificuldade em entender alguém de uma aldeia a vinte quilômetros de distância. Os mosteiros, conduzindo seus negócios em latim e alto alemão, serviam como pontes linguísticas, lugares onde a linguagem padronizada da administração e do aprendizado podia ser encontrada.</p>
-
-            <p>Eram católicos, universal e inquestionavelmente. A Reforma havia tocado a Floresta Negra levemente. Algumas cidades nas regiões do norte haviam se tornado protestantes, mas as terras monásticas permaneceram firmemente na antiga fé. Os ritmos da vida seguiam o calendário da igreja. Advento e Natal, Quaresma e Páscoa, os dias de festa dos santos padroeiros locais. Estes marcavam o tempo com mais certeza do que qualquer calendário. O trabalho cessava aos domingos e dias santos, e a vila ou aldeia reunia-se na igreja do mosteiro ou na capela local para a missa.</p>
-
-            <p>Eles também estavam, de alguma forma difícil de definir desta distância, ainda conectados a tradições mais antigas que antecediam o cristianismo. A própria floresta era uma presença, quase um personagem em suas vidas. Havia lugares onde você não ia, árvores que não cortava, rituais para apaziguar as forças que governavam o clima e a colheita. Os padres desaprovavam tais coisas, chamavam-nas de superstição, mas elas persistiam de qualquer forma, tecidas no tecido da vida diária de maneiras que deixaram poucos vestígios no registro escrito.</p>
-
-            <h2>As Gerações Intermediárias</h2>
-
-            <p>Entre a morte de Christianus Schwär em 1692 e o nascimento de Afra Schwehr em 1857 jazem 165 anos e talvez seis ou sete gerações. Podemos rastrear algumas delas através dos registros da igreja que os mosteiros mantinham, através das cuidadosas anotações de nascimentos, casamentos e mortes que os padres inscreviam em registros encadernados em couro. Mas os registros estão incompletos. Incêndios destruíram alguns. Outros foram perdidos no caos da era napoleônica quando os mosteiros foram dissolvidos e seus arquivos dispersos. O que temos são fragmentos, suficientes para estabelecer a linha de descendência, mas não suficientes para contar a história completa de cada geração.</p>
-
-            <p>O que sabemos é que os descendentes de Christina Rueff permaneceram na alta Floresta Negra, no território ao redor de Sankt Märgen e Sankt Peter e nos vales que drenavam para o norte em direção a Glottertal. Alguns deles certamente continuaram os ofícios de marcenaria. Outros cultivavam os prados das montanhas, mantendo algumas vacas, fazendo queijo, vivendo a vida dura do alto país. Através de casamentos com outras famílias locais, a linhagem Schwär conectou-se aos Gschwander, uma família suíço-alemânica que havia se estabelecido em Glottertal, provavelmente no final dos anos 1600 ou início dos anos 1700.</p>
-
-            <img src="https://www.glottertal.de/_Resources/Persistent/d9448ace0134953075ba8e9e85bf27e0159a5c26/Kirche%20um%201890-752x486.jpg" alt="Igreja de Glottertal por volta de 1890">
-            <p class="img-caption">Igreja de Glottertal por volta de 1890 — O vale onde a família Gschwander se estabeleceu e conectou-se à linhagem Schwär</p>
-
-            <p>Glottertal, o Vale do Glotter, era um lugar ligeiramente mais baixo e mais hospitaleiro do que os assentamentos do cume. Havia sido colonizado mais cedo, e nos anos 1700 tinha várias aldeias substanciais ao longo do piso do vale, com vinhedos em terraços nas encostas voltadas para o sul produzindo um vinho fino e ácido que os locais valorizavam. O vale drenava para oeste em direção à planície do Reno e à cidade de Freiburg, tornando-o mais conectado ao mundo maior do que as aldeias isoladas no topo dos cumes.</p>
-
-            <p>Dos Gschwander, a linhagem passou para os Schwehr (a grafia havia evoluído neste ponto de Schwär para Schwehr) de Heuweiler, uma aldeia nas colinas onde as montanhas davam lugar à planície do Reno. Heuweiler era ainda mais baixo, mais quente, mais agrícola. Aqui as famílias eram menos isoladas, mais prósperas, mais conectadas à economia de mercado das terras baixas. Mas mantinham suas conexões com as famílias das montanhas através de casamento e parentesco, e foi em Heuweiler que Afra Schwehr nasceria em 1857, carregando em seu sangue e nome a herança acumulada de oito gerações na Floresta Negra.</p>
 
             <h2>O Significado da Migração</h2>
 
-            <p>Olhando para trás através destes dois séculos e meio, de 1450 a 1700, podemos ver um padrão que pode não ter sido visível para as pessoas vivendo através dele. A família von Braun deixou a segurança e estrutura de Ottobeuren pelas incertezas da Floresta Negra. Ao fazê-lo, eles desistiram de algumas coisas. O "von" gradualmente desapareceu da maioria das linhagens, pois status nobre significava pouco em vales montanhosos onde todos trabalhavam com as mãos. A conexão com grandes instituições como a Abadia de Ottobeuren foi substituída por conexões com casas menores como Sankt Märgen e Sankt Peter. A vida relativamente confortável das propriedades agrícolas suábias deu lugar à dura subsistência da agricultura de montanha e trabalho artesanal.</p>
+            <p>Através dos filhos de Christianus e Christina, a linhagem eventualmente chegaria à família Gschwander em <span class="place-name">Glottertal</span> — outro sistema de vales ao norte de Sankt Peter — e através dos Gschwanders à família Schwehr (a grafia havia evoluído) de <span class="place-name">Heuweiler</span>, uma aldeia no sopé da montanha onde as montanhas davam lugar à planície do Reno. Os registros entre a morte de Christianus em 1692 e o nascimento de Afra Schwehr em 1857 estão incompletos — incêndios destruíram alguns, a dissolução napoleônica dos mosteiros dispersou outros. Podemos rastrear a linha de descendência, mas não a história completa de cada geração. O que podemos ver é um movimento gradual morro abaixo: dos cumes de Sankt Peter e Sankt Märgen para o Glottertal um pouco mais baixo e mais hospitaleiro, com seus vinhedos em terraços nas encostas voltadas para o sul, e finalmente para Heuweiler — mais quente e mais conectado à economia de mercado das terras baixas e da cidade de Freiburg.</p>
 
-            <p>Mas eles também ganharam coisas. Independência, para começar. Na Floresta Negra, longe das populações concentradas e hierarquias rígidas das terras baixas, uma família tinha mais espaço para manobrar, mais capacidade de fazer suas próprias escolhas. Habilidades, por outro lado. A fusão com a linhagem de artesãos Rueff trouxe capacidades práticas que se provariam valiosas através de circunstâncias em mudança. Adaptabilidade, talvez o mais importante. Uma família que havia sobrevivido à transição de nobreza suábia para artesãos da Floresta Negra havia demonstrado uma capacidade de se reinventar, de encontrar novos papéis quando os antigos se tornavam insustentáveis.</p>
+            <p>Olhando para trás nesses dois séculos e meio — de 1450 a 1700 — um padrão surge que talvez não fosse visível para as pessoas que viviam por dentro. A família von Braun deixou a segurança e a estrutura de Ottobeuren pelas incertezas da Floresta Negra. Com isso, abriu mão de algumas coisas. O "von" desapareceu gradualmente da maioria das linhagens, pois o status nobre significava pouco em vales de montanha onde todos trabalhavam com as mãos. A conexão com grandes instituições como a Abadia de Ottobeuren foi substituída por conexões com casas menores. A vida relativamente confortável das propriedades agrícolas suábias deu lugar à dura subsistência da agricultura de montanha e do trabalho artesanal.</p>
 
-            <p>E eles haviam feito outra coisa, embora não pudessem ter sabido na época. Eles haviam se posicionado em uma fronteira, em uma região que desenvolveria sua própria economia e cultura distintas. A Floresta Negra em 1700 estava à beira de uma revolução industrial de certa forma, conforme a relojoaria evoluía de uma indústria de casa para um grande setor de exportação. As famílias que já estavam lá, que tinham as habilidades e as conexões, estariam bem posicionadas para aproveitar. A herança Rueff, transmitida através de Christina para seus filhos e netos, importaria de maneiras que o status nobre de Ottobeuren nunca poderia.</p>
+            <p>Mas ganharam coisas também. Independência, pra começo. Na Floresta Negra, longe das populações concentradas e das hierarquias rígidas das terras baixas, uma família tinha mais espaço para se mover. Habilidades, também. A fusão com os artesãos Ruff trouxe capacidades práticas que se provariam valiosas em circunstâncias cambiantes. E adaptabilidade — talvez o mais importante. Uma família que havia sobrevivido à transição de nobreza suábia para artesãos da Floresta Negra havia demonstrado uma capacidade de se reinventar, de encontrar novos papéis quando os antigos se tornavam inviáveis.</p>
 
-            <p>Em 1700, a família havia sido transformada. Eles não eram mais os von Braun de Ottobeuren, mas os Schwär e Schwehr da Floresta Negra, parte de uma densa rede de famílias inter-relacionadas que faziam coisas com as mãos e perduravam em terra que era bela e severa em igual medida. O próximo século traria novos desafios e novas migrações, conforme convulsões políticas e mudanças econômicas varriam as terras alemãs. Mas por agora, na virada do século XVIII, eles estavam estabelecidos. A floresta os havia reivindicado, moldado, tornado seus.</p>
+            <p>Por volta de 1700, faziam parte de uma densa rede de famílias inter-relacionadas que faziam coisas com as mãos e subsistiam numa terra bela e áspera em igual medida. O próximo século traria novos desafios e novas migrações, à medida que a agitação política e as mudanças econômicas varriam as terras alemãs. Mas por enquanto, na virada do século XVIII, estavam estabelecidos. A floresta os havia conquistado, moldado, feito seus.</p>
 
             <p>E em algum lugar na teia genealógica que conectava Sankt Peter a Glottertal a Heuweiler, a linhagem estava se movendo em direção a uma mulher chamada Afra, que se casaria com um homem chamado Georg Gehri e daria à luz uma filha chamada Anna Luise. Mas essa história pertence ao próximo capítulo.</p>
 
             <img src="https://www.kunst-fuer-alle.de/media_kunst/img/41/g/41_00222280~friedrich-eibner_das-freiburger-muenster-von-osten-mit-der-muensterbauhuette.jpg" alt="Catedral de Freiburg">
-            <p class="img-caption">Catedral de Freiburg — A grande catedral que dominava a planície do Reno, visível das alturas da Floresta Negra</p>
+            <p class="img-caption">A Catedral de Freiburg — O grande templo que dominava a planície do Reno, visível das alturas da Floresta Negra acima</p>
         </div>
         
+        <div class="chapter-nav-wrapper">
+            <nav class="chapter-nav">
+                <a href="index.html" class="back-link">← Voltar ao Índice</a>
+                <a href="Part_3_The_Valley_People_1700_1857_PT.html" class="next-link">
+                    <span class="next-label">Próximo Capítulo</span>
+                    <span class="next-title">Parte III: O Povo do Vale →</span>
+                </a>
+            </nav>
+        </div>
         <footer>
             <p>Parte Dois: Para Dentro da Floresta (1450–1700) | A Fortaleza e o Machado: Uma História de Família</p>
-            <p>Das terras monásticas suábias às alturas da Floresta Negra</p>
+            <p>Das terras monásticas suábias para as alturas da Floresta Negra</p>
         </footer>
     </div>
 </body>
