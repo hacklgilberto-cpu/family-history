@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teil 2: In den Wald (1450–1700)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            line-height: 1.8;
+            color: #2c2c2c;
+            background: #f8f6f0;
+            padding: 0;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .lang-btn {
+            padding: 4px 8px;
+            border: 2px solid #8b7355;
+            background: white;
+            color: #6b5639;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-btn:hover {
+            background: #8b7355;
+            color: white;
+        }
+
+        .lang-btn.active {
+            background: #6b5639;
+            color: white;
+            border-color: #6b5639;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a3a1a 0%, #2d5a2d 100%);
+            color: #f4f1e8;
+            padding: 60px 40px 40px 40px;
+            border-bottom: 4px solid #5a7355;
+        }
+
+        .title-main {
+            font-size: 2.8em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-variant: small-caps;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            color: #c4d5a0;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .period {
+            font-size: 1.1em;
+            color: #8ba085;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        .content {
+            padding: 50px 60px 60px 60px;
+        }
+
+        .chapter-intro {
+            font-size: 1.15em;
+            font-style: italic;
+            color: #5a5a5a;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8faf3;
+            border-left: 4px solid #5a7355;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #2d4a2d;
+            margin: 50px 0 25px 0;
+            font-weight: 400;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #d9e6c9;
+            padding-bottom: 10px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            margin: 35px 0;
+            border: 1px solid #c4b5a0;
+        }
+
+        .img-caption {
+            text-align: center;
+            font-style: italic;
+            color: #6b5639;
+            font-size: 0.9em;
+            margin-top: -25px;
+            margin-bottom: 35px;
+        }
+
+        .historical-note {
+            background: #f5f7eb;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #7a9168;
+            font-size: 0.98em;
+            color: #4a4a4a;
+        }
+
+        .date-marker {
+            font-weight: 600;
+            color: #5a6b39;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .place-name {
+            font-style: italic;
+            color: #4a5a3a;
+        }
+
+        .person-name {
+            font-weight: 500;
+            color: #2d4a2d;
+        }
+
+        .chapter-nav-wrapper { padding: 0 60px 40px 60px; }
+        .chapter-nav { border-top: 2px solid #d4e0c9; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .back-link { text-decoration: none; color: #5a7355; font-size: 0.95em; letter-spacing: 0.5px; transition: color 0.2s; }
+        .back-link:hover { color: #2d4a2d; }
+        .next-link { text-decoration: none; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+        .next-label { font-size: 0.82em; text-transform: uppercase; letter-spacing: 1.5px; color: #5a7355; margin-bottom: 3px; }
+        .next-title { font-size: 1.15em; font-variant: small-caps; color: #2d4a2d; letter-spacing: 1px; transition: color 0.2s; }
+        .next-link:hover .next-title { color: #5a7355; }
+        footer {
+            background: #2d4a2d;
+            color: #c4d5a0;
+            padding: 30px 60px;
+            font-size: 0.9em;
+            text-align: center;
+            border-top: 4px solid #5a7355;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+            header {
+                padding: 40px 25px 30px 25px;
+            }
+            .title-main {
+                font-size: 2em;
+            }
+            footer {
+                padding: 25px;
+            }
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px;
+                gap: 6px;
+            }
+            .lang-btn {
+                padding: 3px 6px;
+                font-size: 18px;
+            }
+        }
+        .chapter-intro, .img-caption, .subtitle { font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.04em; }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <a href="Part_2_Into_the_Forest_1450_1700_PT.html" class="lang-btn">🇧🇷</a>
+        <a href="Part_2_Into_the_Forest_1450_1700_DE.html" class="lang-btn active">DE</a>
+        <a href="Part_2_Into_the_Forest_1450_1700_EN.html" class="lang-btn">EN</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="title-main">Teil Zwei: In den Wald</div>
+            <div class="subtitle">Die Schwarzwälder Migration und die Handwerker</div>
+            <div class="period">1450–1700</div>
+        </header>
+
+        <div class="content">
+            <div class="chapter-intro">
+                Als Blasius und Adam von Braun Ottobeuren irgendwann in der Mitte des fünfzehnten Jahrhunderts verließen, wandten sie ihre Blicke nach Westen, zu den Bergen, die die Römer Silva Nigra, den Schwarzwald, genannt hatten. Es war eine Landschaft völlig anders als das sanfte Schwäbische Ackerland ihrer Geburt, ein Land steiler Täler und dunkler Höhenzüge, wo Fichten und Tannen so dicht wuchsen, dass der Waldboden selbst am Mittag in ewiger Dämmerung verblieb. Hier strömten die Bäche schnell und eiskalt über Granitblöcke. Hier brachten die Winter Schnee, der von November bis April sechs Fuß tief liegen konnte. Hier harrten die alten Götter der germanischen Stämme länger aus als in den zivilisierten Tiefländern, und die Wälder bargen noch Wölfe und Bären und Wildschweine. Aber hier gab es auch Gelegenheiten, die Ottobeuren nicht mehr bieten konnte, denn der Schwarzwald in der Mitte des fünfzehnten Jahrhunderts war eine Grenzregion, ein Ort, an dem Männer mit Geschick und Ehrgeiz sich neue Leben auscarven konnten, fern weg von den einengenden Hierarchien der Klosterlandereien.
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB4lRmsbJOqEWMjhQXPeL5BEsjm7SuO7zASA&s" alt="Schwäbische Alb Landschaft">
+            <p class="img-caption">Die Schwäbische Alb — Die sanfte, hügelige Landschaft, die die Familie Braun verließ, als sie sich westwärts zu den Bergen wandte</p>
+
+            <h2>Die Geographie der Gelegenheit</h2>
+
+            <p>Der Schwarzwald war keine einzelne Einheit, sondern eine Reihe von parallelen Bergkämmen, die ungefähr von Norden nach Süden verliefen, getrennt durch tiefe Täler, in denen die Nebenflüsse des Rheins und der Donau ihre Quellen fanden. Das nördliche Ende des Gebirgszugs lag nicht weit westlich von Ottobeuren und erhob sich steil aus der Schwäbischen Ebene. Städte wie <span class="place-name">Calw</span> und <span class="place-name">Pforzheim</span> existierten seit römischen Zeiten, und im fünfzehnten Jahrhundert waren sie wohlhabende Zentren von Handwerk und Handel.</p>
+
+            <p>Besonders Calw war für seine Holzbearbeitungszünfte bekannt geworden. Die Stadt lag am Fluss Nagold, der Wasserkraft für Mühlen und Transport für fertige Waren bot. Die umliegenden Wälder lieferten Holz in scheinbar unerschöpflichen Mengen. Die Handwerkszünfte waren alt und gut organisiert, aber auch praktisch veranlagt. Die Bevölkerungsverluste der Pestjahre bedeuteten, dass talentierte Handwerker Arbeit finden konnten, und Familien mit einigen Mitteln konnten sich etablieren, wenn sie bereit waren, das Handwerk zu erlernen.</p>
+
+            <p>Südlich von Calw wurde der Wald höher und wilder. Der zentrale Schwarzwald erreichte Höhen von über dreitausend Fuß. Hier verengten sich die Täler zu Schluchten, und die Siedlungen klammerten sich an das ebene Land, das entlang der Bäche zu finden war. Dies war Bergbauland, wo Männer Silber, Blei und Eisen aus den Berghängen gruben, und wo der Bedarf an Holz konstante Nachfrage für Holzfäller und Köhler schuf.</p>
+
+            <p>Noch tiefer in die Berge hinein lagen die Klosterlanden. <span class="place-name">Sankt Märgen</span> und <span class="place-name">Sankt Peter</span>, zwei Gründungen, die im Schwarzwald widerspiegelten, was Ottobeuren in Schwaben gewesen war, standen auf benachbarten Höhenzügen im Hochland südlich von Freiburg. Beide Klöster besaßen umfangreiche Ländereien, beide brauchten Verwalter und Handwerker, beide boten die Art von strukturierter, hierarchischer Welt, die eine Familie wie die Brauns aus ihren Ottobeuren-Ursprüngen gekannt hätte.</p>
+
+            <div class="historical-note">
+                Der Schwarzwald im fünfzehnten Jahrhundert unterlag schneller Entwicklung. Die Bevölkerung erholte sich von der Pest, und neue Technologien trieben die Expansion voran. Wasserkraftmühlen wurden effektiver, was mechanisiertes Sägen von Holz und Zerkleinern von Erz ermöglichte. Die Nachfrage nach Holzprodukten wuchs mit jedem Jahrzehnt. Um 1500 wurden die Wälder um Calw und Pforzheim systematisch gerodet, mit Regelungen, um nachhaltiges Fällen sicherzustellen. Der hohe Schwarzwald, abgelegener und schwerer zugänglich, blieb weitgehend unberührt außer rund um die Klöster und Bergbaulager. Es war eine Landschaft, die jene belohnte, die bereit waren, unter harten Bedingungen hart zu arbeiten, und die im Gegenzug einen Grad an Unabhängigkeit bot, der in den besiedelterer Teilen Deutschlands zunehmend selten wurde.
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPDey7AxmzcomsSNjcjMsPnblnh7lG8zht7w&s" alt="Calw am Nagold Fluss">
+            <p class="img-caption">Calw am Nagold — Das Holzbearbeitungszentrum, wo sich die Familie Braun wahrscheinlich zunächst im Schwarzwald niederließ</p>
+
+            <h2>Die Calw-Verbindung</h2>
+
+            <p>Die Spur wird kalt in den Aufzeichnungen zwischen Ottobeuren und dem Schwarzwald. Wir wissen, dass <span class="person-name">Blasius von Braun</span> bis 1510 lebte und sein Bruder <span class="person-name">Adam Luppert von Braun</span> bis 1499. Wir wissen, dass einer oder beide von ihnen Söhne hatten, die die Familienlinie fortsetzten. Wir wissen, dass Anfang des sechzehnten Jahrhunderts Mitglieder der Familie Braun in der Calw-Region etabliert waren. Aber der genaue Weg, den sie einschlugen, das genaue Jahr ihres Aufbruchs, die Gründe für ihre Wahl des Schwarzwalds gegenüber anderen Zielen — diese sind der Zeit verloren gegangen.</p>
+
+            <p>Calw in der Mitte bis späten 1450er Jahre war eine Stadt von vielleicht zweitausend Seelen, die sich entlang beider Ufer des Nagold drängten. Die Stadt hatte Mauern und Tore, einen Marktplatz, mehrere Kirchen, ein Herzogsschloss auf den Höhen darüber. Die Zünfte kontrollierten die meiste wirtschaftliche Aktivität. Um als Meisterhandwerker zu arbeiten, benötigte man Jahre der Lehre, Gesellenwanderung und schließlich die Anfertigung eines Meisterstücks, um seine Fähigkeit zu beweisen. Aber die Zünfte erkannten auch Adel an, und eine Familie mit der „von" Bezeichnung hätte bestimmte Vorteile bei Verhandlungen zum Eintritt in die Handwerkswirtschaft gehabt.</p>
+
+            <p>Calmbach, eine kleinere Siedlung ein paar Kilometer stromaufwärts, erscheint in den Familienaufzeichnungen als Wohnort für <span class="person-name">Adolph von Braun</span> und seine Frau <span class="person-name">Catharina Lauxen</span>, beide um 1485 geboren. Ob dieser Adolph ein Enkel der Brüder war, die Ottobeuren verließen, oder vielleicht ein Neffe, können wir mit Sicherheit nicht sagen. Aber die „von" bleibt in seinem Namen, und die Lauxen-Verbindung zeigt lokale Bindungen, die durch Heirat gebildet wurden.</p>
+
+            <p>Calmbach war hauptsächlich ein Holzbearbeitungszentrum, bekannt für die Herstellung von Dachschindeln und Fassdauben. Die steilen Hänge machten Landwirtschaft schwierig, aber boten einfachen Zugang zu stehendem Holz. Männer würden Bäume an den Hängen über der Stadt fällen, die Stämme den Hügel hinunterrutschen lassen und sie den Fluss hinunter zu den Sägemühlen treiben. Es war gefährliche Arbeit. Jedes Jahr wurden Männer von rollenden Bäumen zerquetscht oder ertranken im schnellen Strom beim Versuch, Holzflöße durch Stromschnellen zu lenken. Aber es war profitable Arbeit für jene, die überlebten, und sie erforderte Fähigkeiten, die durch Übung eher als durch formale Lehre gelernt werden konnten.</p>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6oUIJgsN9OCtYsH0kcCROY4LiGSDRb42ZlA&s" alt="Schwarzwälder Landschaft">
+            <p class="img-caption">Der Schwarzwald — Dichte Fichten- und Tannenwälder, wo der Winter Schnee sechs Fuß tief brachte und Sommer kurz waren</p>
+
+            <h2>In den Hochwald</h2>
+
+            <p>Der nächste klare Punkt in der Familiengeographie stammt aus einem einzigen Namen und Ort: <span class="person-name">Hans Peter „Mang" von Braun</span>, geboren 1505 in <span class="place-name">Haiterbach</span>, gestorben 1551 in <span class="place-name">Sankt Märgen</span>. Dieser Mann repräsentiert die tiefste Durchdringung der Familie in das schwarzwälder Innere, und sein Tod in einer Klosterstadt deutet auf Verbindungen hin, die sich als entscheidend erweisen würden, wie die Braun-Linie schließlich mit anderen Familien verschmolz.</p>
+
+            <p>Haiterbach liegt nordwestlich von Calw, immer noch in den unteren Bereichen des Waldes. Aber Sankt Märgen liegt bei fast neunhundert Metern Höhe auf einem Höhenzug im hohen Schwarzwald, erreichbar nur über steile und gewundene Straßen, die im sechzehnten Jahrhundert wenig mehr als Packpfade waren. Das Kloster dort hatte für Jahrhunderte mit Bränden, Konflikten und chronischem Geldmangel zu kämpfen. 1430 hatte ein verheerender Brand die Gründung fast beendet, und für Jahrzehnte danach lebten die Kanonen eher in ihren Freiburger Besitztümern als im Berghaus.</p>
+
+            <p>Was würde einen Mann aus der Calw-Region zu Sankt Märgen ziehen? Das Kloster, trotz all seiner Probleme, kontrollierte noch immer umfangreiche Waldländereien und brauchte noch immer Männer, um sie zu verwalten. Eine Familie mit Verwaltungserfahrung und adeligen Anmeldungen, selbst kleineren, könnte Gelegenheiten dort finden, die Calw nicht bieten konnte. Sein Tod in Sankt Märgen 1551 platziert ihn dort in den mittleren Jahren des sechzehnten Jahrhunderts, genau dann, als das Kloster eine langsame Erholung begann.</p>
+
+            <p>Aber Hans Peter „Mang" von Braun hinterließ keine direkten Nachkommen in unserer Linie. Die Verbindung verläuft durch seine Verwandten, durch Cousins oder Neffen, deren genaue Beziehung die Aufzeichnungen nicht bewahren. Doch bis 1551 hatten sich einige Mitglieder der Familie Braun in den tiefsten Teilen des Schwarzwalds etabliert, in den Klosterlanden, wo sich der nächste entscheidende Teil unserer Geschichte entfalten würde.</p>
+
+            <img src="https://www.leo-bw.de/media/lmz_bilddatenbank_02/current/delivered/files/124066.jpg" alt="Historische Karte Silva Nigra">
+            <p class="img-caption">Silva Nigra — Historische Karte, die die Schwarzwaldregion und ihre Klosteransiedlungen zeigt</p>
+
+            <h2>Die Handwerker Ruff</h2>
+
+            <p>Während die Brauns ihren Weg vom Westen durch Calw in den Schwarzwald machten, war eine andere Familie bereits im Hochland etabliert. Der Familienname <span class="person-name">Ruff</span>, mit seinen vielen Schreibvariationen (Ruef, Ruf, Rueff), erscheint in den Aufzeichnungen von <span class="place-name">Furtwangen</span> und <span class="place-name">Gütenbach</span> von frühen 1500er Jahren an, was eine Ahnenreihe von Handwerkern markiert, deren Fähigkeiten sich schließlich mit der Braun-Linie vereinigen würden.</p>
+
+            <p><span class="person-name">Thomas Ruf</span> wurde 1529 in Gütenbach geboren, einer winzigen Siedlung in einem Seitental des Hauptkamms. Gütenbach wäre vielleicht dreißig oder vierzig Höfe gewesen, die sich entlang eines Baches verteilen, wobei jeder Subsistenzlandwirtschaft mit irgendeiner Form von Handwerkproduktion kombinierte. Die Wachstumsperiode in dieser Höhe betrug kaum vier Monate. Der Boden war dünn und felsig. Keine Familie konnte allein von Landwirtschaft leben. Also machten sie Dinge. Im Winter, wenn der Schnee tief lag und das Vieh in seinen Ställen stand, arbeiteten die Männer an Bänken und Drehbänken, formten Holz in nützliche Gegenstände: Löffel und Schüsseln, Weberschiffchen, Spindeln für Fäden, Teile für Wagen und Pflüge. Und zunehmend, während die Jahrzehnte verstichen, Uhren.</p>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Furtwangen_1808.jpg?_=20051019065131" alt="Furtwangen 1808">
+            <p class="img-caption">Furtwangen 1808 — Das Uhrmacherzentrum, wo die Familie Ruff ihr Handwerk für Generationen ausübte</p>
+
+            <p>Thomas Ruf heiratete <span class="person-name">Rosina Seng</span> 1554. Sie war auch aus Gütenbach, Tochter einer anderen Handwerkerfamilie. Ihre Ehe repräsentiert das normale Muster dieser Hochwald-Gemeinden: Endogamie, Heirat innerhalb des gleichen engen Kreises von Familien, die die gleichen Fähigkeiten teilten und denselben Herausforderungen gegenüberstanden. Die Namen Ruf und Seng und Dilger und Faller erscheinen immer wieder in den Gütenbach-Aufzeichnungen, verflochten durch Eheschließungen und Taufpaternität und Geschäftspartnerschaften. Die Familie Ruf setzte sich in Furtwangen und Gütenbach durch die späten 1500er Jahre und in die 1600er fort, und es waren ihre Nachkommen, die sich mit den Klosterfamilien weiter unten am Höhenzug in Sankt Märgen und Sankt Peter verbinden würden.</p>
+
+            <div class="historical-note">
+                Die Schwarzwälder Uhr, die Black Forest clock, hat ihre Ursprünge im siebzehnten Jahrhundert, aber die Grundlagen wurden früher gelegt. Um die 1520er Jahre herum experimentierten Handwerker im hohen Schwarzwald mit hölzernen Zahnradketten und gewichtgetriebenen Mechanismen. Die ersten echten Schwarzwälder Uhren, ganz hölzerne Zeitmesser mit einfachen Bewegungen und bemalten Schildern, erschienen um 1640. Um 1700 war Uhrmachen zu einer bedeutenden Industrie geworden, mit Rohbewegungen in Hochtal-Werkstätten hergestellt und von reisenden Hausierern zu den Tiefländern gebracht, die sie in ganz Europa verkauften. Die Kultur der Präzisions-Holzbearbeitung, die jene Uhren möglich machte — das Schnitzen von Zahnrädern, das Drehen von Spindeln, die geduldige Entwicklung von Techniken, die von Vater zu Sohn weitergegeben wurden — hatte sich ein Jahrhundert vor der ersten Uhr entwickelt. Die Familie Ruff, die ab den 1520er Jahren in Gütenbach und Furtwangen arbeitete, waren Teil dieser grundlegenden Generation.
+            </div>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Schwarzwald_-_Deutsche_Mittelgebirge%2C_Serie_A-de.png/960px-Schwarzwald_-_Deutsche_Mittelgebirge%2C_Serie_A-de.png" alt="Schwarzwälder topographische Karte">
+            <p class="img-caption">Die Schwarzwälder Hochlagen — Topographische Karte, die die Bergkämme und Täler zeigt, wo diese Familien lebten</p>
+
+            <h2>Der Kloster-Nexus</h2>
+
+            <p>Sankt Märgen brannte 1430, wieder 1560 und wieder 1704. Jedes Mal musste das Kloster wieder aufgebaut werden, und jeder Wiederaufbau erforderte riesige Mengen an Holz und qualifizierter Arbeitskraft. Zwischen den Bränden gab es Konflikte mit Freiburg über Rechte und Einnahmen, Konflikte mit den weltlichen Schützern der Abtei über Jurisdiktionen, chronische Probleme mit der Disziplin unter den Kanonen. Aber durch all diese Schwierigkeiten hindurch hielt sich das Kloster, und die Gemeinde um es herum hielt sich, weil es keinen Ort gab, wohin man gehen konnte. Der hohe Schwarzwald bot nur wenige Möglichkeiten: Man arbeitete mit dem Kloster, oder man ging in die Tiefländer.</p>
+
+            <p><span class="place-name">Sankt Märgen</span> und <span class="place-name">Sankt Peter</span> saßen auf benachbarten Höhenzügen, getrennt durch nur ein paar Kilometer Luftlinie, aber durch ein steiles Tal dazwischen, das die Reise zu einem Halbtagesmarsch machte. Beide Klöster kontrollierten umfangreiche Wälder. Beide dienten als Sozialzentren für die verstreuten Siedlungen um sie herum, hielten Märkte ab, boten die einzigen Schulen für Meilen in die Runde, dienten als Gerichte zum Beilegen von Streitigkeiten, erhielten die einzigen anständigen Straßen durch die Berge. Sankt Peter, gegründet als Benediktinerkloster von den Herzögen von Zähringen in den 1090ern, war ihr Familienkloster und Begräbniskirche gewesen. Die barocke Kirche, die Touristen heute besuchen, wurde in den 1720ern gebaut, aber sie ersetzte Strukturen, die bis zum ursprünglichen romanischen Gebäude zurückgingen. Jede Iteration erforderte Handwerker, Holzarbeiter, Steinmetze — alle Berufe, die ein großes Bauprojekt benötigte.</p>
+
+            <p>In diese Welt der Klosterarbeit und Berghandwerkstätigkeit kamen die Familien, deren Namen durch unsere Genealogie laufen: Braun vom Westen durch Calw und Calmbach, Ruff vom Süden durch Furtwangen und Gütenbach, und andere, deren Ursprünge wir weniger klar nachverfolgen können. Steurenthaler, Dilger, Gschwander, Schurhammer. Alemannisch-deutsche Nachnamen, viele von ihnen, die Wanderung aus den Kantonen über dem Rhein nahelegen, wo landlose jüngere Söhne ihr Glück in den deutschen Bergen suchten. Sie sprachen Alemannisches Deutsch, einen Dialekt für Außenseiter nahezu unverständlich, der sich in den isolierten Tälern zu von Siedlung zu Siedlung unterschiedlichen Formen entwickelt hatte. Die Klöster, die ihre Geschäfte in Latein und Hochdeutsch führten, dienten als die einzigen sprachlichen Brücken zu der weiteren Welt.</p>
+
+            <img src="https://mein.toubiz.de/api/v1/media/42353626-60e7-4bf6-a158-e65d69526e9b/view" alt="Sankt Peter Kloster">
+            <p class="img-caption">Sankt Peter Kloster — Das Benediktinerhaus, wo Christianus Schwär geboren wurde, lebte und starb</p>
+
+            <h2>Die kritische Heirat</h2>
+
+            <p>Alle diese Ahnenreihen, diese Bewegungen von Menschen und Familien über die Schwarzwälder Landschaft über 150 Jahre hinweg, konvergieren in einer einzigen Heirat, die irgendwann in der Mitte der 1600er stattfand. Der Bräutigam war <span class="person-name">Christianus Schwär</span>, geboren um 1615 in <span class="place-name">Sankt Peter</span>. Die Braut war <span class="person-name">Christina Rueff</span>, geboren um 1638 in <span class="place-name">Oberibental</span>, einem Weiler in der Sankt Märgen-Gegend.</p>
+
+            <p>Diese Heirat ist das Scharnier, auf dem sich unsere gesamte Familiengeschichte dreht. Durch Christianus Schwär verfolgen wir zurück zu den Sankt Peter Klosterfamilien und schließlich, durch mehrere Generationen schlecht dokumentierter Verbindungen, zur Braun-Linie aus Ottobeuren. Durch Christina Rueff verfolgen wir zurück zu Thomas Ruf und Rosina Seng aus Gütenbach, zu den Handwerkern des Hochwaldes. Ihre Vereinigung brachte zwei Jahrhunderte separater Familiengeschichten zusammen, die sich durch die komplexe Geographie des Schwarzwalds langsam genähert hatten.</p>
+
+            <p>Christianus lebte sein ganzes Leben in und um Sankt Peter. Die Familie Schwär (die Schreibweise variiert: Schwär, Schwer, Schwehr) war in den Sankt Peter Landen etabliert, wahrscheinlich eine kleinere Verwaltungs- oder Handwerksstelle in der Klosterökonomie innehabend. Christianus heiratete zweimal. Seine erste Frau war <span class="person-name">Margareta Kaltenbach</span>, geboren 1614 in Sankt Peter, die 1656 starb. Nach Margaretas Tod heiratete Christianus Christina Rueff.</p>
+
+            <p>Christina kam aus Oberibental, einer Ansammlung von Bauernhöfen in einem Hochtal auf der Sankt Märgen Seite des Höhenzugs. Der Name bedeutet wörtlich „oberes Ibental", Iben ist eine Baumart. Dies war wildes Land, Wald und Weideland, die Art von Platz, wo eine Familie ein paar Kühe, ein Grundstück und eine Werkstatt haben könnte, wo die Männer an Winterabenden Holz drehten. Durch Christina durchtraten die praktischen Kenntnisse von Holzbearbeiterfamilien — die Hände, die ein Zahnrad aus einem Block Birnenholz formten, die Holzmaserung und Spannung verstanden und das Verhalten von Holz in Kälte und Wärme — in die Schwär-Linie ein. Ob dieses Handwerkserbe direkt zu nachfolgenden Generationen weitergegeben wurde, oder einfach ein Teil der Familienidentität als Menschen, die Dinge mit ihren Händen machten, wurde, können wir mit Sicherheit nicht sagen. Aber die Fähigkeiten der Ruff-Holzarbeiter würden in späteren Generationen Echos finden, in der Zimmerei und Tischlerei, die andere Zweige der Familie praktizieren würden.</p>
+
+            <p>Christianus und Christinas Ehe brachte dreizehn Kinder hervor. Dreizehn, in einem Zeitalter, in dem vielleicht die Hälfte aller Kinder vor ihrem fünften Geburtstag starb. Dass die meisten von ihnen anscheinend bis zum Erwachsenenalter überlebten, ist selbst bemerkenswert, und es spricht von etwas über den Haushalt — vielleicht Christinas Fähigkeit, vielleicht die relative Sicherheit der Sankt Peter Klosterökonomie, vielleicht einfach genetisches Glück. Ein Haushalt von fünfzehn hätte eines der massiven Schwarzwälder Bauernhäuser bis zur Kapazität gefüllt: die große Holzstruktur vielleicht sechzig Fuß lang und vierzig breit, mit den Kühen darunter gestaut und dem Heuboden weit oben, die Familie auf der Mitteletage um den keramischen Kachelofen, der Stunden nach dem Erlöschen des Feuers Wärme hielt. Das Füttern so vieler Mäuler erforderte jede verfügbare Ressource — Roggenbrot und Haferbrei, Milch und Käse von den Kühen darunter, Kohl und Rüben aus dem Garten, was der Wald liefern konnte. Diese Kinder, zwischen ungefähr 1660 und 1680 geboren, verstreuten sich über den hohen Schwarzwald, heirateten in andere Familien und trugen sowohl den Schwär-Namen als auch das gemischte Erbe von Klosterverbindungen und Handwerkstraditionen weiter.</p>
+
+            <p>Christianus Schwär starb am 12. Juli 1692 in Sankt Peter. Er wurde am gleichen Tag begraben, wie es im Sommer üblich war. Er hatte siebenundsiebzig Jahre gelebt, ein außergewöhnliches Alter für das siebzehnte Jahrhundert. Er hatte den Dreißigjährigen Krieg überlebt, der von 1618 bis 1648 durch Deutschland tobte und die Schwarzwälder Bevölkerung vielleicht um ein Drittel vermindert haben könnte. Er war zweimal verheiratet, Vater von mindestens dreizehn Kindern, hatte gesehen, dass mindestens einige von ihnen heiraten und Enkel bekamen. Er hatte sein ganzes Leben in einem Radius von vielleicht zwanzig Kilometern gelebt, wahrscheinlich nie weiter von Sankt Peter gereist, als ein Tagesmarsch ihn tragen konnte. Doch sein Leben verband Familien und Traditionen, die zweihundert Jahre lang getrennt gewesen waren.</p>
+
+            <div class="historical-note">
+                Das siebzehnte Jahrhundert im Schwarzwald wurde vom Dreißigjährigen Krieg und seinen Folgen dominiert. Von 1618 bis 1648 wurden deutschsprachige Länder durch einen Konflikt verwüstet, der als Religionskrieg begann und sich zu einem europäischen Machtkampf entwickelte. Der Schwarzwald, der entlang der Routen zwischen dem Rheintal und dem Donaubecken lag, sah wiederholte Truppenzüge. Schwedische, französische, spanische und kaiserliche Truppen marschierten alle ein, lebten vom Land und hinterließen Verwüstung. Klosterlanden wie Sankt Märgen und Sankt Peter waren theoretisch durch ihren kirchlichen Status geschützt, aber in der Praxis respektierten Soldaten wenig. Die Erholung war langsam und brauchte Generationen. Doch Menschen hielten durch, Familien setzten sich fort, Kinder wurden geboren und aufgezogen. Die dreizehn Kinder des Christianus Schwär repräsentierten eine Art demografischer Erholung, eine Rückbehauptung des Lebens angesichts des Todes.
+            </div>
+
+            <h2>Die Bedeutung der Migration</h2>
+
+            <p>Durch Christianus und Christinas Kinder würde die Linie schließlich zur Familie Gschwander in <span class="place-name">Glottertal</span>, einem anderen Talsystem nördlich von Sankt Peter, gelangen, und durch die Gschwanders zur Familie Schwehr (die Schreibweise hatte sich bis dahin entwickelt) aus <span class="place-name">Heuweiler</span>, einem Dorf in den Vorausläufern, wo die Berge der Rheinen Ebene wichen. Die Aufzeichnungen zwischen Christianus's Tod 1692 und der Geburt von Afra Schwehr 1857 sind unvollständig — Brände zerstörten einige, die napoleonische Auflösung der Klöster zerstreute andere. Wir können die Abstammungslinie verfolgen, aber nicht die vollständige Geschichte jeder Generation. Was wir sehen können, ist eine allmähliche Bewegung bergab: von den Gipfeln von Sankt Peter und Sankt Märgen zum etwas niedrigeren und gastlicheren Glottertal, mit seinen terrassierten Weinbergen an nach Süden blickenden Hängen, und schließlich zu Heuweiler, wärmer und besser mit der Marktwirtschaft der Tiefländer und der Stadt Freiburg verbunden.</p>
+
+            <p>Rückblickend über diese zweieinhalb Jahrhunderte, von 1450 bis 1700, entsteht ein Muster, das für die Menschen, die es lebten, vielleicht nicht sichtbar gewesen sein könnte. Die Familie von Braun verließ die Sicherheit und Struktur von Ottobeuren für die Unsicherheiten des Schwarzwalds. In diesem Tun gaben sie einige Dinge auf. Die „von" verschwand allmählich aus den meisten Linien, da Adelsstatus in Bergtälern wenig bedeutete, wo jeder mit seinen Händen arbeitete. Die Verbindung zu großen Institutionen wie Ottobeuren Abbey wurde durch Verbindungen zu kleineren Häusern ersetzt. Das relativ angenehme Leben schwäbischer Landgüter wich zur harten Subsistenz von Bergbauern- und Handwerkerleben.</p>
+
+            <p>Aber sie gewannen auch Dinge. Unabhängigkeit, für eines. Im Schwarzwald, weit weg von den dicht besiedelten Gebieten und steifen Hierarchien der Tiefländer, hatte eine Familie mehr Spielraum. Fähigkeiten, für ein anderes. Die Verschmelzung mit den Ruff-Handwerkern brachte praktische Fähigkeiten, die sich unter wechselnden Umständen als wertvoll erweisen würden. Und Anpassungsfähigkeit, vielleicht am wichtigsten. Eine Familie, die den Übergang von schwäbischem Adel zu Schwarzwälder Handwerkern überlebt hatte, hatte Fähigkeit demonstriert, sich neu zu erfinden, neue Rollen zu finden, wenn alte untragbar wurden.</p>
+
+            <p>Um 1700 waren sie Teil eines dichten Netzwerks von verwandten Familien, die Dinge mit ihren Händen machten und auf einem Land durchhielten, das in gleicher Weise schön und rauh war. Das nächste Jahrhundert würde neue Herausforderungen und neue Migrationen bringen, da politische Unruhen und wirtschaftlicher Wandel durch die deutschen Länder fegten. Aber vorerst, an der Wende zum achtzehnten Jahrhundert, waren sie etabliert. Der Wald hatte sie beansprucht, geprägt, zu seinem Eigen gemacht.</p>
+
+            <p>Und irgendwo in dem genealogischen Netz, das Sankt Peter mit Glottertal und Heuweiler verband, bewegte sich die Linie zu einer Frau namens Afra, die einen Mann namens Georg Gehri heiratete und eine Tochter namens Anna Luise gebar. Aber diese Geschichte gehört zum nächsten Kapitel.</p>
+
+            <img src="https://www.kunst-fuer-alle.de/media_kunst/img/41/g/41_00222280~friedrich-eibner_das-freiburger-muenster-von-osten-mit-der-muensterbauhuette.jpg" alt="Freiburg Münster">
+            <p class="img-caption">Freiburg Münster — Die große Kathedrale, die die Rheinen Ebene dominierte, sichtbar von den Schwarzwalderhöhungen darüber</p>
+        </div>
+
+        <div class="chapter-nav-wrapper">
+            <nav class="chapter-nav">
+                <a href="index_DE.html" class="back-link">← Zurück zum Inhaltsverzeichnis</a>
+                <a href="Part_3_The_Valley_People_1700_1857_DE.html" class="next-link">
+                    <span class="next-label">Nächstes Kapitel</span>
+                    <span class="next-title">Teil III: Die Talgemeinde →</span>
+                </a>
+            </nav>
+        </div>
+        <footer>
+            <p>Teil Zwei: In den Wald (1450–1700) | Die Festung und die Hackl: Eine Familiengeschichte</p>
+            <p>Von den Schwäbischen Klosterlandereien in die Schwarzwälder Höhen</p>
+        </footer>
+    </div>
+</body>
+</html>
