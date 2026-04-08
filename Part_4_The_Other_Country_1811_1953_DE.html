@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teil 4: Das andere Land (1811–1953)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Garamond', 'Georgia', serif; line-height: 1.8; color: #2c2c2c; background: #f8f6f0; padding: 0; }
+        .language-switcher { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 10px; background: rgba(255,255,255,0.95); padding: 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .lang-btn { padding: 4px 8px; border: 2px solid #8b5e3c; background: white; color: #6b4226; cursor: pointer; font-size: 22px; font-weight: 600; border-radius: 4px; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .lang-btn:hover { background: #8b5e3c; color: white; }
+        .lang-btn.active { background: #5a3520; color: white; border-color: #5a3520; }
+        .container { max-width: 800px; margin: 0 auto; background: white; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
+        header { background: linear-gradient(135deg, #3a1f10 0%, #6b4226 100%); color: #f4f1e8; padding: 60px 40px 40px 40px; border-bottom: 4px solid #a0785a; }
+        .title-main { font-size: 2.8em; font-weight: 300; letter-spacing: 2px; margin-bottom: 15px; font-variant: small-caps; }
+        .subtitle { font-size: 1.3em; font-weight: 300; color: #d4b896; font-style: italic; margin-bottom: 25px; }
+        .period { font-size: 1.1em; color: #b8956e; letter-spacing: 3px; font-weight: 400; }
+        .content { padding: 50px 60px 60px 60px; }
+        .chapter-intro { font-size: 1.15em; font-style: italic; color: #5a5a5a; margin-bottom: 40px; padding: 25px; background: #faf6f2; border-left: 4px solid #a0785a; }
+        h2 { font-size: 1.8em; color: #4a2a15; margin: 50px 0 25px 0; font-weight: 400; letter-spacing: 1px; border-bottom: 2px solid #e8d8c8; padding-bottom: 10px; }
+        h2:first-of-type { margin-top: 0; }
+        p { margin-bottom: 20px; text-align: justify; font-size: 1.05em; }
+        img { width: 100%; height: auto; margin: 35px 0; border: 1px solid #c4b5a0; }
+        .img-caption { text-align: center; font-style: italic; color: #6b5639; font-size: 0.9em; margin-top: -25px; margin-bottom: 35px; }
+        .historical-note { background: #f7f2ec; padding: 25px; margin: 30px 0; border-left: 4px solid #a0785a; font-size: 0.98em; color: #4a4a4a; }
+        .date-marker { font-weight: 600; color: #6b4226; font-variant: small-caps; letter-spacing: 1px; }
+        .place-name { font-style: italic; color: #5a3520; }
+        .person-name { font-weight: 500; color: #4a2a15; }
+        .chapter-nav-wrapper { padding: 0 60px 40px 60px; }
+        .chapter-nav { border-top: 2px solid #e8d8c8; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .back-link { text-decoration: none; color: #a0785a; font-size: 0.95em; letter-spacing: 0.5px; transition: color 0.2s; }
+        .back-link:hover { color: #4a2a15; }
+        .next-link { text-decoration: none; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+        .next-label { font-size: 0.82em; text-transform: uppercase; letter-spacing: 1.5px; color: #a0785a; margin-bottom: 3px; }
+        .next-title { font-size: 1.15em; font-variant: small-caps; color: #4a2a15; letter-spacing: 1px; transition: color 0.2s; }
+        .next-link:hover .next-title { color: #a0785a; }
+        footer { background: #4a2a15; color: #d4b896; padding: 30px 60px; font-size: 0.9em; text-align: center; border-top: 4px solid #a0785a; }
+        @media (max-width: 768px) {
+            .content { padding: 30px 25px; }
+            header { padding: 40px 25px 30px 25px; }
+            .title-main { font-size: 2em; }
+            footer { padding: 25px; }
+            .language-switcher { top: 10px; right: 10px; padding: 8px; gap: 6px; }
+            .lang-btn { padding: 3px 6px; font-size: 18px; }
+        }
+        .chapter-intro, .img-caption, .subtitle { font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.04em; }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <a href="Part_4_The_Other_Country_1811_1953_PT.html" class="lang-btn">🇧🇷</a>
+        <a href="Part_4_The_Other_Country_1811_1953_EN.html" class="lang-btn">EN</a>
+        <a href="Part_4_The_Other_Country_1811_1953_DE.html" class="lang-btn active">DE</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="title-main">Teil Vier: Das andere Land</div>
+            <div class="subtitle">Von den vulkanischen Hügeln der Steiermark zu den Wäldern von Paraná</div>
+            <div class="period">1811–1953</div>
+        </header>
+        
+        <div class="content">
+            <div class="chapter-intro">
+                Bisher folgte diese Geschichte einem einzigen Faden westwärts über die Landkarte des deutschsprachigen Europas: von Ottobeuren zum Schwarzwald, von Sankt Peter nach Heuweiler, von den Klosterhöhen zum Talboden. Aber jede Familie hat mehr als eine Wurzel, und die Familie Hackl tritt aus einer völlig anderen Richtung in diese Erzählung ein, aus dem äußersten Südosten der österreichischen Länder, aus einer Landschaft vulkanischer Hügel und Weinberge, die nicht zum Rhein, sondern nach Ungarn und Slowenien blickt. Waren die Schwehrs und Würzburgers Schwarzwälder, geprägt von Fichten und Granit und langen Wintern, so waren die Hackls Menschen eines sanfteren, wärmeren, offeneren Landes, eines Grenzlandes, wo Reiche aufeinandertrafen und Kulturen sich vermischten. Ihre Geschichte sollte sie von diesen steirischen Hügeln in die zweitgrößte Stadt Österreichs führen und von dort auf einem holländischen Dampfer über den Atlantik in ein Land, das keiner von ihnen je gesehen hatte.
+            </div>
+
+            <img src="https://www.wohlkinger.com/gallery/Sankt-St-Anna-am-Aigen-historische-Ansichtskarten-Ruck056_zfotcixt.jpg" alt="St. Anna am Aigen historische Ansichtskarte">
+            <p class="img-caption">Sankt Anna am Aigen — Eine historische Ansichtskarte des Weindorfes in der südöstlichen Steiermark, wo die Familie Hackl ihren Ursprung hatte</p>
+
+            <h2>Vulkanischer Boden</h2>
+
+            <p><span class="place-name">Sankt Anna am Aigen</span> liegt auf einem Höhenrücken im äußersten Südosten der Steiermark, etwa siebzig Kilometer von Graz entfernt, in einer Landschaft, die unterschiedlicher nicht sein könnte als der Schwarzwald. Wo die Schwehr-Heimat aus engen Tälern und dunklen Wäldern bestand, ist hier offenes, hügeliges Land, ein Gelände aus langen Rücken und sanften Hängen, wo Weinberge jeden Südhang hinaufklettern und der Blick nach Osten bis Ungarn und nach Süden bis Slowenien reicht. Das Dorf thront auf etwa vierhundert Metern Seehöhe, mit einer Kirche, die von weitem auf ihrer Anhöhe sichtbar ist, ein Wahrzeichen für Reisende aus jeder Richtung.</p>
+
+            <p>Die Geologie hier ist außergewöhnlich. Vor zwei Millionen Jahren brachen Vulkane in diesem Teil der Steiermark aus und hinterließen Basaltformationen und mineralreiche Böden, die sich als ideal für den Weinbau erweisen sollten. Die Gemeinde ist nicht eine einzelne Siedlung, sondern eine Ansammlung winziger Weiler, verstreut über die Hügelrücken: <span class="place-name">Waltra</span>, <span class="place-name">Hochstraden</span>, <span class="place-name">Sichauf</span>, <span class="place-name">Klapping</span>, <span class="place-name">Plesch</span>, <span class="place-name">Risola</span>, <span class="place-name">Jamm</span>. Jeder ist eine Handvoll Gehöfte, die sich entlang eines Rückens oder an einer Kreuzung zusammenscharen, höchstens einige Dutzend Familien, umgeben von Weinbergen und Obstgärten auf den vulkanischen Hängen. Die Namen erscheinen in den Pfarrregistern fast austauschbar, so wie <span class="place-name">Mandaguaçu</span> und <span class="place-name">Maringá</span> später in brasilianischen Dokumenten verschwimmen sollten: eine Gemeinschaft zu klein für einen eigenen Standesbeamten, einer größeren Pfarre zugeordnet, die alle Geburten und Todesfälle unter einem einzigen Kirchendach verzeichnete.</p>
+
+            <p>Das Gebiet war seit der Römerzeit Grenzland und markierte die Grenze zwischen den Provinzen Noricum und Pannonien. Im neunzehnten Jahrhundert lag es am Treffpunkt dreier politischer Gebilde: der österreichischen Kronländer der Steiermark im Westen, des Königreichs Ungarn im Osten und der Länder, die schließlich Jugoslawien werden sollten, im Süden. Die Menschen hier sprachen Deutsch, aber Slowenisch war auf den Märkten zu hören, und Ungarisch war die Sprache der Verwaltung jenseits der östlichen Grenze. Es war ein Ort, an dem Welten sich überlappten.</p>
+
+            <div class="historical-note">
+                In den ersten drei Kapiteln dieser Geschichte lebten die Familien des Schwarzwaldes unter der Herrschaft des Großherzogtums Baden, eines kleinen souveränen Staates im zersplitterten Deutschen Bund. Die Familie Hackl hingegen lebte innerhalb des Habsburgerreiches, der ausgedehnten multiethnischen Monarchie, die sich von der Schweizer Grenze bis zur rumänischen Tiefebene und von der Adriaküste bis zu den Karpaten erstreckte. Der Unterschied war im täglichen Leben von enormer Bedeutung. In Baden war die Leibeigenschaft früh durch aufklärerische Reformen geschwächt worden. In den habsburgischen Ländern bestand die formale Leibeigenschaft bis zur Revolution von 1848 fort. Das Untertanenpatent Kaiser Josephs II. von 1781 hatte den Bauern das Recht gewährt, frei zu heiraten und zwischen Gütern umzuziehen, ließ aber das System der Robot unberührt, der unbezahlten Arbeit, die die Untertanen ihren Grundherren schuldeten. Ein Bauer in den Weilern um Sankt Anna am Aigen im Jahr 1811, als Franz Hakel Zäzilia Waltersdorfer heiratete, schuldete noch Tage der Arbeit auf dem Grund des Herrn jede Woche, lieferte noch einen Teil seiner Ernte als Zehent ab. Sein Gegenstück in Heuweiler, dreihundert Kilometer westlich, war seit einer Generation frei von solchen Verpflichtungen. Beide waren arm. Aber sie waren arm unter verschiedenen Rechtssystemen, und diese Systeme prägten die Rhythmen und Möglichkeiten ihres Lebens auf Arten, die die Familien selbst vielleicht nie in Worte gefasst hatten.
+            </div>
+
+            <h2>Franz und Zäzilia</h2>
+
+            <p>Der früheste Hackl, den wir in der direkten Linie namentlich kennen, ist <span class="person-name">Franz Hakel</span>. Wir wissen fast nichts über ihn: kein Geburtsdatum, kein Sterbedatum, kein Beruf, keine Eltern. Er erscheint im Register nur einmal, am <span class="date-marker">achtzehnten Februar 1811</span>, als er <span class="person-name">Zäzilia Waltersdorfer</span> in der Pfarrkirche von Sankt Anna am Aigen heiratete. Dieser einzelne Eintrag, vor zwei Jahrhunderten von einem Pfarrer mit Tinte geschrieben, ist der früheste feste Punkt der Existenz der Familie Hackl.</p>
+
+            <p>Der Familienname selbst ist ein Hinweis. <span class="date-marker">Hackl</span>, manchmal Hakl oder Hakel geschrieben, je nach der Hand des Schreibers, leitet sich vom mittelhochdeutschen Wort für eine kleine Axt oder ein Beil ab, die Art von Werkzeug, das zum Holzhacken, Kindling-Spalten oder groben Zimmerarbeiten verwendet wurde. Es war ein Berufsname, wie Zimmermann oder Schreiner, ursprünglich einem Mann gegeben, der solche Werkzeuge herstellte oder benutzte. Die verschiedenen Schreibweisen spiegeln nicht verschiedene Familien wider, sondern verschiedene Schreiber: Ein Priester, der in sorgfältigem Latein schrieb, mochte Hakel eintragen, während sein Nachfolger im deutschen Dialekt Hakl setzen mochte. Beide meinten dieselben Menschen, dieselbe Blutlinie, dasselbe Haus auf demselben vulkanischen Höhenrücken.</p>
+
+            <p>Die Kinder von Franz und Zäzilia zeichnen ein Muster, das etwas über das Leben der Familie verrät. Ihre ersten drei Kinder wurden in <span class="place-name">Sankt Anna am Aigen</span> getauft: <span class="person-name">Michael</span> 1812, <span class="person-name">Josefus</span> 1814, <span class="person-name">Maria</span> 1817. Aber ab <span class="person-name">Theresia</span> 1821 wurden die verbleibenden vier Kinder alle als in <span class="place-name">Waltra</span> geboren verzeichnet: Anna 1824, Johann 1827, Franciscus 1828. Die Verschiebung spiegelt wahrscheinlich einen Umzug innerhalb der Pfarre wider, von einem Weiler zum anderen, vielleicht einige Kilometer entlang des Rückens, auf ein anderes Stück Land. In der verstreuten Siedlungsstruktur dieser Region, wo Gehöfte einzeln an Hängen standen statt in Dörfern zusammengedrängt, waren solche Umzüge üblich und unbemerkt. Man erbte ein Grundstück oder heiratete in eines hinein, und die Kinder wurden unter dem Weilernamen registriert, den der Pfarrer dem jeweiligen Stück Land zuordnete.</p>
+
+            <h2>Michael und Anna Nell</h2>
+
+            <p>Der älteste Sohn von Franz und Zäzilia, <span class="person-name">Michael Hakel</span>, wurde am sechsten Mai 1812 in Sankt Anna am Aigen geboren. Er heiratete <span class="person-name">Anna Nell</span>, geboren am zwölften September 1814, ebenfalls in der Pfarre. Die Hochzeit fand am <span class="date-marker">zwölften Februar 1838</span> statt, in derselben Kirche, in der Michaels Eltern siebenundzwanzig Jahre zuvor geheiratet hatten. Annas Vater, <span class="person-name">Franz Nell</span>, war 1789 in der Pfarre geboren worden und dort 1815 gestorben, als Anna kaum ein Jahr alt war. Die Familie Nell hatte, wie die Hackls, tiefe Wurzeln in diesem Boden.</p>
+
+            <p>Michael und Anna bekamen zehn Kinder über einundzwanzig Jahre, eine Familie von außerordentlicher Größe selbst nach den Maßstäben der Zeit. Die Pfarrregister verzeichnen sie methodisch: Anna 1837, Maria 1838, Theresia 1840, Michael 1842, Johannes 1844, Joseph 1846, Franziscus 1850, Theresia 1852, Alois 1854, Mathias 1858. Die erste Theresia, geboren im September 1840, starb am selben Tag, an dem sie geboren wurde. Die zweite Theresia, zwölf Jahre später geboren, trug den Namen weiter. Mathias, der Jüngste, starb 1868 im Alter von neun Jahren. Diese Verluste werden in den Pfarrbüchern ohne Kommentar verzeichnet, wie solche Verluste immer verzeichnet wurden: ein Name und ein Datum und Schweigen.</p>
+
+            <p>Was für ein Leben führten Michael und Anna Nell in jenen Jahrzehnten zwischen den 1830er und 1860er Jahren? Die Landschaft gibt uns einen Teil der Antwort. Die vulkanischen Böden der Region Sankt Anna am Aigen trugen eine gemischte Landwirtschaft: Wein an den Südhängen, Getreide und Hackfrüchte auf dem flacheren Land, Schweine und Rinder in den Höfen, Obstbäume entlang der Straßen. Es war keine Subsistenzwirtschaft einer Berggemeinschaft. Der Wein konnte verkauft werden. Es gab hier eine Marktwirtschaft, durch die Raab mit der größeren Welt von Feldbach verbunden, der Bezirkshauptstadt fünfzehn Kilometer nordwestlich, und von Feldbach nach Graz und Wien weiter. Als die Ungarische Westbahn 1873 Feldbach erreichte, wurde die Verbindung physisch, Eisenschienen ersetzten den langsamen Rhythmus von Ochsenkarren auf Erdstraßen.</p>
+
+            <p>Aber vor der Eisenbahn war dies noch eine Welt, die nach Gehstrecken gemessen wurde. Ein Mann konnte in einer halben Stunde von Waltra zur Kirche in Sankt Anna laufen. Um Feldbach zu erreichen, brauchte man fast einen Tag. Die großen Ereignisse des Reiches, die Revolutionen von 1848, die die letzten Reste der Leibeigenschaft abschafften, die Kriege mit Italien und Preußen, der Ausgleich mit Ungarn 1867, der die Doppelmonarchie schuf, kamen hier als Nachrichten an, von Reisenden überbracht, später als Erlasse, die von den Stufen des Tabors in Feldbach verlesen wurden. Michael und Anna Nell erlebten die Abschaffung der Robot, das Ende der feudalen Verpflichtungen, die die Generation ihrer Eltern an den Boden gebunden hatten. Nach 1848 waren sie rechtlich freie Menschen, Eigentümer des kleinen Grundstücks, das sie bearbeiteten, keinem Herrn mehr zur unbezahlten Arbeit verpflichtet. Ob die Änderung in einem Weiler von zwanzig Familien auf einem vulkanischen Höhenrücken viel praktischen Unterschied machte, ist eine andere Frage. Der Boden war derselbe. Die Arbeit war dieselbe. Die Kinder mussten noch ernährt werden.</p>
+
+            <img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-1.9637883008356596&panoid=FL9k6BSfEbX66bOsKzY-UA&yaw=325.86360181058495" alt="Waltra, Sankt Anna am Aigen">
+            <p class="img-caption">Waltra — Der Weiler innerhalb der Pfarre Sankt Anna am Aigen, wo die Familie Hackl über Generationen lebte, fotografiert von der Straße, die noch heute den Namen trägt</p>
+
+            <h2>Johan und Maria</h2>
+
+            <p>Das fünfte Kind von Michael und Anna Nell, <span class="person-name">Johan Hackl</span>, wurde 1839 geboren. Er heiratete <span class="person-name">Maria Gigl</span>, geboren 1845, und zusammen hatten sie mindestens einen Sohn, der das Erwachsenenalter erreichte. Johan starb 1886 mit siebenundvierzig Jahren. Maria lebte bis 1919 und wurde vierundsiebzig, alt genug, um die Welt, die sie gekannt hatte, vollständig zerfallen zu sehen: Das Habsburgerreich, das ihr ganzes Leben regiert hatte, brach 1918 zusammen, ein Jahr vor ihrem Tod.</p>
+
+            <p>Johans Bruder <span class="person-name">Joseph Hakel</span>, geboren 1846, schlug einen anderen Weg ein. Er blieb. Er heiratete <span class="person-name">Anna Schuster</span>, geboren 1852 in der Pfarre, am <span class="date-marker">dreißigsten Oktober 1872</span>, und er starb in Sankt Anna am Aigen am vierzehnten Juli 1905 mit neunundfünfzig Jahren. Sein ganzes Leben, von der Geburt bis zur Bestattung, spielte sich innerhalb der Grenzen der Pfarre ab, in der sein Großvater Franz vierundneunzig Jahre zuvor geheiratet hatte. Sein Bruder Alois, geboren 1854, heiratete ebenfalls vor Ort und ehelichte <span class="person-name">Amalia Glanz</span> im Januar 1883 in derselben Kirche. Das Muster ist klar: Die meisten Kinder blieben. Die Pfarre hielt sie, wie der Schwarzwald die Schwehrs und Würzburgers über Generationen gehalten hatte, durch die Schwerkraft von Land und Verwandtschaft und den vertrauten Konturen einer bekannten Welt.</p>
+
+            <p>Aber Johans Sohn nicht. Johans Sohn würde gehen.</p>
+
+            <h2>Leonhard: Vom Dorf in die Stadt</h2>
+
+            <p>Johans und Marias Sohn <span class="person-name">Leonhard Hackl</span> wurde am sechsten November 1869 in <span class="place-name">Hochstraden</span> geboren, dem Weiler auf dem vulkanischen Höhenrücken innerhalb der Pfarre Sankt Anna am Aigen. Seine Taufurkunde gibt den Geburtsort mit dieser Genauigkeit an und verortet ihn nicht im Marktort selbst, sondern in der verstreuten bäuerlichen Siedlung auf dem Basaltrücken darüber, einem acht Kilometer langen Rücken aus Nephelinit, der von Nord nach Süd verläuft. Hochstraden hat heute etwa 145 Einwohner. 1869 waren es möglicherweise weniger.</p>
+
+            <p>Leonhards rechtlicher Wohnsitz, seine <span class="date-marker">Zuständigkeit</span> in der Sprache der habsburgischen Verwaltung, war als Waltra, Bezirk Feldbach verzeichnet. Dies war ein Konzept ohne Entsprechung im Schwehr-Land Baden: Die Heimatgemeinde, die für einen in Fragen der Armenfürsorge, des Militärdienstes und der rechtlichen Identität zuständig war, folgte einem, wohin man auch ging. Ein Mann konnte dreißig Jahre in Graz leben und seine Zuständigkeit wäre immer noch Waltra. Es war ein administrativer Faden, der jeden Untertan mit einem bestimmten Ort auf der Landkarte verband, eine bürokratische Version jener Anziehungskraft, die die meisten Menschen im Boden verwurzelt hielt. Leonhard sollte Waltra sein Leben lang in seinen Dokumenten tragen, selbst über den Atlantik hinweg.</p>
+
+            <p>Aber irgendwann in den 1890er Jahren traf er eine Entscheidung, die die Familiengeschichte neu ausrichten sollte. Er verließ das Land und zog nach <span class="place-name">Graz</span>, der Hauptstadt der Steiermark, siebzig Kilometer nordwestlich. Es war die Art von Umzug, die Millionen ländlicher Europäer in jenen Jahrzehnten machten, die große Urbanisierung, die den Kontinent verwandelte.</p>
+
+            <p>Er kappte seine Verbindungen nicht ganz. Am <span class="date-marker">elften Mai 1896</span> kehrte er nach Sankt Anna am Aigen zurück, um <span class="person-name">Aurelia Maria Küschal</span> zu heiraten. Sie war vierundzwanzig Jahre alt, geboren am einundzwanzigsten Juni 1871, nicht in der südöstlichen Steiermark, sondern in <span class="place-name">Schöder</span>, einem Bergdorf im Bezirk Murau in der Obersteiermark, mehr als hundert Kilometer nordwestlich. Ihr Vater, <span class="person-name">Franz Küschal</span>, war 1834 in Schönberg bei Knittelfeld geboren worden, im industriellen Herzen der Steiermark. Die Küschals waren Bergvolk aus dem Murtal, aus einem kälteren, höheren, abgelegeneren Teil der Steiermark als dem sanften Weinland von Sankt Anna.</p>
+
+            <p>Wie Leonhard von der südöstlichen Grenze und Aurelia aus den obersteierischen Bergen zueinander fanden, ist nicht überliefert. Vielleicht waren beide unabhängig voneinander nach Graz gekommen und hatten sich dort kennengelernt, wie junge Menschen aus verschiedenen ländlichen Verhältnissen es in der Anonymität der Stadt taten. Was wir wissen, ist, dass sie in der Dorfkirche von Sankt Anna am Aigen heirateten, dass ihr erstes Kind, eine Tochter ebenfalls namens Aurelia, im Januar 1895 vor der Hochzeit geboren wurde und dass sie nach der Eheschließung nach Graz zurückkehrten, um ihr gemeinsames städtisches Leben zu beginnen.</p>
+
+            <img src="https://oekastatic.orf.at/mims/2019/40/31/crops/w=1280,q=90/317721_bigpicture_99831_bruecken-web-1920x1080px-1400x788.jpg?s=77c10bef9948e3c90c6b8b67207c2b75eaf556b3" alt="Historische Ansicht von Graz">
+            <p class="img-caption">Graz — Die steirische Landeshauptstadt, wo Leonhard Hackl als Dienstmann arbeitete und seine Familie im Arbeiterviertel Jakomini großzog</p>
+
+            <h2>Pestalozzistraße 78</h2>
+
+            <p>Die Dokumente verraten uns, wo die Familie Hackl in Graz wohnte: <span class="place-name">Pestalozzistraße 78</span>, im Bezirk <span class="place-name">Jakomini</span>, dem sechsten und am dichtesten besiedelten Bezirk der Stadt. Jakomini lag südlich der Altstadt, ein Viertel, das in der zweiten Hälfte des neunzehnten Jahrhunderts rasch gewachsen war, als Graz sich industrialisierte und Arbeiter vom Land strömten. Es war solides Arbeiterviertel, ein Ort bescheidener Mieten und enger Treppenhäuser.</p>
+
+            <img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-11.339632828422154&panoid=fgyrn10YYzLSl1H-UrB_lQ&yaw=259.927063165026" alt="Pestalozzistraße 78, Graz">
+            <p class="img-caption">Pestalozzistraße 78, Graz — Das Haus, in dem Friedrich Hackl 1914 geboren wurde, im Arbeiterviertel Jakomini, wo die Familie lebte</p>
+
+            <p>Die Pfarrkirche, die ihr Viertel betreute, war <span class="place-name">St. Josef</span>, ein brandneues Gebäude im florentinischen Renaissancestil, das erst 1908 fertiggestellt worden war. Als Friedrich Hackl dort am neunundzwanzigsten Jänner 1914 getauft wurde, war die Farbe an den Wänden kaum trocken.</p>
+
+            <p>Leonhards Beruf, wie auf der Taufurkunde seines Sohnes vermerkt, war <span class="date-marker">Dienstmann</span>. Das Wort bezeichnete im Graz des frühen zwanzigsten Jahrhunderts einen Träger, einen Boten, einen Mann, der Dinge für andere Menschen transportierte. Dienstmänner waren die menschliche Logistik der vorindustriellen Stadt. Sie erwarteten Züge am Hauptbahnhof und trugen das Gepäck der Reisenden. Sie schleppten Waren von Lagerhäusern zu Geschäften. Sie lieferten Pakete aus, räumten Wohnungen, erledigten jede körperliche Arbeit, die an einem beliebigen Tag anfiel. Es war ehrliche Arbeit, aber es war die unterste Stufe der städtischen Wirtschaft, ein Beruf, der nichts erforderte als einen starken Rücken und die Bereitschaft, von morgens bis abends auf den Beinen zu sein.</p>
+
+            <p>Dass Leonhards Verwandte <span class="person-name">Johanna Hakl</span>, die als Taufpatin bei Friedrichs Taufe diente, ebenfalls als <span class="date-marker">Dienstmannsgattin</span> beschrieben wurde, wohnhaft in der Hamerlinggasse 8, sagt uns, dass die Familie Hackl in Graz ein kleines Netzwerk von Verwandten bildete, die alle auf derselben Stufe der städtischen Wirtschaft arbeiteten. Dies war typisch. Ländliche Zuwanderer in die Städte blieben zusammen, tauschten Informationen über Arbeit und Wohnungen aus und schufen ein Dorf in der Stadt, das etwas von der gegenseitigen Hilfe nachbildete, die sie auf dem Land gekannt hatten.</p>
+
+            <div class="historical-note">
+                Graz war in den frühen 1900er Jahren die zweitgrößte Stadt Österreichs mit einer Einwohnerzahl von fast 150.000. Es war eine Universitätsstadt, eine Garnisonsstadt, ein Verwaltungszentrum der Steiermark. Aber es war auch eine Stadt der scharfen Kontraste. Die östlichen Bezirke beherbergten die Wohlhabenden in komfortablen Villen nahe der Universität. Die westlichen und südlichen Viertel waren Arbeiterviertel: Fabriken und Lagerhäuser, Handwerker und Zuwanderer, dichte Wohnblöcke. Allein in der zweiten Hälfte des neunzehnten Jahrhunderts hatte die Stadt 1.800 neue Gebäude errichtet, um den Zustrom von Arbeitern unterzubringen. Wer in der Pestalozzistraße in Jakomini wohnte, war Arbeiter. Man war nicht arm genug zum Hungern, aber nur einen schlechten Monat von Schwierigkeiten entfernt.
+            </div>
+
+            <h2>Zwölf Kinder</h2>
+
+            <p>Leonhard und Aurelia bekamen zwischen 1895 und 1914 zwölf Kinder, in einer Zeitspanne von neunzehn Jahren, die die letzten selbstbewussten Jahrzehnte des Habsburgerreiches und den Moment seiner Zerstörung umfasste. Das erste, eine Tochter ebenfalls namens Aurelia, kam vor der Eheschließung der Eltern zur Welt. Die letzten, die Zwillinge Friedrich und Margaretha, wurden sechs Monate vor der Ermordung des Erzherzogs Franz Ferdinand geboren.</p>
+
+            <p>Vier der zwölf überlebten das Erwachsenenalter nicht. Maria, geboren 1900, starb mit acht Jahren. Die älteste Tochter Aurelia starb im März 1918 mit dreiundzwanzig, als der Krieg sich dem Ende zuneigte. Franz, geboren 1902, starb im August 1919 mit sechzehn, mitten in der Spätphase der Spanischen Grippe und des verzweifelten Hungers, der Österreich in der Nachkriegszeit erfasste. Friedrichs Zwillingsschwester Margaretha, das Baby, das Gretel genannt wurde, starb im Säuglingsalter. Diese Tode umrahmen den Krieg und die Pandemie, und sie sagen uns, dass die Familie Hackl in Graz am Rand lebte, dass das Stadtleben Löhne bot, aber keine Sicherheit.</p>
+
+            <p>Die Kinder, die überlebten, Anna, Ella, Adolf, Anton, Josef, Johann (genannt Hans) und Friedrich, standen vor der Frage, die die Nachkriegszeit Millionen aufzwang: bleiben oder gehen. Friedrichs Taufurkunde, 2006 vom Diözesanarchiv Graz-Seckau durch Dr. Alois Ruhri beschafft, bewahrt die Einzelheiten seines Eintritts in die Welt: geboren um neun Uhr abends am achtundzwanzigsten Jänner 1914 in der Pestalozzistraße 78, getauft am nächsten Nachmittag durch Pater Bonaventura von Hellrigl, Hebamme Anna Lobnig anwesend.</p>
+
+            <h2>Der Krieg und der Zusammenbruch</h2>
+
+            <p>Der Erste Weltkrieg zerstörte Österreich. Nicht nur das Heer, nicht nur die Wirtschaft, sondern die gesamte politische und soziale Ordnung, die Mitteleuropa seit Jahrhunderten regiert hatte. Das Habsburgerreich löste sich einfach auf, wie ein Gebäude, dessen Fundamente zerfressen worden waren, und eines Tages fielen die Mauern, und es blieb nichts als Trümmer.</p>
+
+            <p>Für eine Arbeiterfamilie in Graz bedeutete der Krieg Hunger. Österreichs Nahrungsversorgung hing von Importen aus Ungarn ab, und je länger der Krieg dauerte und die alliierte Blockade sich verschärfte, desto mehr schrumpften diese Importe. 1917 fielen die Brotrationem unter das Existenzminimum. Die Menschen aßen Rüben, Rote Bete, alles, was sie finden konnten. Kinder litten am meisten. Krankheiten, die seit Jahrzehnten zurückgegangen waren, Tuberkulose, Typhus, Grippe, kehrten mit Macht zurück, als geschwächte Körper sie nicht mehr abwehren konnten.</p>
+
+            <p>Dann kam der Waffenstillstand im November 1918, und mit ihm nicht Frieden, sondern Chaos. Das Reich zerbrach. Deutschösterreich, seiner Besitzungen beraubt, war ein kleines, eingeschlossenes Land von sechseinhalb Millionen Menschen. Die Wirtschaft brach zusammen. Die Währung verlor ihren Wert. Und die Spanische Grippe schlug zu und tötete Tausende, die vier Jahre Krieg überlebt hatten, nur um an der darauffolgenden Pandemie zu sterben.</p>
+
+            <p>Leonhard Hackl war fünfundvierzig, als der Krieg begann, und neunundvierzig, als er endete. Seine Tochter Aurelia starb im März 1918. Sein Sohn Franz starb im August 1919. Die Familie wurde von denselben Kräften dezimiert, die das Land um sie herum zerstörten.</p>
+
+            <p>In diesem Kontext, in dieser Landschaft der Niederlage und des Hungers und des Verlusts, fasste die Idee der Auswanderung Wurzeln.</p>
+
+            <img src="https://preview.redd.it/der-jakominiplatz-in-graz-alte-ansichten-v0-z9i349bop2fb1.jpg?width=640&crop=smart&auto=webp&s=3ad0bb24bd530aef3a09ba1a6be075751637eaa5" alt="Jakominiplatz Graz historisch">
+            <p class="img-caption">Jakominiplatz, Graz — Das Herz des Bezirks Jakomini, wo die Familie Hackl lebte, auf einer historischen Aufnahme aus dem frühen zwanzigsten Jahrhundert</p>
+
+            <h2>Die Entscheidung</h2>
+
+            <p>Amerika schloss seine Tore. Die Quotengesetze der frühen 1920er Jahre hatten die Zahl der Einwanderer, die die Vereinigten Staaten aufnahmen, drastisch gekürzt und das große Sicherheitsventil verschlossen, das Europas überschüssige Bevölkerung ein Jahrhundert lang aufgenommen hatte. Aber Brasilien öffnete seine Tore weiter. Die Abschaffung der Sklaverei 1888 hatte eine enorme Nachfrage nach landwirtschaftlichen Arbeitskräften geschaffen, und die brasilianische Regierung warb aktiv europäische Einwanderer an. Agenten zogen durch österreichische und deutsche Städte und verteilten Flugblätter, die kostenloses Land, fruchtbaren Boden und Chancen versprachen. Für eine Familie, die nichts zu verlieren hatte, war das Angebot unwiderstehlich.</p>
+
+            <p>Wir wissen nicht genau, wann Leonhard die Entscheidung traf oder welche Debatten in der Wohnung in der Pestalozzistraße stattfanden. Aber irgendwann Ende 1924 oder Anfang 1925 wurden die Vorbereitungen getroffen. Der österreichische Reisepass wurde ausgestellt, Nummer 4751, auf Leonhards Namen lautend, mit seiner Frau Aurelia und den Kindern. Sie packten, was sie tragen konnten. Sie verabschiedeten sich von Ella, die geheiratet hatte und in Österreich bleiben würde. Sie verabschiedeten sich von dem, was von ihrem Leben in Graz noch übrig war, den Straßen, die Leonhard als Dienstmann begangen hatte, der Kirche, in der die Kinder getauft worden waren, der Wohnung, in der zwölf Kinder geboren und vier gestorben waren.</p>
+
+            <p>Und sie reisten nach Norden, nach Amsterdam.</p>
+
+            <div class="historical-note">
+                Der Reisepass selbst, in den Familienunterlagen aufbewahrt, ist ein ergreifendes Dokument. Auf der linken Seite bittet ein gedruckter Hinweis mit der Überschrift <span class="date-marker">BITTE!</span> die Auswanderer, mit Österreich in Kontakt zu bleiben, über die Verhältnisse in ihrem Zielland zu berichten, die Verbindung zur Heimat aufrechtzuerhalten. Er spricht vom Interesse der österreichischen Regierung an ihren überseeischen Bürgern, von ihrem Wunsch, über „die wirtschaftlichen, klimatischen und sonstigen Verhältnisse" der Orte, an denen sie sich niederließen, informiert zu werden. Der Appell hat den Ton eines Elternteils, das ein Kind gehen sieht: Bleibt in Kontakt, schreibt uns, vergesst nicht, woher ihr kommt. Auf der rechten Seite ist der Einwanderungsstempel von Santos, Brasilien, über den österreichischen Text gestempelt, der Anspruch eines Landes buchstäblich den eines anderen überschreibend.
+            </div>
+
+            <h2>Die Orania</h2>
+
+            <p>Das Schiff hieß <span class="person-name">Orania</span>, ein Dampfer der Koninklijke Hollandsche Lloyd, 1922 in Belfast gebaut und in Amsterdam registriert. Ihre Route führte von Amsterdam südwärts durch den Ärmelkanal mit Anläufen in Southampton und Cherbourg, dann nach Vigo und Lissabon, hinüber nach Las Palmas auf den Kanarischen Inseln und dann die lange Ozeanüberquerung nach Pernambuco, Bahia, Rio de Janeiro, Santos, Montevideo und Buenos Aires.</p>
+
+            <img src="https://www.marhisdata.nl/image.php?code=12395&hash=df5592b16ef9837e96ceee0ae30db4f48f9450d3&opt=5" alt="SS Orania">
+            <p class="img-caption">Die SS Orania — Das holländische Dampfschiff, das die Familie Hackl im Februar 1925 von Amsterdam nach Santos brachte</p>
+
+            <p>Das brasilianische Nationalarchiv in Rio de Janeiro bewahrt die Passagierliste auf. Sie verzeichnet <span class="person-name">Leonhard Hackl</span>, fünfundfünfzig Jahre, Beruf Agricultor, Nationalität Austriaco, reisend in der dritten Klasse. Seine Begleiter: <span class="person-name">Karolin Hackl</span>, dreiundfünfzig (Aurelias Name, wie die Schreiber ihn hörten), <span class="person-name">Anna Hackl</span>, siebenundzwanzig, <span class="person-name">Johann Hackl</span>, fünfzehn, und <span class="person-name">Friedrich Hackl</span>, elf. Anton, Josef und Adolf reisten getrennt oder auf demselben Schiff unter anderen Einträgen.</p>
+
+            <p>Am <span class="date-marker">zehnten Februar 1925</span> lief die Orania in den Hafen von <span class="place-name">Santos</span> ein. Friedrich Hackl, der nichts als das Pflaster und den kalten Regen von Graz gekannt hatte, betrat einen Kai, an dem die Luft schwer war von tropischer Hitze und dem Geruch von Kaffee und Dieselöl und faulenden Früchten. Der Hafen war ein Chaos von Sprachen, Portugiesisch, Italienisch, Japanisch, Deutsch, alle Zungen der Einwanderungsflut, die nach Brasilien strömte. Hafenarbeiter bewegten Kaffeeballen zu den Lagerhäusern. Träger, Männer nicht unähnlich seinem Vater, die anderer Leute Lasten trugen, riefen einander in einer Sprache zu, die der Junge nicht in Wörter zerlegen konnte. Die Sonne war ein physisches Gewicht. Das Licht war anders, flacher und intensiver als alles Alpine, und alles war grün auf eine Weise, die die grauen Straßen von Jakomini nie gewesen waren.</p>
+
+            <p>Von Santos wurden die Einwanderer in die <span class="place-name">Hospedaria dos Imigrantes</span> in São Paulo geschickt, das große Aufnahmezentrum, durch das jeder Neuankömmling im Staat hindurchmusste. Ärztliche Untersuchung: Augen, Lungen, Haut; jeder mit einer ansteckenden Krankheit drohte die Abschiebung. Registrierung: Name, Alter, Beruf, Ziel. Vorübergehende Unterkunft in Gemeinschaftsschlafsälen. Und dann die Zuteilung. Die Hackls wurden ins Landesinnere von São Paulo geschickt, in die Region um Getulina, wo sie ihr brasilianisches Leben auf den Plantagen beginnen sollten.</p>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzyz3ZNHIrSqNOPZ2dhpEVm880u_B-AT5N1A&s" alt="Hospedaria dos Imigrantes">
+            <p class="img-caption">Die Hospedaria dos Imigrantes in São Paulo — Das Einwanderer-Aufnahmezentrum, durch das jeder Neuankömmling kam, heute das Einwanderungsmuseum</p>
+
+            <h2>Die Neue Welt</h2>
+
+            <p>Nichts in Leonhard Hackls Erfahrung hatte ihn auf Brasilien vorbereitet. Das Landesinnere des Staates São Paulo in den 1920er Jahren war Grenzland, roh und grün und weit. Der Atlantische Regenwald, dicht und undurchdringlich, wurde von Hand und mit Feuer gerodet, um Platz für Kaffeeplantagen zu schaffen. Das Klima war subtropisch: heiß, feucht, mit Regenfällen, die die rote Erde in Schlamm verwandelten, und einer Sonne, die an alpine Bewölkung gewöhnte Haut verbrannte. In Europa unbekannte Krankheiten, Malaria, Gelbfieber, Leishmaniose, lauerten im Wald und im Stehwasser. Die Sprache war Portugiesisch, das niemand in der Familie sprach.</p>
+
+            <p>Aber es gab Land. Es gab Nahrung. Es gab eine Zukunft, oder die Möglichkeit einer, für die Kinder. In Österreich war Leonhard ein Dienstmann gewesen, ein Träger. In Brasilien konnte er darauf hinarbeiten, Land zu besitzen, seine Familie von eigenem Boden zu ernähren. Der Tausch war furchtbar, alles Vertraute gegen alles Unbekannte einzutauschen, aber die Rechnung war klar. In Österreich bleiben und für immer Dienstmann bleiben. Nach Brasilien gehen und Bauer werden.</p>
+
+            <p>Die Familie gelangte schließlich aus dem Inneren São Paulos in den Staat Paraná, in die Region, die zur Gemeinde <span class="place-name">Mandaguaçu</span> werden sollte. Die Stadt wurde erst 1938 offiziell gegründet, aber Siedler kamen seit den 1920er Jahren. Die Arbeit war brutal und elementar: ein Mann mit einer Axt und einer Machete, stehend am Rand eines Waldes so dicht, dass das Kronendach den Himmel verdeckte, und hackend. Baum für Baum, Liane für Liane, Wurzel für Wurzel, eine Lichtung aus der grünen Wand schlagend. Dann das Verbrennen des Rests, der Rauch in Säulen aufsteigend, die über Kilometer sichtbar waren. Dann das Pflanzen der Kaffeesetzlinge in die aschebedeckte rote Erde und drei Jahre Warten auf die erste Ernte, überlebend von Maniok und Bohnen und was immer das halb gerodete Land in der Zwischenzeit hergab. Die Hackls gehörten zu den Pionieren. Sie bauten ein Leben auf an einem Ort, wo alles von Grund auf geschaffen werden musste.</p>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQh_kh8Syi3f-LAT-GyrckpzYjiYsyLMf9g&s" alt="Mandaguaçu historisch">
+            <p class="img-caption">Mandaguaçu, Paraná — Die Pioniersiedlung im brasilianischen Landesinneren, wo die Familie Hackl ihr neues Leben aufbaute</p>
+
+            <p>Josef Hackl ließ sich im nahen <span class="place-name">Altônia</span> nieder, wo er 1975 sterben sollte. Anton lebte bis 1984. Friedrich, der elfjährige Junge, der auf der Orania angekommen war, sollte schließlich nach São Paulo ziehen, wo er <span class="person-name">Elisabeth Würzburger</span> kennenlernte und 1955 heiratete und so die Hackl-Linie endlich mit der Schwarzwald-Linie vereinte, die auf einem anderen Weg und zu einer anderen Zeit nach Brasilien gekommen war.</p>
+
+            <p>Und dann war da Adolf. <span class="person-name">Adolf Hackl</span>, vierundzwanzig Jahre alt bei der Ankunft der Familie, steht auf dem Manifest der Orania. Er kam mit seinen Eltern und Brüdern nach Brasilien. Und dann, zu einem Zeitpunkt, den niemand in der Familie genau datieren kann, ging er. Er kehrte nach Österreich zurück. Er konnte sich nicht eingewöhnen, oder das Heimweh war zu stark, oder er hatte einen Grund zurückzukehren, der verloren gegangen ist. Er fuhr über den Atlantik zurück und verschwand im Österreich der Zwischenkriegszeit, einem Land, das von Krise zu Krise taumelte, vom Bürgerkrieg 1934 zum Anschluss 1938 zur Katastrophe des Zweiten Weltkriegs. Was aus ihm wurde, ob er überlebte, ob er in irgendeinem österreichischen Dorf alt wurde oder in der Gewalt umkam, die den Kontinent verschlang, weiß niemand. Er ist eine Lücke im Buch, ein Fragezeichen im Stammbaum.</p>
+
+            <h2>Die Gebliebenen</h2>
+
+            <p>Aber der Name Hackl verließ Sankt Anna am Aigen nie. Während Leonhard seine Familie über den Atlantik brachte, blieben die Nachkommen seines Onkels Joseph, seines Onkels Alois, der anderen Geschwister, die den vulkanischen Höhenrücken nie verlassen hatten. Sie bearbeiteten weiter dasselbe Land, pflegten dieselben Weinberge, beteten in derselben Pfarrkirche. Generation folgte auf Generation im stillen Rhythmus, der diese Weiler bestimmt hatte, seit Franz Hakel 1811 Zäzilia Waltersdorfer geheiratet hatte.</p>
+
+            <p>Heute, zwei Jahrhunderte später, besteht der Name an denselben Orten fort. Ein <span class="person-name">Franz Hackl</span> betreibt eine Buschenschank, eine traditionelle Weinstube, in Sichauf 21, mit hausgemachtem Geselchtem von eigenen Schweinen und Weinen von denselben vulkanischen Hängen. Ein <span class="person-name">Robert Hackl</span> führt ein landwirtschaftliches Dienstleistungsunternehmen in Waltra 2, jenem Weiler, in dem die Kinder von Franz und Zäzilia in den 1820er Jahren geboren wurden. Ein <span class="person-name">Dietmar Franz Hackl</span> betreibt eine Elektrowerkstatt an derselben Adresse. Und <span class="person-name">Stefan Hackl</span> ist Obmann des örtlichen Fußballvereins, des USV St. Anna am Aigen. Die Buschenschank verwendet die alte Schreibweise Hakl, dieselbe Form, die auf Leonhards Taufurkunde erscheint, als wäre der orthografische Faden, der das Pfarrregister von 1869 mit dem Weinetikett von 2025 verbindet, nie abgerissen.</p>
+
+            <p>Ob diese Familien von Joseph abstammen, von Alois, von einem der anderen Geschwister, die blieben, können wir nicht mit Sicherheit sagen. Aber die Konzentration des Namens in denselben Weilern, Waltra, Sichauf, derselbe Rücken über derselben Kirche, über zweihundert Jahre hinweg, spricht für sich. Die Hackls, die gingen, bauten neue Leben in Paraná und São Paulo auf. Die Hackls, die blieben, führten das alte Leben fort, pressten Wein aus Trauben, die auf demselben Basalt wuchsen, buken Brot in denselben Öfen, die ihre Ururgroßeltern benutzt hatten. Die beiden Zweige hatten keinen Kontakt. Aber der Boden, der sie verbindet, ist derselbe.</p>
+
+            <h2>Leonhards Ende</h2>
+
+            <p><span class="person-name">Leonhard Hackl</span> starb am <span class="date-marker">achten Juli 1953</span> in <span class="place-name">Maringá</span>, Paraná, Brasilien. Er war dreiundachtzig Jahre alt. Er war in einem Weiler von 145 Seelen auf einem vulkanischen Höhenrücken in der südöstlichen Steiermark geboren worden, getauft in der Pfarrkirche von Sankt Anna am Aigen, aufgewachsen zwischen Weinbergen, die auf zwei Millionen Jahre altem Basalt wuchsen. Er hatte diese Welt für die Stadt verlassen, hatte als Dienstmann die Straßen von Graz begangen, hatte zwölf Kinder in einer beengten Wohnung in Jakomini großgezogen, während das Habsburgerreich um ihn herum zusammenbrach. Er hatte einen Weltkrieg überlebt, eine Pandemie, einen wirtschaftlichen Zusammenbruch und den Tod von vier seiner Kinder. Mit fünfundfünfzig Jahren war er in Amsterdam auf ein Dampfschiff gestiegen und mit seiner Familie über den Atlantik gefahren, angekommen in einem tropischen Land, in dem er niemanden kannte, nichts von der Sprache sprach und nichts vom Klima oder den Krankheiten oder dem Boden verstand. Und er hatte es geschafft. Er hatte Land gerodet, Saat gepflanzt, ein Heim gebaut, die überlebenden Kinder großgezogen und lang genug gelebt, um Enkel auf brasilianischem Boden geboren zu sehen, die nie die vulkanischen Hügel von Hochstraden oder das Pflaster der Pestalozzistraße kennen würden.</p>
+
+            <p>Seine Frau Aurelia überlebte ihn um neun Jahre und starb am dreißigsten Juli 1962, ebenfalls in Maringá, im Alter von einundneunzig Jahren. Sie war in den Bergen der Obersteiermark geboren worden, hatte im Weinland des Südostens geheiratet, ihre Familie in der Stadt großgezogen und ihre Tage in der roten Erde von Paraná beschlossen. Einundneunzig Jahre, zwei Kontinente, eine Sprache, die langsam einer anderen wich, als die Enkel mit Portugiesisch aufwuchsen und die alten deutschen Wörter aus dem täglichen Gebrauch verschwanden.</p>
+
+            <p>Leonhard wurde in Brasilien begraben, weit entfernt vom Friedhof bei Sankt Anna am Aigen, wo sein Vater Johan lag, und wo sein Großvater Michael vor ihm gelegen hatte, und wo die Gebeine von Franz Hakel, dem frühesten Namen in der Linie, irgendwann in der ersten Hälfte des neunzehnten Jahrhunderts in die vulkanische Erde zurückgekehrt waren. Die Entfernung zwischen diesen Gräbern, eines im Basaltboden der Steiermark und das andere im roten Laterit von Paraná, misst genau die Strecke, die diese Familie in vier Generationen zurücklegte: vom Dorf zur Stadt zum Kontinent, vom Weinberg zum Wohnblock zur Kaffeeplantage, von der alten Welt zur neuen.</p>
+
+            <p>Und in São Paulo war ein junger Mann namens Friedrich, der in Graz Fritz genannt worden war und jetzt lernte, auf Frederico zu hören, dabei, eine Frau namens Elisabeth Würzburger kennenzulernen, geboren in Ohrensbach im Glottertal, deren Familiengeschichte wir bereits erzählt haben. Diese Begegnung und die Vereinigung der beiden Linien ist das letzte Kapitel dieser Geschichte.</p>
+        </div>
+        
+        <div class="chapter-nav-wrapper">
+            <nav class="chapter-nav">
+                <a href="index.html" class="back-link">← Zurück zum Inhaltsverzeichnis</a>
+                <a href="Part_5_Terra_Nova_1919_1955_DE.html" class="next-link">
+                    <span class="next-label">Nächstes Kapitel</span>
+                    <span class="next-title">Teil V: Terra Nova →</span>
+                </a>
+            </nav>
+        </div>
+        <footer>
+            <p>Teil Vier: Das andere Land (1811–1953) | Die Festung und die Axt: Eine Familiengeschichte</p>
+            <p>Von den vulkanischen Hügeln der Steiermark zur roten Erde von Paraná</p>
+        </footer>
+    </div>
+</body>
+</html>
